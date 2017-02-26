@@ -1,0 +1,52 @@
+// grid styles
+.shop-page-wp-grid {
+  .shop-page-wp-item {
+    padding: 15px 20px;
+    text-align: center;
+    margin: 1%;
+    .shop-page-wp-title {
+      h3 {
+        font-size: 16px;
+        margin: 8px 0 10px;
+        padding-bottom: 0;
+      }
+    }
+    // image styles
+    .shop-page-wp-image {
+      img {
+          border: 1px solid #EEE;
+      }
+    }
+    // affiliate link styles
+    .shop-page-wp-link {
+      a.buy-link {
+        border: 2px solid #444;
+        color: #333;
+        padding: 10px 15px;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        max-width: 200px;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:hover {
+          text-decoration: none;
+          color: #FFF;
+          background-color: #333;
+        }
+        &.disabled {
+          color: #AAA;
+          border-color: #AAA;
+          opacity: 0.7;
+
+          &:hover {
+            color: #AAA;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
