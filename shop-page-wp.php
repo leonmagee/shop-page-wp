@@ -6,7 +6,7 @@
  * @package           Shop_Page_WP
  *
  * @wordpress-plugin
- * Plugin Name:       WP Affiliate Shop
+ * Plugin Name:       Shop Page WP
  * Plugin URI:        https://levon.io
  * Description:       Create a shop for affiliate products
  * Version:           1.0.0
