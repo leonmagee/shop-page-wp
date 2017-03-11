@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @link              https://levon.io
+ * @link              https://shoppagewp.com
  * @since             1.0.0
  * @package           Shop_Page_WP
  *
  * @wordpress-plugin
  * Plugin Name:       Shop Page WP
- * Plugin URI:        https://levon.io
+ * Plugin URI:        https://github.com/leonmagee/shop-page-wp
  * Description:       Create a shop for affiliate products
  * Version:           1.0.0
  * Author:            Leon Magee, Justin McChesney-Wachs
- * Author URI:        https://levon.io
+ * Author URI:        https://shoppagewp.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       shop-page-wp
@@ -82,12 +82,12 @@ if ( 'default' === $default_styles ) {
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-cpt.php';
 
-function wp_affiliate_register_post_types() {
+function shop_page_wp_register_post_types() {
 
 	Shop_Page_WP_CPT::register_post_types();
 }
 
-add_action( 'init', 'wp_affiliate_register_post_types' );
+add_action( 'init', 'shop_page_wp_register_post_types' );
 
 
 /**
