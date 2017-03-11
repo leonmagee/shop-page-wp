@@ -12,7 +12,7 @@ class Shop_Page_WP_Instructions {
 	function activate_submenu_page() {
 
 		add_submenu_page(
-			'edit.php?post_type=wp-shop-affiliates', // string $parent_slug
+			'edit.php?post_type=shop-page-wp', // string $parent_slug
 			'Instructions', // string $page_title,
 			'Instructions', // string $menu_title,
 			'manage_options', // string $capability

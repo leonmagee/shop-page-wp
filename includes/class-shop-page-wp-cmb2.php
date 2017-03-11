@@ -27,7 +27,7 @@ class Shop_Page_WP_CMB2 {
 			$cmb = new_cmb2_box( array(
 				'id'            => 'Shop_Page_WP_meta',
 				'title'         => __( 'Product Details', 'cmb2' ),
-				'object_types'  => array( 'wp-shop-affiliates' ),
+				'object_types'  => array( 'shop-page-wp' ),
 				'context'       => 'normal',
 				'priority'      => 'high',
 				'show_names'    => true, // Show field names on the left

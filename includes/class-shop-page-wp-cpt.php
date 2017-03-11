@@ -10,6 +10,7 @@ class Shop_Page_WP_CPT {
 	function register_post_types() {
 
 		self::create_post_type( 'wp-shop-affiliates', 'Affiliate Product', 'Affiliate Products', 'affiliate-product', 'cart' );
+		self::create_post_type( 'shop-page-wp', 'Shop Page', 'Shop Pages', 'shop-page', 'cart' );
 	}
 
 	/**

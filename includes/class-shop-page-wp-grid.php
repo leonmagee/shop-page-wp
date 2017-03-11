@@ -58,9 +58,9 @@ class Shop_Page_WP_Grid {
 				$cat_id      = get_cat_ID( $cat );
 				$cat_array[] = $cat_id;
 			}
-			$args = array( 'post_type' => 'wp-shop-affiliates', 'category__in' => $cat_array );
+			$args = array( 'post_type' => 'shop-page-wp', 'category__in' => $cat_array );
 		} else {
-			$args = array( 'post_type' => 'wp-shop-affiliates' );
+			$args = array( 'post_type' => 'shop-page-wp' );
 		}
 		$wp_affiliates_query = new WP_Query( $args );
 		while ( $wp_affiliates_query->have_posts() ) {
