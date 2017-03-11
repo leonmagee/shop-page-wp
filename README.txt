@@ -20,20 +20,20 @@ Have you ever wanted to add a shop page to your website but didn’t want to bui
 
 = Features =
 
-1. Create a simple shop page on your website with a grid of products
-2. Simple fields: Just add the product title, link, upload a product image as the featured image and select the product’s category.
-3. The plugin will automatically resize and or crop your product images to a specified size
-4. Choose between a 1, 2, 3 or 4 column product grid.
-5. Customize the ‘Buy Now’ button text
-6. Categorize Products
-7. Add affiliate products to your page or sidebar by category
-8. Use any affiliate link (Amazon, eBay, etc)
-9. Links open in a new tab
-10. Customize the product image size in the plugin settings
-11. Simple shortcodes available for adding the affiliate product shop to any page or post on your website.
-12. Custom shortcodes for adding specific categories to a shop page section
-13. Remove styling if you wish to style it yourself
-14. Responsive and mobile friendly
+* Create a simple shop page on your website with a grid of products
+* Simple fields: Just add the product title, link, upload a product image as the featured image and select the product’s category.
+* The plugin will automatically resize and or crop your product images to a specified size
+* Choose between a 1, 2, 3 or 4 column product grid.
+* Customize the ‘Buy Now’ button text
+* Categorize Products
+* Add affiliate products to your page or sidebar by category
+* Use any affiliate link (Amazon, eBay, etc)
+* Links open in a new tab
+* Customize the product image size in the plugin settings
+* Simple shortcodes available for adding the affiliate product shop to any page or post on your website.
+* Custom shortcodes for adding specific categories to a shop page section
+* Remove styling if you wish to style it yourself
+* Responsive and mobile friendly
 
 = Shortcode Usage =
 
@@ -93,11 +93,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0.0
-* Initial Release
-
+= 1.0.0 =
+Initial Release
 
 == Upgrade Notice ==
 
-= 1.0.1
+= 1.0.1 =
 Upgrade to the new version
