@@ -16,7 +16,7 @@ class Shop_Page_WP_Admin {
 			'Settings', // string $page_title,
 			'Settings', // string $menu_title,
 			'manage_options', // string $capability
-			'wp-affiliate-settings', // string $menu_slug
+			'shop-page-wp-settings', // string $menu_slug
 			array( 'Shop_Page_WP_Admin', 'output_admin_page' )
 		);
 	}
@@ -24,25 +24,25 @@ class Shop_Page_WP_Admin {
 	static function output_admin_page() { ?>
 		<div class="wrap">
 			<style>
-				.wp-affiliate-settings input, .wp-affiliate-settings select {
+				.shop-page-wp-settings input, .shop-page-wp-settings select {
 					min-width: 210px;
 				}
-				.wp-affiliate-settings .form-table th {
+				.shop-page-wp-settings .form-table th {
 					min-width: 230px;
 				}
-				.wp-affiliate-settings h2 {
+				.shop-page-wp-settings h2 {
 					margin-top: 25px;
 					margin-bottom: 0;
 					font-size: 1.7em;
 				}
-				.wp-affiliate-settings .explanation {
+				.shop-page-wp-settings .explanation {
 					color: #777;
 					font-size: 1.1em;
 					margin-top: 15px;
 				}
 			</style>
 			<h1><?php _e( Shop_Page_WP_Name . ' Settings', 'shop-page-wp' ); ?></h1>
-			<form class="wp-affiliate-settings" method="post" action="options.php">
+			<form class="shop-page-wp-settings" method="post" action="options.php">
 				<?php
 				settings_fields( 'shop-page-wp-options' );
 

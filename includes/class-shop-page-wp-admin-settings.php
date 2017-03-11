@@ -15,6 +15,12 @@ class Shop_Page_WP_Admin_Settings {
 		add_settings_section(
 			'shop-page-wp-options', // settings field handle
 			'', // title
+			array( 'Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_regen_warning' ), // callback
+			'shop-page-wp-section' ); // section handle
+
+		add_settings_section(
+			'shop-page-wp-options', // settings field handle
+			'', // title
 			array( 'Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_default_text' ), // callback
 			'shop-page-wp-section' ); // section handle
 
@@ -79,6 +85,10 @@ class Shop_Page_WP_Admin_Settings {
 		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-height' );
 		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-crop' );
 	}
+
+	function Shop_Page_WP_regen_warning() { ?>
+		<div class="notice notice-warning is-dismissible">You must now <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">regenerate thumbnails</a>.</div>
+	<?php }
 
 	function Shop_Page_WP_default_text() { ?>
 		<h2>Default Settings</h2>

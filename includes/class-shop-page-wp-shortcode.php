@@ -2,7 +2,6 @@
 
 require plugin_dir_path( __FILE__ ) . 'class-shop-page-wp-grid.php';
 
-
 /**
  * Class Shop_Page_WP_Shortcode
  */
@@ -26,11 +25,5 @@ class Shop_Page_WP_Shortcode {
 		$grid_content = Shop_Page_WP_Grid::return_grid( $attributes );
 
 		return $grid_content;
-
-
-		//return 'category: ' . $attributes['category'] . ' - grid size: ' . $attributes['grid'];
 	}
-
-
 }
-

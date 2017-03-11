@@ -3,7 +3,7 @@
 /**
  * Class Shop_Page_WP_Grid
  *
- * @todo create separate class to query data?
+ * @todo create separate class to query data
  */
 class Shop_Page_WP_Grid {
 
@@ -62,33 +62,36 @@ class Shop_Page_WP_Grid {
 		} else {
 			$args = array( 'post_type' => 'shop-page-wp' );
 		}
-		$wp_affiliates_query = new WP_Query( $args );
-		while ( $wp_affiliates_query->have_posts() ) {
-			$wp_affiliates_query->the_post();
-			$title     = get_the_title();
-			$prefix    = '_Shop_Page_WP_';
-			$url_field = $prefix . 'url';
-			if ( ! ( $link = get_post_meta( get_the_ID(), $url_field, true ) ) ) {
-				$link = false;
-			}
-			$image_id = get_post_thumbnail_id();
-			/**
-			 * @todo create custom image size? or use thumnbail
-			 *  - probably need to create a custom image size
-			 */
+		/**
+		 * WordPress Query
+		 */
+		$shop_page_wp_query = new WP_Query( $args );
+		if ( $shop_page_wp_query->have_posts() ) {
+			while ( $shop_page_wp_query->have_posts() ) {
+				$shop_page_wp_query->the_post();
+				$title     = get_the_title();
+				$prefix    = '_Shop_Page_WP_';
+				$url_field = $prefix . 'url';
+				if ( ! ( $link = get_post_meta( get_the_ID(), $url_field, true ) ) ) {
+					$link = false;
+				}
+				$image_id = get_post_thumbnail_id();
 
-			if ( has_post_thumbnail() ) {
-				$image_url  = wp_get_attachment_image_src( $image_id, 'shop-page-wp-product', true );
-				$image_url_final = $image_url[0];
-			} else {
-				$image_url_final = plugins_url('../assets/img/product-image-placeholder.png', __FILE__);
+				if ( has_post_thumbnail() ) {
+					$image_url       = wp_get_attachment_image_src( $image_id, 'shop-page-wp-product', true );
+					$image_url_final = $image_url[0];
+				} else {
+					$image_url_final = plugins_url( '../assets/img/product-image-placeholder.png', __FILE__ );
+				}
+				$products[] = array(
+					'title'   => $title,
+					'img_url' => $image_url_final,
+					'link'    => $link
+				);
 			}
-			$products[] = array(
-				'title'   => $title,
-				'img_url' => $image_url_final,
-				'link'    => $link
-			);
 		}
+		wp_reset_postdata();
+
 		ob_start(); ?>
 
 		<product class="shop-page-wp-grid">

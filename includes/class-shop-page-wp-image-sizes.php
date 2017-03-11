@@ -6,10 +6,10 @@
 class Shop_Page_WP_Image_Sizes {
 
 	public static function create_image_sizes() {
-		add_action( 'after_setup_theme', array( 'Shop_Page_WP_Image_Sizes', 'wp_affiliate_custom_image_size' ) );
+		add_action( 'after_setup_theme', array( 'Shop_Page_WP_Image_Sizes', 'shop_page_wp_custom_image_size' ) );
 	}
 
-	function wp_affiliate_custom_image_size() {
+	function shop_page_wp_custom_image_size() {
 
 		$image_width      = get_option( 'shop-page-wp-image-width' );
 		$image_height     = get_option( 'shop-page-wp-image-height' );

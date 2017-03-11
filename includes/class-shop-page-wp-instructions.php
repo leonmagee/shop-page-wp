@@ -16,7 +16,7 @@ class Shop_Page_WP_Instructions {
 			'Instructions', // string $page_title,
 			'Instructions', // string $menu_title,
 			'manage_options', // string $capability
-			'wp-affiliate-instructions', // string $menu_slug
+			'shop-page-wp-instructions', // string $menu_slug
 			array( 'Shop_Page_WP_Instructions', 'output_admin_page' )
 		);
 	}
