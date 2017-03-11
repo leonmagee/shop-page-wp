@@ -46,6 +46,11 @@ class Shop_Page_WP_Admin {
 				<?php
 				settings_fields( 'shop-page-wp-options' );
 
+				/**
+				 * @todo add conditional to only show then when image size form is submitted
+				 */
+				do_settings_sections( 'shop-page-wp-section-regen' );
+
 				do_settings_sections( 'shop-page-wp-section' );
 
 				do_settings_sections( 'shop-page-wp-section-image' );

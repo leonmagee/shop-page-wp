@@ -16,7 +16,7 @@ class Shop_Page_WP_Admin_Settings {
 			'shop-page-wp-options', // settings field handle
 			'', // title
 			array( 'Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_regen_warning' ), // callback
-			'shop-page-wp-section' ); // section handle
+			'shop-page-wp-section-regen' ); // section handle
 
 		add_settings_section(
 			'shop-page-wp-options', // settings field handle
@@ -87,16 +87,18 @@ class Shop_Page_WP_Admin_Settings {
 	}
 
 	function Shop_Page_WP_regen_warning() { ?>
-		<div class="notice notice-warning is-dismissible">You must now <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">regenerate thumbnails</a>.</div>
+		<div class="notice notice-warning is-dismissible">
+			<p><?php _e('You must now'); ?> <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank"><?php _e('regenerate thumbnails'); ?></a>.</p>
+			</div>
 	<?php }
 
 	function Shop_Page_WP_default_text() { ?>
-		<h2>Default Settings</h2>
+		<h2><?php _e('Default Settings'); ?></h2>
 	<?php }
 
 	function Shop_Page_WP_image_text() { ?>
-		<h2>Custom Image Size Settings (Optional)</h2>
-		<div class="explanation">Set max image width and height in pixels (Default is 300px x 300px with crop)<br />After changing image size you must <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">regenerate thumbnails</a>.</div>
+		<h2><?php _e('Custom Image Size Settings (Optional)'); ?></h2>
+		<div class="explanation"><?php _e('Set max image width and height in pixels (Default is 300px x 300px with crop)<br />After changing image size you must'); ?> <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank"><?php _e('regenerate thumbnails'); ?></a>.</div>
 	<?php }
 
 	function shop_button_text_form() { ?>
@@ -109,11 +111,11 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-show-choose-styles' );
 		?>
 		<select id='style_options' name='shop-page-wp-show-choose-styles[style_options]'>
-			<option value="default" <?php selected( $options['style_options'], 'default' ); ?>>Default Styles
+			<option value="default" <?php selected( $options['style_options'], 'default' ); ?>><?php _e('Default Styles'); ?>
 			</option>
-			<option value="grid-only" <?php selected( $options['style_options'], 'grid-only' ); ?>>Grid Spacing Only
+			<option value="grid-only" <?php selected( $options['style_options'], 'grid-only' ); ?>><?php _e('Grid Spacing Only'); ?>
 			</option>
-			<option value="no-styles" <?php selected( $options['style_options'], 'no-styles' ); ?>>No Styles
+			<option value="no-styles" <?php selected( $options['style_options'], 'no-styles' ); ?>><?php _e('No Styles'); ?>
 			</option>
 			</option>
 		</select>
@@ -124,13 +126,13 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-show-default-columns' );
 		?>
 		<select id='column_options' name='shop-page-wp-show-default-columns[column_options]'>
-			<option value="1" <?php selected( $options['column_options'], '1' ); ?>>1 Column
+			<option value="1" <?php selected( $options['column_options'], '1' ); ?>><?php _e('1 Column'); ?>
 			</option>
-			<option value="2" <?php selected( $options['column_options'], '2' ); ?>>2 Column
+			<option value="2" <?php selected( $options['column_options'], '2' ); ?>><?php _e('2 Column'); ?>
 			</option>
-			<option value="3" <?php selected( $options['column_options'], '3' ); ?>>3 Column
+			<option value="3" <?php selected( $options['column_options'], '3' ); ?>><?php _e('3 Column'); ?>
 			</option>
-			<option value="4" <?php selected( $options['column_options'], '4' ); ?>>4 Column
+			<option value="4" <?php selected( $options['column_options'], '4' ); ?>><?php _e('4 Column'); ?>
 			</option>
 		</select>
 		<?php
@@ -152,13 +154,11 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-image-crop' );
 		?>
 		<select id='crop_options' name='shop-page-wp-image-crop[crop_options]'>
-			<option value="crop" <?php selected( $options['crop_options'], 'crop' ); ?>>Crop Image
+			<option value="crop" <?php selected( $options['crop_options'], 'crop' ); ?>><?php _e('Crop Image'); ?>
 			</option>
-			<option value="no-crop" <?php selected( $options['crop_options'], 'no-crop' ); ?>>Don't Crop Image
+			<option value="no-crop" <?php selected( $options['crop_options'], 'no-crop' ); ?>><?php _e('Don\'t Crop Image'); ?>
 			</option>
 		</select>
 		<?php
 	}
-
-
 }
