@@ -9,7 +9,7 @@
 class Shop_Page_WP_Scripts {
 	static function hook_grid_styles() {
 		
-		add_action( 'wp_enqueue_scripts', array( new Self(), 'enqueue_grid_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( 'Shop_Page_WP_Scripts', 'enqueue_grid_styles' ) );
 	}
 
 	function enqueue_grid_styles() {
@@ -25,7 +25,7 @@ class Shop_Page_WP_Scripts {
 
 	static function hook_base_styles() {
 
-		add_action( 'wp_enqueue_scripts', array( new Self(), 'enqueue_base_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( 'Shop_Page_WP_Scripts', 'enqueue_base_styles' ) );
 	}
 
 	function enqueue_base_styles() {
