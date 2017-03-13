@@ -12,7 +12,7 @@ class Shop_Page_WP_Shortcode {
 	 */
 	static function activate_shortcode() {
 
-		add_shortcode( 'shop-page-wp', array( new Self(), 'shortcode_attributes' ) );
+		add_shortcode( 'shop-page-wp', array( 'Shop_Page_WP_Shortcode', 'shortcode_attributes' ) );
 	}
 
 	public function shortcode_attributes( $atts ) {

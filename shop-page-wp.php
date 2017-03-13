@@ -1,14 +1,14 @@
 <?php
 /*
- * Plugin Name: Shop Page WP
- * Plugin URI: https://github.com/leonmagee/shop-page-wp
- * Description: Create a shop for affiliate products
- * Version: 1.0.0
- * Author: Leon Magee, Justin McChesney-Wachs
- * Author URI: https://shoppagewp.com
- * Text Domain: shop-page-wp
- * Domain Path: /languages
- */
+Plugin Name: Shop Page WP
+Plugin URI: https://github.com/leonmagee/shop-page-wp/
+Description: Create a shop for affiliate products.
+Author: Leon Magee, Justin McChesney-Wachs
+Version: 1.0.1
+Author URI: https://shoppagewp.com/
+Text Domain: shop-page-wp
+Domain Path: /languages
+*/
 
 /**
  * Abort if file is called directly
