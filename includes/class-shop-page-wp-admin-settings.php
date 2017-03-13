@@ -99,7 +99,8 @@ class Shop_Page_WP_Admin_Settings {
 		<div class="notice notice-warning is-dismissible">
 			<p><?php _e( 'You must', 'shop-page-wp' ); ?> <a
 					href="https://wordpress.org/plugins/regenerate-thumbnails/"
-					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a> <?php _e( 'for the updated image size to take effect', 'shop-page-wp' ); ?>.</p>
+					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a> <?php _e( 'for the updated image size to take effect', 'shop-page-wp' ); ?>
+				.</p>
 		</div>
 	<?php }
 
@@ -143,6 +144,9 @@ class Shop_Page_WP_Admin_Settings {
 
 	public static function column_select_form() {
 		$options = get_option( 'shop-page-wp-show-default-columns' );
+		if ( ! $options ) {
+			$options['column_options'] = 3;
+		}
 		?>
 		<select id='column_options' name='shop-page-wp-show-default-columns[column_options]'>
 			<option
@@ -193,6 +197,7 @@ class Shop_Page_WP_Admin_Settings {
 		if ( $image_width != $current_input ) {
 			update_option( 'shop-page-wp-iw-field-change', 'has-changed' );
 		}
+
 		return $current_input;
 	}
 
@@ -202,6 +207,7 @@ class Shop_Page_WP_Admin_Settings {
 		if ( $image_height != $current_input ) {
 			update_option( 'shop-page-wp-ih-field-change', 'has-changed' );
 		}
+
 		return $current_input;
 	}
 
@@ -212,6 +218,7 @@ class Shop_Page_WP_Admin_Settings {
 		if ( $image_crop != $current_input['crop_options'] ) {
 			update_option( 'shop-page-wp-ic-field-change', 'has-changed' );
 		}
+
 		return $current_input;
 	}
 }
