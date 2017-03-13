@@ -10,7 +10,7 @@ class Shop_Page_WP_Admin_Settings {
 		add_action( 'admin_init', array( 'Shop_Page_WP_Admin_Settings', 'display_options' ) );
 	}
 
-	function display_options() {
+	public static function display_options() {
 
 		add_settings_section(
 			'shop-page-wp-options', // settings field handle
@@ -97,9 +97,9 @@ class Shop_Page_WP_Admin_Settings {
 
 	function Shop_Page_WP_regen_warning() { ?>
 		<div class="notice notice-warning is-dismissible">
-			<p><?php _e( 'You must now', 'shop-page-wp' ); ?> <a
+			<p><?php _e( 'You must', 'shop-page-wp' ); ?> <a
 					href="https://wordpress.org/plugins/regenerate-thumbnails/"
-					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a>.</p>
+					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a> <?php _e( 'for the updated image size to take effect', 'shop-page-wp' ); ?>.</p>
 		</div>
 	<?php }
 
@@ -193,7 +193,6 @@ class Shop_Page_WP_Admin_Settings {
 		if ( $image_width != $current_input ) {
 			update_option( 'shop-page-wp-iw-field-change', 'has-changed' );
 		}
-
 		return $current_input;
 	}
 
@@ -203,7 +202,6 @@ class Shop_Page_WP_Admin_Settings {
 		if ( $image_height != $current_input ) {
 			update_option( 'shop-page-wp-ih-field-change', 'has-changed' );
 		}
-
 		return $current_input;
 	}
 

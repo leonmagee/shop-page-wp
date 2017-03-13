@@ -9,7 +9,7 @@ class Shop_Page_WP_Instructions {
 		add_action( 'admin_menu', array( 'Shop_Page_WP_Instructions', 'activate_submenu_page' ) );
 	}
 
-	function activate_submenu_page() {
+	public static function activate_submenu_page() {
 
 		add_submenu_page(
 			'edit.php?post_type=shop-page-wp', // string $parent_slug

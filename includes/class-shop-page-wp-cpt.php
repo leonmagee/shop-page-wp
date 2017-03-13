@@ -7,7 +7,7 @@
  */
 class Shop_Page_WP_CPT {
 
-	function register_post_types() {
+	public static function register_post_types() {
 
 		/**
 		 * @todo deprecated - remove this
