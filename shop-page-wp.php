@@ -1,19 +1,11 @@
 <?php
-
-/**
- * @link              https://shoppagewp.com
- * @since             1.0.0
- * @package           Shop_Page_WP
- *
- * @wordpress-plugin
+/*
  * Plugin Name:       Shop Page WP
  * Plugin URI:        https://github.com/leonmagee/shop-page-wp
  * Description:       Create a shop for affiliate products
  * Version:           1.0.0
  * Author:            Leon Magee, Justin McChesney-Wachs
  * Author URI:        https://shoppagewp.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       shop-page-wp
  * Domain Path:       /languages
  */
