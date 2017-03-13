@@ -61,8 +61,9 @@ class Shop_Page_WP_Instructions {
 
 				<h2><?php _e( 'Changing Image Sizes', 'shop-page-wp' ); ?></h2>
 
-				<?php $image_settings_string = 'This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">regenerate thumbnails</a> to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.'; ?>
-				<div class="explanation"><?php _e( $image_settings_string, 'shop-page-wp' ); ?></div>
+				<?php $image_settings_string = __('This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must', 'shop-page-wp') .  ' <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">' . __('regenerate thumbnails', 'shop-page-wp') . '</a> ' . __('to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.','shop-page-wp'); ?>
+
+				<div class="explanation"><?php echo $image_settings_string; ?></div>
 
 			</div>
 		</div>

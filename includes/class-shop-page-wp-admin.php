@@ -27,14 +27,17 @@ class Shop_Page_WP_Admin {
 				.shop-page-wp-settings input, .shop-page-wp-settings select {
 					min-width: 210px;
 				}
+
 				.shop-page-wp-settings .form-table th {
 					min-width: 230px;
 				}
+
 				.shop-page-wp-settings h2 {
 					margin-top: 25px;
 					margin-bottom: 0;
 					font-size: 1.7em;
 				}
+
 				.shop-page-wp-settings .explanation {
 					color: #777;
 					font-size: 1.1em;
@@ -47,9 +50,17 @@ class Shop_Page_WP_Admin {
 				settings_fields( 'shop-page-wp-options' );
 
 				/**
-				 * @todo add conditional to only show then when image size form is submitted
+				 * Check if image size settings have changed and output warning dialogue
+				 * if they have.
 				 */
-				do_settings_sections( 'shop-page-wp-section-regen' );
+				if ( isset( $_GET['settings-updated'] ) ) {
+					$image_width_changed  = get_option( 'shop-page-wp-iw-field-change' );
+					$image_height_changed = get_option( 'shop-page-wp-ih-field-change' );
+					$image_crop_changed   = get_option( 'shop-page-wp-ic-field-change' );
+					if ( ( 'has-changed' == $image_width_changed ) || ( 'has-changed' == $image_height_changed ) || ( 'has-changed' == $image_crop_changed ) ) {
+						do_settings_sections( 'shop-page-wp-section-regen' );
+					}
+				}
 
 				do_settings_sections( 'shop-page-wp-section' );
 

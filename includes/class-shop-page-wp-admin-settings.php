@@ -81,24 +81,40 @@ class Shop_Page_WP_Admin_Settings {
 		register_setting( 'shop-page-wp-options', 'shop-page-wp-button-text' );
 		register_setting( 'shop-page-wp-options', 'shop-page-wp-show-choose-styles' );
 		register_setting( 'shop-page-wp-options', 'shop-page-wp-show-default-columns' );
-		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-width' );
-		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-height' );
-		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-crop' );
+		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-width', array(
+			'Shop_Page_WP_Admin_Settings',
+			'shop_page_wp_iw_validate'
+		) );
+		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-height', array(
+			'Shop_Page_WP_Admin_Settings',
+			'shop_page_wp_ih_validate'
+		) );
+		register_setting( 'shop-page-wp-options', 'shop-page-wp-image-crop', array(
+			'Shop_Page_WP_Admin_Settings',
+			'shop_page_wp_ic_validate'
+		) );
 	}
 
 	function Shop_Page_WP_regen_warning() { ?>
 		<div class="notice notice-warning is-dismissible">
-			<p><?php _e('You must now'); ?> <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank"><?php _e('regenerate thumbnails'); ?></a>.</p>
-			</div>
+			<p><?php _e( 'You must now', 'shop-page-wp' ); ?> <a
+					href="https://wordpress.org/plugins/regenerate-thumbnails/"
+					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a>.</p>
+		</div>
 	<?php }
 
 	function Shop_Page_WP_default_text() { ?>
-		<h2><?php _e('Default Settings'); ?></h2>
+		<h2><?php _e( 'Default Settings', 'shop-page-wp' ); ?></h2>
 	<?php }
 
 	function Shop_Page_WP_image_text() { ?>
-		<h2><?php _e('Custom Image Size Settings (Optional)'); ?></h2>
-		<div class="explanation"><?php _e('Set max image width and height in pixels (Default is 300px x 300px with crop)<br />After changing image size you must'); ?> <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank"><?php _e('regenerate thumbnails'); ?></a>.</div>
+		<h2><?php _e( 'Custom Image Size Settings (Optional)', 'shop-page-wp' ); ?></h2>
+		<div
+			class="explanation"><?php _e( 'Set max image width and height in pixels (Default is 300px x 300px with crop)', 'shop-page-wp' ); ?>
+			<br/><?php _e( 'After changing image size you must', 'shop-page-wp' ); ?> <a
+				href="https://wordpress.org/plugins/regenerate-thumbnails/"
+				target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a>.
+		</div>
 	<?php }
 
 	function shop_button_text_form() { ?>
@@ -111,11 +127,14 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-show-choose-styles' );
 		?>
 		<select id='style_options' name='shop-page-wp-show-choose-styles[style_options]'>
-			<option value="default" <?php selected( $options['style_options'], 'default' ); ?>><?php _e('Default Styles'); ?>
+			<option
+				value="default" <?php selected( $options['style_options'], 'default' ); ?>><?php _e( 'Default Styles' ); ?>
 			</option>
-			<option value="grid-only" <?php selected( $options['style_options'], 'grid-only' ); ?>><?php _e('Grid Spacing Only'); ?>
+			<option
+				value="grid-only" <?php selected( $options['style_options'], 'grid-only' ); ?>><?php _e( 'Grid Spacing Only', 'shop-page-wp' ); ?>
 			</option>
-			<option value="no-styles" <?php selected( $options['style_options'], 'no-styles' ); ?>><?php _e('No Styles'); ?>
+			<option
+				value="no-styles" <?php selected( $options['style_options'], 'no-styles' ); ?>><?php _e( 'No Styles', 'shop-page-wp' ); ?>
 			</option>
 			</option>
 		</select>
@@ -126,13 +145,17 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-show-default-columns' );
 		?>
 		<select id='column_options' name='shop-page-wp-show-default-columns[column_options]'>
-			<option value="1" <?php selected( $options['column_options'], '1' ); ?>><?php _e('1 Column'); ?>
+			<option
+				value="1" <?php selected( $options['column_options'], '1' ); ?>><?php _e( '1 Column', 'shop-page-wp' ); ?>
 			</option>
-			<option value="2" <?php selected( $options['column_options'], '2' ); ?>><?php _e('2 Column'); ?>
+			<option
+				value="2" <?php selected( $options['column_options'], '2' ); ?>><?php _e( '2 Column', 'shop-page-wp' ); ?>
 			</option>
-			<option value="3" <?php selected( $options['column_options'], '3' ); ?>><?php _e('3 Column'); ?>
+			<option
+				value="3" <?php selected( $options['column_options'], '3' ); ?>><?php _e( '3 Column', 'shop-page-wp' ); ?>
 			</option>
-			<option value="4" <?php selected( $options['column_options'], '4' ); ?>><?php _e('4 Column'); ?>
+			<option
+				value="4" <?php selected( $options['column_options'], '4' ); ?>><?php _e( '4 Column', 'shop-page-wp' ); ?>
 			</option>
 		</select>
 		<?php
@@ -154,11 +177,43 @@ class Shop_Page_WP_Admin_Settings {
 		$options = get_option( 'shop-page-wp-image-crop' );
 		?>
 		<select id='crop_options' name='shop-page-wp-image-crop[crop_options]'>
-			<option value="crop" <?php selected( $options['crop_options'], 'crop' ); ?>><?php _e('Crop Image'); ?>
+			<option
+				value="crop" <?php selected( $options['crop_options'], 'crop' ); ?>><?php _e( 'Crop Image', 'shop-page-wp' ); ?>
 			</option>
-			<option value="no-crop" <?php selected( $options['crop_options'], 'no-crop' ); ?>><?php _e('Don\'t Crop Image'); ?>
+			<option
+				value="no-crop" <?php selected( $options['crop_options'], 'no-crop' ); ?>><?php _e( 'Don\'t Crop Image', 'shop-page-wp' ); ?>
 			</option>
 		</select>
 		<?php
+	}
+
+	function shop_page_wp_iw_validate( $current_input ) {
+		$image_width = get_option( 'shop-page-wp-image-width' );
+		update_option( 'shop-page-wp-iw-field-change', 'no-change' );
+		if ( $image_width != $current_input ) {
+			update_option( 'shop-page-wp-iw-field-change', 'has-changed' );
+		}
+
+		return $current_input;
+	}
+
+	function shop_page_wp_ih_validate( $current_input ) {
+		$image_height = get_option( 'shop-page-wp-image-height' );
+		update_option( 'shop-page-wp-ih-field-change', 'no-change' );
+		if ( $image_height != $current_input ) {
+			update_option( 'shop-page-wp-ih-field-change', 'has-changed' );
+		}
+
+		return $current_input;
+	}
+
+	function shop_page_wp_ic_validate( $current_input ) {
+		$image_crop_array = get_option( 'shop-page-wp-image-crop' );
+		$image_crop       = $image_crop_array['crop_options'];
+		update_option( 'shop-page-wp-ic-field-change', 'no-change' );
+		if ( $image_crop != $current_input['crop_options'] ) {
+			update_option( 'shop-page-wp-ic-field-change', 'has-changed' );
+		}
+		return $current_input;
 	}
 }
