@@ -4,7 +4,7 @@
  * Class Shop_Page_WP_Scripts
  *
  * If no styles are selected by admin choice then these styles do not need to be enqueued.
- * @todo add toggle feature
+ * @todo do these show up on all pages when active? since this uses a shortcode it's prob hard to stop
  */
 class Shop_Page_WP_Scripts {
 	static function hook_grid_styles() {

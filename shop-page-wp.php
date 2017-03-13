@@ -70,6 +70,9 @@ $default_styles       = $default_styles_array['style_options'];
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-scripts.php';
 
+var_dump( $default_styles );
+var_dump( 'xxx' );
+
 if ( 'default' === $default_styles ) {
 	Shop_Page_WP_Scripts::hook_grid_styles();
 	Shop_Page_WP_Scripts::hook_base_styles();
