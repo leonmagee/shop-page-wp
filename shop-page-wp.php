@@ -10,9 +10,7 @@ Text Domain: shop-page-wp
 Domain Path: /languages
 */
 
-/**
- * Abort if file is called directly
- */
+// Abort if file is called directly
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
