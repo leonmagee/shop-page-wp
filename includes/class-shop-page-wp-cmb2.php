@@ -9,9 +9,9 @@ class Shop_Page_WP_CMB2 {
 
 		$path = plugin_dir_path( __FILE__ );
 
-		if ( file_exists( $path . '../cmb2/init.php' ) ) {
+		if ( file_exists( $path . '../vendors/cmb2/init.php' ) ) {
 
-			require_once $path . '../cmb2/init.php';
+			require_once $path . '../vendors/cmb2/init.php';
 		}
 
 		add_action( 'cmb2_admin_init', 'Shop_Page_WP_metaboxes' );
