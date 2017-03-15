@@ -10,6 +10,7 @@ var sass = require('gulp-sass');
 var minifycss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var util = require('gulp-util');
+var wpPot = require('gulp-wp-pot');
 
 /**
  * Default Task
@@ -54,4 +55,17 @@ gulp.task('watch', function () {
      *  Watch SCSS files for changes
      */
     gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
+});
+
+/**
+ * Generate Pot Files
+ */
+
+gulp.task('pot', function () {
+    return gulp.src('**/*.php')
+        .pipe(wpPot( {
+            domain: 'shop-page-wp',
+            package: 'Shop_Page_WP'
+        } ))
+        .pipe(gulp.dest('languages/shop-page-wp.pot'));
 });

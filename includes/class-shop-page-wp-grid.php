@@ -37,14 +37,14 @@ class Shop_Page_WP_Grid {
 			if ( $attributes['grid'] == 1 ) {
 				$grid_width = 100;
 			} elseif ( $attributes['grid'] == 2 ) {
-				$grid_width = 48;
+				$grid_width = 50;
 			} elseif ( $attributes['grid'] == 4 ) {
-				$grid_width = 22;
+				$grid_width = 25;
 			} else {
-				$grid_width = 31;
+				$grid_width = 33.3;
 			}
 		} else {
-			$grid_width = 31;
+			$grid_width = 33.3;
 		}
 
 		/**
