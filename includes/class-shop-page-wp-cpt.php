@@ -2,66 +2,46 @@
 
 /**
  * Class Shop_Page_WP_CPT
- * @todo remove editor features
- * @todo everything should use cmb2?
  */
 class Shop_Page_WP_CPT {
 
 	public static function register_post_types() {
 
-		self::create_post_type( 'shop-page-wp', 'Shop Page', 'Shop Pages', 'shop-page', 'cart' );
+		self::create_post_type();
 	}
 
 	/**
 	 * Static Function create_post_type
-	 *
-	 * @param $pt_name
-	 * @param $single_name
-	 * @param $plural_name
-	 * @param $slug
-	 * @param string $dash_icon (see https://developer.wordpress.org/resource/dashicons)
-	 * @param bool|true $public
-	 * @param array $supports
-	 *
 	 */
-	public static function create_post_type(
-		$pt_name,
-		$single_name,
-		$plural_name,
-		$slug,
-		$dash_icon = 'admin-generic',
-		$public = true,
-		//$supports = array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'page-attributes' )
-		$supports = array( 'title', 'thumbnail' )
-	) {
+	public static function create_post_type() {
 
-		register_post_type( $pt_name,
+		register_post_type( 'shop-page-wp',
 
 			array(
 				'menu_position'       => 4,
 				'exclude_from_search' => false,
 				'labels'              => array(
-					'name'               => __( "$plural_name" ),
-					'singular_name'      => __( "$single_name" ),
-					'add_new'            => _x( 'Add New', "$single_name" ),
-					'add_new_item'       => __( "Add New $single_name" ),
-					'edit_item'          => __( "Edit $single_name" ),
-					'new_item'           => __( "New $single_name" ),
-					'all_items'          => __( "All $plural_name" ),
-					'view_item'          => __( "View $single_name" ),
-					'search_items'       => __( "Search $plural_name" ),
-					'not_found'          => __( "No $single_name found" ),
-					'not_found_in_trash' => __( "No $single_name found in Trash" ),
+					'name'               => __( 'Shop Page WP' ),
+					'singular_name'      => __( 'Shop Page WP' ),
+					'add_new'            => __( 'Add New Product' ),
+					'add_new_item'       => __( 'Add New Product' ),
+					'edit_item'          => __( 'Edit Product' ),
+					'new_item'           => __( 'New Product' ),
+					'all_items'          => __( 'All Products' ),
+					'view_item'          => __( 'View Product' ),
+					'search_items'       => __( 'Search Products' ),
+					'not_found'          => __( 'No Products found' ),
+					'not_found_in_trash' => __( 'No Product found in Trash' ),
 					'parent_item_colon'  => '',
-					'menu_name'          => "$plural_name"
+					'menu_name'          => 'Shop Page WP'
 				),
-				'public'              => $public,
+				'public'              => true,
 				'publicly_queryable'  => false,
-				'menu_icon'           => 'dashicons-' . $dash_icon,
+				'menu_icon'           => 'dashicons-cart',
 				'_builtin'            => false,
-				'rewrite'             => array( "slug" => "$slug" ),
+				'rewrite'             => array( 'slug' => 'shop-page' ),
 				'has_archive'         => true,
-				'supports'            => $supports,
+				'supports'            => array( 'title', 'thumbnail' ),
 				'taxonomies'          => array( 'category' )
 			)
 		);
