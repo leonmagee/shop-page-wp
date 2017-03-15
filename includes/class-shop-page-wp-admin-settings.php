@@ -99,8 +99,8 @@ class Shop_Page_WP_Admin_Settings {
 		<div class="notice notice-warning is-dismissible">
 			<p><?php _e( 'You must', 'shop-page-wp' ); ?> <a
 					href="https://wordpress.org/plugins/regenerate-thumbnails/"
-					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a> <?php _e( 'for the updated image size to take effect', 'shop-page-wp' ); ?>
-				.</p>
+					target="_blank"><?php _e( 'regenerate thumbnails', 'shop-page-wp' ); ?></a> <?php _e( 'for the updated image size to take effect.', 'shop-page-wp' ); ?>
+			</p>
 		</div>
 	<?php }
 
