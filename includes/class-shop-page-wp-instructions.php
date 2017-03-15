@@ -45,25 +45,31 @@ class Shop_Page_WP_Instructions {
 
 				<div class="shortcode">[shop-page-wp]</div>
 
-				<div class="explanation"><?php _e('Default Shortcode', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Default shortcode. This will output a grid with every product you\'ve added.', 'shop-page-wp' ); ?></div>
 
 				<div class="shortcode">[shop-page-wp category='food']</div>
 
-				<div class="explanation"><?php _e('Specify Product Category', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Show only products from one category.', 'shop-page-wp' ); ?></div>
 
 				<div class="shortcode">[shop-page-wp category='food|electronics']</div>
 
-				<div class="explanation"><?php _e('Specify Multiple Categories (separated by \'pipe\' symbol)', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Show products from multiple categories (separated by \'pipe\' symbol).', 'shop-page-wp' ); ?></div>
 
 				<div class="shortcode">[shop-page-wp grid='3']</div>
 
-				<div class="explanation"><?php _e('Specify Grid Size (will override default settings)', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Specify grid size (will override default settings). Options are 1, 2, 3 or 4.', 'shop-page-wp' ); ?></div>
 
 				<h2><?php _e( 'Changing Image Sizes', 'shop-page-wp' ); ?></h2>
 
 				<?php $image_settings_string = __('This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must', 'shop-page-wp') .  ' <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">' . __('regenerate thumbnails', 'shop-page-wp') . '</a> ' . __('to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.','shop-page-wp'); ?>
 
 				<div class="explanation"><?php echo $image_settings_string; ?></div>
+
+				<h2><?php _e( 'Use in Widgets', 'shop-page-wp' ); ?></h2>
+
+				<?php $widget_settings_string = __('This plugin outputs a widget in...', 'shop-page-wp') .  ' <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">' . __('regenerate thumbnails', 'shop-page-wp') . '</a> ' . __('to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.','shop-page-wp'); ?>
+
+				<div class="explanation"><?php echo $widget_settings_string; ?></div>
 
 			</div>
 		</div>

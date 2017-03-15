@@ -92,3 +92,13 @@ add_action( 'init', 'shop_page_wp_register_post_types' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-image-sizes.php';
 
 Shop_Page_WP_Image_Sizes::create_image_sizes();
+
+/**
+ * Register Widget
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-widget.php';
+
+function register_shop_page_wp_widget() {
+	register_widget( 'Shop_Page_WP_Widget' );
+}
+add_action( 'widgets_init', 'register_shop_page_wp_widget' );
