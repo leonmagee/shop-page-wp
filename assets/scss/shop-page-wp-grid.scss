@@ -1,18 +1,11 @@
 // grid flexbox styles
 .shop-page-wp-grid {
   @media screen and (min-width: 340px) {
-    //display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
-    //-webkit-flex-wrap: wrap;
     justify-content: center;
-    //flex-direction: row;
-    //-webkit-flex-direction: row;
     .shop-page-wp-item {
       //flex: 0 1 auto;
-      //min-width: 15em;
-      //-webkit-flex: 1 1 auto; /* this */
-      //flex: 1;
     }
   }
 }

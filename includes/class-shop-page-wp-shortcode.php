@@ -15,7 +15,7 @@ class Shop_Page_WP_Shortcode {
 		add_shortcode( 'shop-page-wp', array( 'Shop_Page_WP_Shortcode', 'shortcode_attributes' ) );
 	}
 
-	public function shortcode_attributes( $atts ) {
+	public static function shortcode_attributes( $atts ) {
 
 		$attributes = shortcode_atts( array(
 			'category' => '',
