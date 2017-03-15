@@ -1,11 +1,8 @@
 // grid flexbox styles
 .shop-page-wp-grid {
-  @media screen and (min-width: 340px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    .shop-page-wp-item {
-      //flex: 0 1 auto;
-    }
   }
 }
