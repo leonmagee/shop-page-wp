@@ -3,19 +3,11 @@
   .shop-page-wp-item {
     padding: 25px 30px;
     text-align: center;
-    //flex: 1;
-    //margin: 1%;
     .shop-page-wp-title {
       h3 {
         font-size: 16px;
         margin: 8px 0 10px;
         padding-bottom: 0;
-      }
-    }
-    // image styles
-    .shop-page-wp-image {
-      img {
-          //border: 1px solid #EEE;
       }
     }
     // affiliate link styles
@@ -30,7 +22,6 @@
         max-width: 200px;
         margin: 0 auto;
         white-space: nowrap;
-        //overflow: hidden;
 
         &:hover {
           text-decoration: none;
