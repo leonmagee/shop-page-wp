@@ -58,9 +58,16 @@ class Shop_Page_WP_Grid {
 				$cat_id      = get_cat_ID( $cat );
 				$cat_array[] = $cat_id;
 			}
-			$args = array( 'post_type' => 'shop-page-wp', 'category__in' => $cat_array );
+			$args = array(
+				'post_type'      => 'shop-page-wp',
+				'category__in'   => $cat_array,
+				'posts_per_page' => - 1
+			);
 		} else {
-			$args = array( 'post_type' => 'shop-page-wp' );
+			$args = array(
+				'post_type'      => 'shop-page-wp',
+				'posts_per_page' => - 1
+			);
 		}
 		/**
 		 * WordPress Query
