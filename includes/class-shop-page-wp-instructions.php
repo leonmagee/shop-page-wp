@@ -67,7 +67,7 @@ class Shop_Page_WP_Instructions {
 
 				<h2><?php _e( 'Use in Widgets', 'shop-page-wp' ); ?></h2>
 
-				<?php $widget_settings_string = __('This plugin outputs a widget in...', 'shop-page-wp') .  ' <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">' . __('regenerate thumbnails', 'shop-page-wp') . '</a> ' . __('to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.','shop-page-wp'); ?>
+				<?php $widget_settings_string = __('To add products to a widget area just drag the Shop Page WP widget into a Widget Area. You can then set the number of columns and categories (separated by a pipe | symbol), and optionally add a title for the widget section.','shop-page-wp'); ?>
 
 				<div class="explanation"><?php echo $widget_settings_string; ?></div>
 
