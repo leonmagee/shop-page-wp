@@ -11,8 +11,8 @@ class Shop_Page_WP_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'shop_page_wp',
-			esc_html__( 'Shop Page WP', 'shop-page-wp' ),
-			array( 'description' => esc_html__( 'Output Shop Page WP responsive product grid.', 'shop-page-wp' ), )
+			__( 'Shop Page WP', 'shop-page-wp' ),
+			array( 'description' => __( 'Output Shop Page WP responsive product grid.', 'shop-page-wp' ), )
 		);
 	}
 
@@ -49,22 +49,22 @@ class Shop_Page_WP_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'shop-page-wp' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'shop-page-wp' );
 
 		$columns = ! empty( $instance['grid'] ) ? $instance['grid'] : 1;
 
-		$categories = ! empty( $instance['category'] ) ? $instance['category'] : esc_html__( '', 'shop-page-wp' );
+		$categories = ! empty( $instance['category'] ) ? $instance['category'] : __( '', 'shop-page-wp' );
 		?>
 		<p>
 			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'shop-page-wp' ); ?></label>
+				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'shop-page-wp' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
 			       name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
 			       value="<?php echo esc_attr( $title ); ?>">
 		</p>
 		<p>
 			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'grid' ) ); ?>"><?php esc_attr_e( 'Columns:', 'shop-page-wp' ); ?></label>
+				for="<?php echo esc_attr( $this->get_field_id( 'grid' ) ); ?>"><?php _e( 'Columns:', 'shop-page-wp' ); ?></label>
 			<select class="widefat"
 			        id="<?php echo esc_attr( $this->get_field_id( 'grid' ) ); ?>"
 			        name="<?php echo esc_attr( $this->get_field_name( 'grid' ) ); ?>">
@@ -84,7 +84,7 @@ class Shop_Page_WP_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_attr_e( 'Categories (Separate multiple with pipe | symbol)', 'shop-page-wp' ); ?></label>
+				for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php _e( 'Categories (Separate multiple with pipe | symbol)', 'shop-page-wp' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"
 			       name="<?php echo esc_attr( $this->get_field_name( 'category' ) ); ?>" type="text"
 			       value="<?php echo esc_attr( $categories ); ?>">
