@@ -60,7 +60,6 @@ gulp.task('watch', function () {
 /**
  * Generate Pot Files
  */
-
 gulp.task('pot', function () {
     return gulp.src('**/*.php')
         .pipe(wpPot( {
