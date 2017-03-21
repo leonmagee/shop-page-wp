@@ -26,7 +26,7 @@ class Shop_Page_WP_CMB2 {
 			 */
 			$cmb = new_cmb2_box( array(
 				'id'            => 'Shop_Page_WP_meta',
-				'title'         => __( 'Product Details', 'cmb2' ),
+				'title'         => esc_html__( 'Product Details', 'cmb2' ),
 				'object_types'  => array( 'shop-page-wp' ),
 				'context'       => 'normal',
 				'priority'      => 'high',
@@ -37,8 +37,8 @@ class Shop_Page_WP_CMB2 {
 
 			// URL text field
 			$cmb->add_field( array(
-				'name' => __( 'Product Affiliate URL', 'cmb2' ),
-				//'desc' => __( 'The URL for your product', 'cmb2' ),
+				'name' => esc_html__( 'Product Affiliate URL', 'cmb2' ),
+				//'desc' => esc_html__( 'The URL for your product', 'cmb2' ),
 				'id'   => $prefix . 'url',
 				'type' => 'text_url',
 				// 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols

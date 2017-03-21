@@ -17,7 +17,7 @@ class Shop_Page_WP_Grid {
 		 * Get saved settings data
 		 */
 		if ( ! ( $button_text = get_option( 'shop-page-wp-button-text' ) ) ) {
-			$button_text = __( 'Buy Now', 'shop-page-wp' );
+			$button_text = esc_html__( 'Buy Now', 'shop-page-wp' );
 		}
 		$columns_array = get_option( 'shop-page-wp-show-default-columns' );
 		if ( ! ( $number_of_columns = $columns_array['column_options'] ) ) {
