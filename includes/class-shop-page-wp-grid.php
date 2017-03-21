@@ -2,20 +2,19 @@
 
 /**
  * Class Shop_Page_WP_Grid
- *
- * @todo create separate class to query data
+ * query data and create grid
  */
 class Shop_Page_WP_Grid {
-
 	/**
-	 * Link grid to 'add_shortcode' function
+	 * @param $attributes
+	 * $attributes array can come from shortcode or widget settings
 	 *
-	 * This will take parameters, and query the products saved to the database
+	 * @return string
 	 */
 	static function return_grid( $attributes ) {
 
 		/**
-		 * Get Settings
+		 * Get saved settings data
 		 */
 		if ( ! ( $button_text = get_option( 'shop-page-wp-button-text' ) ) ) {
 			$button_text = __( 'Buy Now', 'shop-page-wp' );
@@ -26,7 +25,7 @@ class Shop_Page_WP_Grid {
 		}
 
 		/**
-		 * Get grid size
+		 * Get grid size from attributes
 		 */
 		if ( ! $attributes['grid'] ) {
 			if ( $number_of_columns ) {
@@ -48,14 +47,15 @@ class Shop_Page_WP_Grid {
 		}
 
 		/**
-		 * Query Custom Post Type
+		 * Set $args for custom post type query
 		 */
 		$products = array();
 		if ( $attributes['category'] ) {
 			$cat_array   = array();
 			$cat_explode = explode( '|', $attributes['category'] );
 			foreach ( $cat_explode as $cat ) {
-				$cat_id      = get_cat_ID( $cat );
+				$cat_object = get_category_by_slug( $cat );
+				$cat_id     = $cat_object->term_id;
 				$cat_array[] = $cat_id;
 			}
 			$args = array(

@@ -28,7 +28,7 @@ class Shop_Page_WP_Instructions {
 					margin-top: 30px;
 				}
 				.shortcode-guide .shortcode {
-					font-size: 1.4em;
+					font-size: 1.6em;
 					line-height: 50px;
 					color: #222;
 				}
