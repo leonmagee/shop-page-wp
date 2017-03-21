@@ -47,13 +47,13 @@ class Shop_Page_WP_Instructions {
 
 				<div class="explanation"><?php _e('Default shortcode. This will output a grid with every product you\'ve added.', 'shop-page-wp' ); ?></div>
 
-				<div class="shortcode">[shop-page-wp category='food']</div>
+				<div class="shortcode">[shop-page-wp category='Electronics']</div>
 
-				<div class="explanation"><?php _e('Show only products from one category.', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Show only products from one category. You may use either the category slug or the category name.', 'shop-page-wp' ); ?></div>
 
-				<div class="shortcode">[shop-page-wp category='food|electronics']</div>
+				<div class="shortcode">[shop-page-wp category='Electronics|Games|New Products']</div>
 
-				<div class="explanation"><?php _e('Show products from multiple categories (separated by \'pipe\' symbol).', 'shop-page-wp' ); ?></div>
+				<div class="explanation"><?php _e('Show products from multiple categories (separated by \'pipe\' symbol). You may use either the category slug or the category name.', 'shop-page-wp' ); ?></div>
 
 				<div class="shortcode">[shop-page-wp grid='3']</div>
 
