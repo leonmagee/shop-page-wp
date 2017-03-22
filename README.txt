@@ -87,10 +87,11 @@ You can use any link you wish, it doesn’t even have to be an affiliate link.
 
 == Screenshots ==
 
-1. Product Grid
+1. Product Grid - 4 Columns
 
+2. Product Grid - 3 Columns
 
-2. Admin Settings
+3. Admin Settings
 
 
 == Changelog ==
