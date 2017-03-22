@@ -98,3 +98,8 @@ You can use any link you wish, it doesn’t even have to be an affiliate link.
 
 = 1.0.0 =
 Initial Release
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+Upgrade to the new version
