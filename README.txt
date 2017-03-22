@@ -55,6 +55,8 @@ This plugin sets a custom image size of 300 x 300 pixels. After installing this 
 
 This plugin is in active development. Feel free to contact us with any feature requests or ideas.
 
+<a href="https://shoppagewp.com/documentation/">View More Documentation</a>
+
 
 == Installation ==
 

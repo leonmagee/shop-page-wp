@@ -164,5 +164,5 @@ msgid "Columns:"
 msgstr ""
 
 #: includes/class-shop-page-wp-widget.php:87
-msgid "Categories (Separate multiple with pipe | symbol)"
+msgid "Categories (Separate multiple by pipe | symbol)"
 msgstr ""
