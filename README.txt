@@ -1,10 +1,10 @@
 === Shop Page WP ===
-Contributors: leonmagee
+Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 4.7.3
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,10 +96,10 @@ You can use any link you wish, it doesn’t even have to be an affiliate link.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.1 =
 Initial Release
 
 == Upgrade Notice ==
 
-= 1.0.1 =
+= 1.0.2 =
 Upgrade to the new version
