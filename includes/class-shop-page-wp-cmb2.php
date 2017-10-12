@@ -22,21 +22,20 @@ class Shop_Page_WP_CMB2 {
 
 			$prefix = '_Shop_Page_WP_';
 			/**
-			 * Initiate the metabox
+			 * URL Meta Box
 			 */
-			$cmb = new_cmb2_box( array(
-				'id'            => 'Shop_Page_WP_meta',
-				'title'         => esc_html__( 'Product Details', 'cmb2' ),
-				'object_types'  => array( 'shop-page-wp' ),
-				'context'       => 'normal',
-				'priority'      => 'high',
-				'show_names'    => true, // Show field names on the left
+			$cmb_url = new_cmb2_box( array(
+				'id'           => 'Shop_Page_WP_meta',
+				'title'        => esc_html__( 'Product Details', 'cmb2' ),
+				'object_types' => array( 'shop-page-wp' ),
+				'context'      => 'normal',
+				'priority'     => 'high',
+				'show_names'   => true, // Show field names on the left
 				// 'cmb_styles' => false, // false to disable the CMB stylesheet
 				// 'closed'     => true, // Keep the metabox closed by default
 			) );
 
-			// URL text field
-			$cmb->add_field( array(
+			$cmb_url->add_field( array(
 				'name' => esc_html__( 'Product Affiliate URL', 'cmb2' ),
 				//'desc' => esc_html__( 'The URL for your product', 'cmb2' ),
 				'id'   => $prefix . 'url',
@@ -44,7 +43,49 @@ class Shop_Page_WP_CMB2 {
 				// 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
 				//'repeatable' => true,
 			) );
-			
+
+			/**
+			 * Price Meta Box
+			 */
+//			$cmb_price = new_cmb2_box( array(
+//				'id'           => 'Shop_Page_WP_meta',
+//				'title'        => esc_html__( 'Product Price', 'cmb2' ),
+//				'object_types' => array( 'shop-page-wp' ),
+//				'context'      => 'normal',
+//				'priority'     => 'high',
+//				'show_names'   => true, // Show field names on the left
+//				// 'cmb_styles' => false, // false to disable the CMB stylesheet
+//				// 'closed'     => true, // Keep the metabox closed by default
+//			) );
+//
+//			// Price text field
+//			$cmb_price->add_field( array(
+//				'name' => esc_html__( 'Product Price (optional)', 'cmb2' ),
+//				'id'   => $prefix . 'price',
+//				'type' => 'text',
+//			) );
+//
+//			/**
+//			 * Description Meta Box
+//			 */
+//			$cmb_description = new_cmb2_box( array(
+//				'id'           => 'Shop_Page_WP_meta',
+//				'title'        => esc_html__( 'Product Description', 'cmb2' ),
+//				'object_types' => array( 'shop-page-wp' ),
+//				'context'      => 'normal',
+//				'priority'     => 'high',
+//				'show_names'   => true, // Show field names on the left
+//				// 'cmb_styles' => false, // false to disable the CMB stylesheet
+//				// 'closed'     => true, // Keep the metabox closed by default
+//			) );
+//
+//			// Price text field
+//			$cmb_description->add_field( array(
+//				'name' => esc_html__( 'Product Description', 'cmb2' ),
+//				'id'   => $prefix . 'description',
+//				'type' => 'textarea',
+//			) );
+
 		}
 
 	}

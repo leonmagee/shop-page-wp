@@ -1,6 +1,6 @@
 {
   "name": "Shop_Page_WP",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "a custom wordpress plugin",
   "main": "index.js",
   "scripts": {

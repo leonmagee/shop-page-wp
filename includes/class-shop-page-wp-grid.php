@@ -60,7 +60,7 @@ class Shop_Page_WP_Grid {
 					$cat_array[] = $cat_id;
 				} else {
 					$cat_array[] = 11111111111;
-                }
+				}
 			}
 			$args = array(
 				'post_type'      => 'shop-page-wp',
@@ -80,9 +80,10 @@ class Shop_Page_WP_Grid {
 		if ( $shop_page_wp_query->have_posts() ) {
 			while ( $shop_page_wp_query->have_posts() ) {
 				$shop_page_wp_query->the_post();
-				$title     = get_the_title();
-				$prefix    = '_Shop_Page_WP_';
-				$url_field = $prefix . 'url';
+				$title       = get_the_title();
+				$prefix      = '_Shop_Page_WP_';
+				$url_field   = $prefix . 'url';
+				$description = get_the_content();
 				if ( ! ( $link = get_post_meta( get_the_ID(), $url_field, true ) ) ) {
 					$link = false;
 				}
@@ -95,9 +96,10 @@ class Shop_Page_WP_Grid {
 					$image_url_final = plugins_url( '../assets/img/product-image-placeholder.png', __FILE__ );
 				}
 				$products[] = array(
-					'title'   => $title,
-					'img_url' => $image_url_final,
-					'link'    => $link
+					'title'       => $title,
+					'img_url'     => $image_url_final,
+					'link'        => $link,
+					'description' => $description
 				);
 			}
 		}
@@ -114,6 +116,11 @@ class Shop_Page_WP_Grid {
                     <div class="shop-page-wp-title">
                         <h3><?php echo $product['title']; ?></h3>
                     </div>
+					<?php if ( $product['description'] && ( ! $product['description'] ) ) { ?>
+                        <div class="shop-page-wp-description">
+							<?php echo $product['description']; ?>
+                        </div>
+					<?php } ?>
 					<?php if ( $product['link'] ) { ?>
                         <div class="shop-page-wp-link">
                             <a class="buy-link" target="_blank" href="<?php echo $product['link']; ?>">

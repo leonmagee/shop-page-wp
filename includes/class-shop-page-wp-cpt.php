@@ -41,7 +41,8 @@ class Shop_Page_WP_CPT {
 				'_builtin'            => false,
 				'rewrite'             => array( 'slug' => 'shop-page' ),
 				'has_archive'         => true,
-				'supports'            => array( 'title', 'thumbnail' ),
+				//'supports'            => array( 'title', 'thumbnail', 'editor' ),
+				'supports'            => array( 'title', 'thumbnail'),
 				'taxonomies'          => array( 'category' )
 			)
 		);
