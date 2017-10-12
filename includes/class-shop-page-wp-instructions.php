@@ -26,6 +26,8 @@ class Shop_Page_WP_Instructions {
 			<style>
 				.shortcode-guide h2 {
 					margin-top: 30px;
+                    font-size: 24px;
+                    margin-bottom: 13px;
 				}
 				.shortcode-guide .shortcode {
 					font-size: 1.6em;
@@ -37,8 +39,19 @@ class Shop_Page_WP_Instructions {
 					font-size: 1.1em;
 					margin-bottom: 10px;
 				}
+                .support-links {
+                    margin-top: 20px;
+                    font-size: 16px;
+                }
+                .support-links a {
+                    font-size: 16px;
+                }
 			</style>
 			<h1><?php esc_html_e( Shop_Page_WP_Name . ' Instructions', 'shop-page-wp' ); ?></h1>
+
+            <div class="support-links">
+                <a href="https://shoppagewp.com/documentation/" target="_blank">Documentation</a> | <a href="https://shoppagewp.com/faq/" target="_blank">FAQ</a> | <a href="https://wordpress.org/support/plugin/shop-page-wp" target="_blank">Support</a>
+            </div>
 
 			<div class="shortcode-guide">
 				<h2><?php esc_html_e('Shortcode Usage', 'shop-page-wp' ); ?></h2>

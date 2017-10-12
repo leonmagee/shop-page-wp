@@ -4,7 +4,7 @@ Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,11 +79,14 @@ Go to Shop Page WP in your Wordpress dashboard to begin adding products.
 
 == Frequently Asked Questions ==
 
+= Where can I find setup instructions and documentation? =
+You can view all the documentation on the plugin’s website, at <a href="https://shoppagewp.com/documentation/">shoppagewp.com/documentation</a>.
 = What kind of affiliate links can I use? =
-
 You can use any link you wish, it doesn’t even have to be an affiliate link.
-
-
+= Where can I get support? =
+You can submit questions on the <a href="https://wordpress.org/support/plugin/shop-page-wp">plugin’s support page</a> on Wordpress.org, or you can read more documentation on <a href="https://shoppagewp.com/documentation">shoppagewp.com</a>.
+= Will Shop Page WP slow my site down? =
+Shop Page WP is lightweight will not slow your site down like WooCommerce or other heavy plugins.
 
 == Screenshots ==
 
@@ -102,4 +105,4 @@ Initial Release
 == Upgrade Notice ==
 
 = 1.0.2 =
-Upgrade to the new version
+Settings and Documentation Update

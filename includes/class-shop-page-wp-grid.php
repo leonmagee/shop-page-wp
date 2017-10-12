@@ -55,8 +55,12 @@ class Shop_Page_WP_Grid {
 			$cat_explode = explode( '|', $attributes['category'] );
 			foreach ( $cat_explode as $cat ) {
 				$cat_object = get_category_by_slug( $cat );
-				$cat_id     = $cat_object->term_id;
-				$cat_array[] = $cat_id;
+				if ( $cat_object ) {
+					$cat_id      = $cat_object->term_id;
+					$cat_array[] = $cat_id;
+				} else {
+					$cat_array[] = 11111111111;
+                }
 			}
 			$args = array(
 				'post_type'      => 'shop-page-wp',
@@ -101,31 +105,31 @@ class Shop_Page_WP_Grid {
 
 		ob_start(); ?>
 
-		<product class="shop-page-wp-grid">
+        <product class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) { ?>
-				<div class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
-					<div class="shop-page-wp-image">
-						<img src="<?php echo $product['img_url']; ?>"/>
-					</div>
-					<div class="shop-page-wp-title">
-						<h3><?php echo $product['title']; ?></h3>
-					</div>
+                <div class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+                    <div class="shop-page-wp-image">
+                        <img src="<?php echo $product['img_url']; ?>"/>
+                    </div>
+                    <div class="shop-page-wp-title">
+                        <h3><?php echo $product['title']; ?></h3>
+                    </div>
 					<?php if ( $product['link'] ) { ?>
-						<div class="shop-page-wp-link">
-							<a class="buy-link" target="_blank" href="<?php echo $product['link']; ?>">
+                        <div class="shop-page-wp-link">
+                            <a class="buy-link" target="_blank" href="<?php echo $product['link']; ?>">
 								<?php echo $button_text; ?>
-							</a>
-						</div>
+                            </a>
+                        </div>
 					<?php } else { ?>
-						<div class="shop-page-wp-link">
-							<a class="buy-link disabled">
+                        <div class="shop-page-wp-link">
+                            <a class="buy-link disabled">
 								<?php echo $button_text; ?>
-							</a>
-						</div>
+                            </a>
+                        </div>
 					<?php } ?>
-				</div>
+                </div>
 			<?php } ?>
-		</product>
+        </product>
 		<?php
 		$content = ob_get_clean();
 
