@@ -107,10 +107,14 @@ class Shop_Page_WP_Grid {
 				$prefix            = '_Shop_Page_WP_';
 				$url_field         = $prefix . 'url';
 				$description_field = $prefix . 'description';
-				//$description = self::content_excerpt(get_post_meta(get_the_ID(), $description_field, true));
-				$description = get_post_meta( get_the_ID(), $description_field, true );
+				$description       = get_post_meta( get_the_ID(), $description_field, true );
 				if ( ! ( $link = get_post_meta( get_the_ID(), $url_field, true ) ) ) {
 					$link = false;
+				}
+				$button_text_custom = false;
+				$button_text_field  = $prefix . 'button-text';
+				if ( $button_text_new = get_post_meta( get_the_ID(), $button_text_field, true ) ) {
+					$button_text_custom = true;
 				}
 				$image_id = get_post_thumbnail_id();
 
@@ -120,19 +124,31 @@ class Shop_Page_WP_Grid {
 				} else {
 					$image_url_final = plugins_url( '../assets/img/product-image-placeholder.png', __FILE__ );
 				}
-				$products[] = array(
-					'title'       => $title,
-					'img_url'     => $image_url_final,
-					'link'        => $link,
-					'description' => $description
-				);
+
+				if ( $button_text_custom ) {
+					$products[] = array(
+						'title'       => $title,
+						'img_url'     => $image_url_final,
+						'link'        => $link,
+						'description' => $description,
+						'button_text' => $button_text_new
+					);
+                } else {
+					$products[] = array(
+						'title'       => $title,
+						'img_url'     => $image_url_final,
+						'link'        => $link,
+						'description' => $description,
+						'button_text' => $button_text
+					);
+                }
 			}
 		}
 		wp_reset_postdata();
 
 		ob_start(); ?>
 
-        <product class="shop-page-wp-grid">
+        <div class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) { ?>
                 <a class='shop-page-wp-link' target="_blank" href="<?php echo $product['link']; ?>"
                    style="flex-basis: <?php echo $grid_width; ?>%">
@@ -151,20 +167,20 @@ class Shop_Page_WP_Grid {
 						<?php if ( $product['link'] ) { ?>
                             <div class="shop-page-wp-link">
                                 <span class="buy-link">
-								<?php echo $button_text; ?>
+								<?php echo $product['button_text']; ?>
                                 </span>
                             </div>
 						<?php } else { ?>
                             <div class="shop-page-wp-link">
                                 <a class="buy-link disabled">
-									<?php echo $button_text; ?>
+	                                <?php echo $product['button_text']; ?>
                                 </a>
                             </div>
 						<?php } ?>
                     </div>
                 </a>
 			<?php } ?>
-        </product>
+        </div>
 		<?php
 		$content = ob_get_clean();
 

@@ -58,7 +58,6 @@ class Shop_Page_WP_CMB2 {
 				// 'closed'     => true, // Keep the metabox closed by default
 			) );
 
-			// Price text field
 			$cmb_description->add_field( array(
 				'name' => esc_html__( 'Product Description (optional)', 'cmb2' ),
 				'id'   => $prefix . 'description',
