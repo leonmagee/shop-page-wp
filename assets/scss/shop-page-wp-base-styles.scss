@@ -1,5 +1,9 @@
 // grid styles
 .shop-page-wp-grid {
+  a.shop-page-wp-link {
+    text-decoration: none;
+    border: none;
+  }
   .shop-page-wp-item {
     padding: 25px 30px;
     text-align: center;
@@ -10,6 +14,10 @@
         padding-bottom: 0;
       }
     }
+    .shop-page-wp-image {
+      margin: 0 auto;
+      display: inline-block;
+    }
     .shop-page-wp-description {
       font-size: 13px;
       margin-top: -5px;
@@ -17,7 +25,8 @@
     }
     // affiliate link styles
     .shop-page-wp-link {
-      a.buy-link {
+      .buy-link {
+        //background: red;
         border: 2px solid #444;
         color: #333;
         padding: 8px 13px;
@@ -48,4 +57,3 @@
     }
   }
 }
-

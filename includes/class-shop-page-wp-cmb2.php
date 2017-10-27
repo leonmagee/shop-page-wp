@@ -81,7 +81,7 @@ class Shop_Page_WP_CMB2 {
 
 			// Price text field
 			$cmb_button_text->add_field( array(
-				'name' => esc_html__( 'Button Text', 'cmb2' ),
+				'name' => esc_html__( 'Button Text (14 Characters Max)', 'cmb2' ),
 				'id'   => $prefix . 'button-text',
 				'type' => 'text',
 			) );

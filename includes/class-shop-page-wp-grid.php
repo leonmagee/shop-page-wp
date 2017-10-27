@@ -5,6 +5,29 @@
  * query data and create grid
  */
 class Shop_Page_WP_Grid {
+
+	/**
+	 * @param $content
+	 * @param $length
+	 * @param string $suffix
+	 *
+	 * @return string
+	 */
+//	static function content_excerpt( $content, $length = 120, $suffix = '...' ) {
+//
+//		$string = substr( $content, 0, $length );
+//
+//		$exploded = explode( ' ', $string );
+//
+//		array_pop( $exploded );
+//
+//		$implode = implode( ' ', $exploded );
+//
+//		$final = $implode . $suffix;
+//
+//		return $final;
+//	}
+
 	/**
 	 * @param $attributes
 	 * $attributes array can come from shortcode or widget settings
@@ -80,10 +103,12 @@ class Shop_Page_WP_Grid {
 		if ( $shop_page_wp_query->have_posts() ) {
 			while ( $shop_page_wp_query->have_posts() ) {
 				$shop_page_wp_query->the_post();
-				$title       = get_the_title();
-				$prefix      = '_Shop_Page_WP_';
-				$url_field   = $prefix . 'url';
-				$description = get_the_content();
+				$title             = get_the_title();
+				$prefix            = '_Shop_Page_WP_';
+				$url_field         = $prefix . 'url';
+				$description_field = $prefix . 'description';
+				//$description = self::content_excerpt(get_post_meta(get_the_ID(), $description_field, true));
+				$description = get_post_meta( get_the_ID(), $description_field, true );
 				if ( ! ( $link = get_post_meta( get_the_ID(), $url_field, true ) ) ) {
 					$link = false;
 				}
@@ -109,32 +134,35 @@ class Shop_Page_WP_Grid {
 
         <product class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) { ?>
-                <div class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
-                    <div class="shop-page-wp-image">
-                        <img src="<?php echo $product['img_url']; ?>"/>
-                    </div>
-                    <div class="shop-page-wp-title">
-                        <h3><?php echo $product['title']; ?></h3>
-                    </div>
-					<?php if ( $product['description'] && ( ! $product['description'] ) ) { ?>
-                        <div class="shop-page-wp-description">
-							<?php echo $product['description']; ?>
+                <a class='shop-page-wp-link' target="_blank" href="<?php echo $product['link']; ?>"
+                   style="flex-basis: <?php echo $grid_width; ?>%">
+                    <div class="shop-page-wp-item">
+                        <div class="shop-page-wp-image">
+                            <img src="<?php echo $product['img_url']; ?>"/>
                         </div>
-					<?php } ?>
-					<?php if ( $product['link'] ) { ?>
-                        <div class="shop-page-wp-link">
-                            <a class="buy-link" target="_blank" href="<?php echo $product['link']; ?>">
+                        <div class="shop-page-wp-title">
+                            <h3><?php echo $product['title']; ?></h3>
+                        </div>
+						<?php if ( $product['description'] ) { ?>
+                            <div class="shop-page-wp-description">
+								<?php echo $product['description']; ?>
+                            </div>
+						<?php } ?>
+						<?php if ( $product['link'] ) { ?>
+                            <div class="shop-page-wp-link">
+                                <span class="buy-link">
 								<?php echo $button_text; ?>
-                            </a>
-                        </div>
-					<?php } else { ?>
-                        <div class="shop-page-wp-link">
-                            <a class="buy-link disabled">
-								<?php echo $button_text; ?>
-                            </a>
-                        </div>
-					<?php } ?>
-                </div>
+                                </span>
+                            </div>
+						<?php } else { ?>
+                            <div class="shop-page-wp-link">
+                                <a class="buy-link disabled">
+									<?php echo $button_text; ?>
+                                </a>
+                            </div>
+						<?php } ?>
+                    </div>
+                </a>
 			<?php } ?>
         </product>
 		<?php

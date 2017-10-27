@@ -35,4 +35,20 @@ class Shop_Page_WP_Scripts {
 		);
 		wp_enqueue_style( 'shop-page-wp-base-styles' );
 	}
+
+	static function hook_admin_styles() {
+
+		add_action( 'admin_enqueue_scripts', array( 'Shop_Page_WP_Scripts', 'enqueue_admin_styles' ) );
+	}
+
+	static function enqueue_admin_styles() {
+		$plugin_dir = plugin_dir_url( __FILE__ );
+		wp_register_style(
+			'shop-page-wp-admin-styles',
+			$plugin_dir . '../assets/css/shop-page-wp-admin-styles.css',
+			'',
+			''
+		);
+		wp_enqueue_style( 'shop-page-wp-admin-styles' );
+	}
 }
