@@ -45,46 +45,47 @@ class Shop_Page_WP_CMB2 {
 			) );
 
 			/**
-			 * Price Meta Box
+			 * Description Meta Box
 			 */
-//			$cmb_price = new_cmb2_box( array(
-//				'id'           => 'Shop_Page_WP_meta',
-//				'title'        => esc_html__( 'Product Price', 'cmb2' ),
-//				'object_types' => array( 'shop-page-wp' ),
-//				'context'      => 'normal',
-//				'priority'     => 'high',
-//				'show_names'   => true, // Show field names on the left
-//				// 'cmb_styles' => false, // false to disable the CMB stylesheet
-//				// 'closed'     => true, // Keep the metabox closed by default
-//			) );
-//
-//			// Price text field
-//			$cmb_price->add_field( array(
-//				'name' => esc_html__( 'Product Price (optional)', 'cmb2' ),
-//				'id'   => $prefix . 'price',
-//				'type' => 'text',
-//			) );
-//
-//			/**
-//			 * Description Meta Box
-//			 */
-//			$cmb_description = new_cmb2_box( array(
-//				'id'           => 'Shop_Page_WP_meta',
-//				'title'        => esc_html__( 'Product Description', 'cmb2' ),
-//				'object_types' => array( 'shop-page-wp' ),
-//				'context'      => 'normal',
-//				'priority'     => 'high',
-//				'show_names'   => true, // Show field names on the left
-//				// 'cmb_styles' => false, // false to disable the CMB stylesheet
-//				// 'closed'     => true, // Keep the metabox closed by default
-//			) );
-//
-//			// Price text field
-//			$cmb_description->add_field( array(
-//				'name' => esc_html__( 'Product Description', 'cmb2' ),
-//				'id'   => $prefix . 'description',
-//				'type' => 'textarea',
-//			) );
+			$cmb_description = new_cmb2_box( array(
+				'id'           => 'Shop_Page_WP_meta',
+				'title'        => esc_html__( 'Product Description', 'cmb2' ),
+				'object_types' => array( 'shop-page-wp' ),
+				'context'      => 'normal',
+				'priority'     => 'high',
+				'show_names'   => true, // Show field names on the left
+				// 'cmb_styles' => false, // false to disable the CMB stylesheet
+				// 'closed'     => true, // Keep the metabox closed by default
+			) );
+
+			// Price text field
+			$cmb_description->add_field( array(
+				'name' => esc_html__( 'Product Description (optional)', 'cmb2' ),
+				'id'   => $prefix . 'description',
+				'type' => 'textarea',
+			) );
+
+			/**
+			 * Button Text Meta Box
+			 */
+			$cmb_button_text = new_cmb2_box( array(
+				'id'           => 'Shop_Page_WP_meta',
+				'title'        => esc_html__( 'Button Text', 'cmb2' ),
+				'object_types' => array( 'shop-page-wp' ),
+				'context'      => 'normal',
+				'priority'     => 'high',
+				'show_names'   => true, // Show field names on the left
+				// 'cmb_styles' => false, // false to disable the CMB stylesheet
+				// 'closed'     => true, // Keep the metabox closed by default
+			) );
+
+			// Price text field
+			$cmb_button_text->add_field( array(
+				'name' => esc_html__( 'Button Text', 'cmb2' ),
+				'id'   => $prefix . 'button-text',
+				'type' => 'text',
+			) );
+
 
 		}
 

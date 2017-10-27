@@ -38,6 +38,15 @@ gulp.task('scss-grid', function () {
     util.log(util.colors.red('> > > grid styles compiled < < <'));
 });
 
+gulp.task('scss-admin', function () {
+    gulp.src(['assets/scss/shop-page-wp-admin-styles.scss'])
+        .pipe(sass({style: 'compressed', errLogToConsole: true}))
+        .pipe(rename('shop-page-wp-admin-styles.css'))
+        .pipe(minifycss())
+        .pipe(gulp.dest('assets/css'));
+    util.log(util.colors.red('> > > grid styles compiled < < <'));
+});
+
 /**
  * Watch Task
  */
@@ -54,7 +63,11 @@ gulp.task('watch', function () {
     /**
      *  Watch SCSS files for changes
      */
-    gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
+    gulp.watch('assets/scss/**/shop-page-wp-base-styles.scss', ['scss-base']);
+    gulp.watch('assets/scss/**/shop-page-wp-grid.scss', ['scss-grid']);
+    gulp.watch('assets/scss/**/shop-page-wp-admin-styles.scss', ['scss-admin']);
+    //gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
+    //gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
 });
 
 /**
