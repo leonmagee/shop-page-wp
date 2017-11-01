@@ -148,11 +148,15 @@ class Shop_Page_WP_Grid {
 
 		ob_start(); ?>
 
+        <script>
+            function openUrlInNewTab(url) {
+                var win = window.open(url, '_blank');
+                win.focus();
+            }
+        </script>
         <div class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) { ?>
-                <a class='shop-page-wp-link' target="_blank" href="<?php echo $product['link']; ?>"
-                   style="flex-basis: <?php echo $grid_width; ?>%">
-                    <div class="shop-page-wp-item">
+                    <div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
                         <div class="shop-page-wp-image">
                             <img src="<?php echo $product['img_url']; ?>"/>
                         </div>
@@ -178,7 +182,6 @@ class Shop_Page_WP_Grid {
                             </div>
 						<?php } ?>
                     </div>
-                </a>
 			<?php } ?>
         </div>
 		<?php
