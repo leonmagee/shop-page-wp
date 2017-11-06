@@ -13,16 +13,16 @@
       //opacity: 0.8;
 
       .shop-page-wp-link {
+        background-color: #333;
         .buy-link {
           color: #FFF;
-          background-color: #333;
         }
       }
     }
     .shop-page-wp-title {
       h3 {
         font-size: 16px;
-        margin: 8px 0 10px;
+        margin: 15px 0 17px;
         padding-bottom: 0;
       }
     }
@@ -37,18 +37,30 @@
     }
     // affiliate link styles
     .shop-page-wp-link {
-      .buy-link {
+      border: 2px solid #444;
+      //padding: 8px 13px;
+      padding: 3px 13px 3px;
+      max-width: 200px;
+      margin: 5px auto 0;
+      display: inline-block;
+      a.buy-link {
+        display: block;
         //background: red;
-        border: 2px solid #444;
+        //border: 2px solid #444;
         color: #333;
-        padding: 8px 13px;
+        //padding: 8px 13px;
+        line-height: 1.8em;
         font-family: sans-serif;
         text-transform: uppercase;
         font-size: 0.7em;
-        max-width: 200px;
-        margin: 0 auto;
-        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+        //max-width: 100px;
+        //margin: 0 auto;
+        //white-space: nowrap;
+        hyphens: none;
         text-decoration: none;
+        border: none;
 
         &:hover {
           text-decoration: none;
