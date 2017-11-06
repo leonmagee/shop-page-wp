@@ -153,6 +153,16 @@ class Shop_Page_WP_Grid {
                 var win = window.open(url, '_blank');
                 win.focus();
             }
+						// function prefentLinking(event) {
+						// 	event.preventDefault();
+						// }
+						// var product_link = document.getElementsByClassName("buy-link");
+						// //var product_link = document.getElementById("myfunction");
+						// 	product_link.addEventListener("click",function(e){
+						// 		console.log('button clickedzzz');
+						// 		e.preventDefault();
+    				// 	//button.disabled = "true";
+						// },false);
         </script>
         <div class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) { ?>
@@ -170,9 +180,9 @@ class Shop_Page_WP_Grid {
 						<?php } ?>
 						<?php if ( $product['link'] ) { ?>
                             <div class="shop-page-wp-link">
-                                <span class="buy-link">
+															<a style="pointer-events: none;" class="buy-link" href="<?php echo $product['link']; ?>" rel="nofollow">
 								<?php echo $product['button_text']; ?>
-                                </span>
+															</a>
                             </div>
 						<?php } else { ?>
                             <div class="shop-page-wp-link">
@@ -183,6 +193,15 @@ class Shop_Page_WP_Grid {
 						<?php } ?>
                     </div>
 			<?php } ?>
+			<script>
+			// var product_link = document.getElementsByClassName("buy-link");
+			// //var product_link = document.getElementById("myfunction");
+			// 	product_link.addEventListener("click",function(e){
+			// 		console.log('button clickedzzz');
+			// 		e.preventDefault();
+			// 	//button.disabled = "true";
+			// },false);
+	</script>
         </div>
 		<?php
 		$content = ob_get_clean();

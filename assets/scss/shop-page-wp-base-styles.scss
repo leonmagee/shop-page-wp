@@ -10,7 +10,14 @@
     text-align: center;
     &:hover {
       cursor: pointer;
-      opacity: 0.8;
+      //opacity: 0.8;
+
+      .shop-page-wp-link {
+        .buy-link {
+          color: #FFF;
+          background-color: #333;
+        }
+      }
     }
     .shop-page-wp-title {
       h3 {
