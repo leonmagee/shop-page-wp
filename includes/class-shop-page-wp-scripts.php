@@ -5,7 +5,7 @@
  */
 class Shop_Page_WP_Scripts {
 	static function hook_grid_styles() {
-		
+
 		add_action( 'wp_enqueue_scripts', array( 'Shop_Page_WP_Scripts', 'enqueue_grid_styles' ) );
 	}
 
@@ -15,7 +15,7 @@ class Shop_Page_WP_Scripts {
 			'shop-page-wp-grid',
 			$plugin_dir . '../assets/css/shop-page-wp-grid.css',
 			'',
-			''
+			Shop_Page_WP_Version
 		);
 		wp_enqueue_style( 'shop-page-wp-grid' );
 	}
@@ -31,7 +31,7 @@ class Shop_Page_WP_Scripts {
 			'shop-page-wp-base-styles',
 			$plugin_dir . '../assets/css/shop-page-wp-base-styles.css',
 			'',
-			''
+			Shop_Page_WP_Version
 		);
 		wp_enqueue_style( 'shop-page-wp-base-styles' );
 	}
