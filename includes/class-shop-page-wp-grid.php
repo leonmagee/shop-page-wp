@@ -121,14 +121,22 @@ class Shop_Page_WP_Grid {
 				if ( has_post_thumbnail() ) {
 					$image_url       = wp_get_attachment_image_src( $image_id, 'shop-page-wp-product', true );
 					$image_url_final = $image_url[0];
+
+				$alt_text = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
+
 				} else {
 					$image_url_final = plugins_url( '../assets/img/product-image-placeholder.png', __FILE__ );
 				}
+
+				/**
+				* @todo add attribute for alt text
+				*/
 
 				if ( $button_text_custom ) {
 					$products[] = array(
 						'title'       => $title,
 						'img_url'     => $image_url_final,
+						'img_alt' 	  => $alt_text,
 						'link'        => $link,
 						'description' => $description,
 						'button_text' => $button_text_new
@@ -137,6 +145,7 @@ class Shop_Page_WP_Grid {
 					$products[] = array(
 						'title'       => $title,
 						'img_url'     => $image_url_final,
+						'img_alt' 	  => $alt_text,
 						'link'        => $link,
 						'description' => $description,
 						'button_text' => $button_text
@@ -168,7 +177,7 @@ class Shop_Page_WP_Grid {
 			<?php foreach ( $products as $product ) { ?>
                     <div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
                         <div class="shop-page-wp-image">
-                            <img src="<?php echo $product['img_url']; ?>"/>
+                            <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
                         </div>
                         <div class="shop-page-wp-title">
                             <h3><?php echo $product['title']; ?></h3>
