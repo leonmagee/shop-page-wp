@@ -19,7 +19,7 @@ class Shop_Page_WP_CPT {
 
 			array(
 				'menu_position'       => 4,
-				'exclude_from_search' => false,
+				'exclude_from_search' => true,
 				'labels'              => array(
 					'name'               => esc_html__( 'Shop Page WP' ),
 					'singular_name'      => esc_html__( 'Shop Page WP' ),
@@ -35,7 +35,7 @@ class Shop_Page_WP_CPT {
 					'parent_item_colon'  => '',
 					'menu_name'          => 'Shop Page WP'
 				),
-				'public'              => false,
+				'public'              => true,
 				'publicly_queryable'  => false,
 				'menu_icon'           => 'dashicons-cart',
 				'_builtin'            => false,
