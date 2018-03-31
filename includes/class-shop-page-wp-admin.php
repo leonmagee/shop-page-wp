@@ -28,6 +28,14 @@ class Shop_Page_WP_Admin {
 					min-width: 210px;
 				}
 
+				.shop-page-wp-settings input[type="radio"] {
+					min-width: auto;
+				}
+
+				.shop-page-wp-settings label.radio-label {
+					margin-right: 15px;
+				}
+
 				.shop-page-wp-settings .form-table th {
 					min-width: 230px;
 				}

@@ -13,20 +13,15 @@ class Shop_Page_WP_Grid {
 	 *
 	 * @return string
 	 */
-//	static function content_excerpt( $content, $length = 120, $suffix = '...' ) {
-//
-//		$string = substr( $content, 0, $length );
-//
-//		$exploded = explode( ' ', $string );
-//
-//		array_pop( $exploded );
-//
-//		$implode = implode( ' ', $exploded );
-//
-//		$final = $implode . $suffix;
-//
-//		return $final;
-//	}
+	
+	//	static function content_excerpt( $content, $length = 120, $suffix = '...' ) {
+	//		$string = substr( $content, 0, $length );
+	//		$exploded = explode( ' ', $string );
+	//		array_pop( $exploded );
+	//		$implode = implode( ' ', $exploded );
+	//		$final = $implode . $suffix;
+	//		return $final;
+	//	}
 
 	/**
 	 * @param $attributes
@@ -162,20 +157,24 @@ class Shop_Page_WP_Grid {
                 var win = window.open(url, '_blank');
                 win.focus();
             }
-						// function prefentLinking(event) {
-						// 	event.preventDefault();
-						// }
-						// var product_link = document.getElementsByClassName("buy-link");
-						// //var product_link = document.getElementById("myfunction");
-						// 	product_link.addEventListener("click",function(e){
-						// 		console.log('button clickedzzz');
-						// 		e.preventDefault();
-    				// 	//button.disabled = "true";
-						// },false);
+
+            function openUrlInSameTab(url) {
+                var win = window.open(url, '_self');
+                win.focus();
+            }
         </script>
         <div class="shop-page-wp-grid">
-			<?php foreach ( $products as $product ) { ?>
-                    <div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+			<?php foreach ( $products as $product ) {
+				if ( get_option('shop-page-wp-link-target') === "2" ) { ?>
+
+					<div onclick="openUrlInSameTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+
+				<?php } else { ?>
+					
+					<div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+
+				<?php } ?>
+
                         <div class="shop-page-wp-image">
                             <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
                         </div>
@@ -189,9 +188,9 @@ class Shop_Page_WP_Grid {
 						<?php } ?>
 						<?php if ( $product['link'] ) { ?>
                             <div class="shop-page-wp-link">
-															<a style="pointer-events: none;" class="buy-link" href="<?php echo $product['link']; ?>" rel="nofollow">
-								<?php echo $product['button_text']; ?>
-															</a>
+								<a style="pointer-events: none;" class="buy-link" href="<?php echo $product['link']; ?>" rel="nofollow">
+									<?php echo $product['button_text']; ?>
+								</a>
                             </div>
 						<?php } else { ?>
                             <div class="shop-page-wp-link">
@@ -202,15 +201,6 @@ class Shop_Page_WP_Grid {
 						<?php } ?>
                     </div>
 			<?php } ?>
-			<script>
-			// var product_link = document.getElementsByClassName("buy-link");
-			// //var product_link = document.getElementById("myfunction");
-			// 	product_link.addEventListener("click",function(e){
-			// 		console.log('button clickedzzz');
-			// 		e.preventDefault();
-			// 	//button.disabled = "true";
-			// },false);
-	</script>
         </div>
 		<?php
 		$content = ob_get_clean();

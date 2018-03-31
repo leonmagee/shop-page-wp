@@ -35,7 +35,7 @@ class Shop_Page_WP_CPT {
 					'parent_item_colon'  => '',
 					'menu_name'          => 'Shop Page WP'
 				),
-				'public'              => true,
+				'public'              => false,
 				'publicly_queryable'  => false,
 				'menu_icon'           => 'dashicons-cart',
 				'_builtin'            => false,
