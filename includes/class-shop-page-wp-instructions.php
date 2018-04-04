@@ -72,6 +72,10 @@ class Shop_Page_WP_Instructions {
 
 				<div class="explanation"><?php esc_html_e('Specify grid size (will override default settings). Options are 1, 2, 3 or 4.', 'shop-page-wp' ); ?></div>
 
+				<div class="shortcode">[shop-page-wp max_number='2']</div>
+
+				<div class="explanation"><?php esc_html_e('Specify max number of products to show. Options are any integer', 'shop-page-wp' ); ?></div>
+
 				<h2><?php esc_html_e( 'Changing Image Sizes', 'shop-page-wp' ); ?></h2>
 
 				<?php $image_settings_string = esc_html__('This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must', 'shop-page-wp') .  ' <a href="https://wordpress.org/plugins/regenerate-thumbnails/" target="_blank">' . esc_html__('regenerate thumbnails', 'shop-page-wp') . '</a> ' . esc_html__('to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.','shop-page-wp'); ?>

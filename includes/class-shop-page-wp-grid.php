@@ -65,6 +65,15 @@ class Shop_Page_WP_Grid {
 		}
 
 		/**
+		* Max Products to display
+		*/
+		if ( $attributes['max_number'] ) {
+			$posts_per_page_max = intval($attributes['max_number']);
+		} else {
+			$posts_per_page_max = - 1;
+		}
+
+		/**
 		 * Set $args for custom post type query
 		 */
 		$products = array();
@@ -83,14 +92,16 @@ class Shop_Page_WP_Grid {
 			$args = array(
 				'post_type'      => 'shop-page-wp',
 				'category__in'   => $cat_array,
-				'posts_per_page' => - 1
+				'posts_per_page' => $posts_per_page_max
 			);
 		} else {
 			$args = array(
 				'post_type'      => 'shop-page-wp',
-				'posts_per_page' => - 1
+				'posts_per_page' => $posts_per_page_max
 			);
 		}
+
+
 		/**
 		 * WordPress Query
 		 */

@@ -19,7 +19,8 @@ class Shop_Page_WP_Shortcode {
 
 		$attributes = shortcode_atts( array(
 			'category' => '',
-			'grid'     => ''
+			'grid'     => '',
+			'max_number' => '',
 		), $atts );
 
 		$grid_content = Shop_Page_WP_Grid::return_grid( $attributes );
