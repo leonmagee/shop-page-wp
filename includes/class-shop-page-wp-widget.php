@@ -54,6 +54,8 @@ class Shop_Page_WP_Widget extends WP_Widget {
 		$columns = ! empty( $instance['grid'] ) ? $instance['grid'] : 1;
 
 		$categories = ! empty( $instance['category'] ) ? $instance['category'] : esc_html__( '', 'shop-page-wp' );
+		
+		$max_number = ! empty( $instance['max_number'] ) ? $instance['max_number'] : esc_html__( '', 'shop-page-wp' );
 		?>
 		<p>
 			<label
@@ -89,6 +91,13 @@ class Shop_Page_WP_Widget extends WP_Widget {
 			       name="<?php echo esc_attr( $this->get_field_name( 'category' ) ); ?>" type="text"
 			       value="<?php echo esc_attr( $categories ); ?>">
 		</p>
+		<p>
+			<label
+				for="<?php echo esc_attr( $this->get_field_id( 'max_number' ) ); ?>"><?php esc_attr_e( 'Max Number of Products', 'shop-page-wp' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'max_number' ) ); ?>"
+			       name="<?php echo esc_attr( $this->get_field_name( 'max_number' ) ); ?>" type="number"
+			       value="<?php echo esc_attr( $max_number ); ?>">
+		</p>
 		<?php
 	}
 
@@ -107,6 +116,7 @@ class Shop_Page_WP_Widget extends WP_Widget {
 		$instance['title']    = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['grid']     = ( ! empty( $new_instance['grid'] ) ) ? strip_tags( $new_instance['grid'] ) : 1;
 		$instance['category'] = ( ! empty( $new_instance['category'] ) ) ? strip_tags( $new_instance['category'] ) : '';
+		$instance['max_number'] = ( ! empty( $new_instance['max_number'] ) ) ? strip_tags( $new_instance['max_number'] ) : '';
 
 		return $instance;
 	}
