@@ -1,8 +1,32 @@
 // grid flexbox styles
 .shop-page-wp-grid {
+  
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .shop-page-wp-item {
+
+  	@media(min-width: 768px) {
+
+	  	&.full-width {
+	  		width: 100%;
+	  	}
+	  	&.one-half {
+	  		width: 50%;
+	  	}
+	  	&.one-third {
+	  		width: 33.3%;
+	  	}
+	  	&.one-fourth {
+	  		width: 25%;
+	  	}
+  	}
+
+  	img {
+  		width: 100%;
+  	}
   }
 }

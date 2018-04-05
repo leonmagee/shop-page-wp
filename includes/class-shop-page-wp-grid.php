@@ -50,18 +50,29 @@ class Shop_Page_WP_Grid {
 				$attributes['grid'] = $number_of_columns;
 			}
 		}
+
+		/**
+		* @todo instead of doing math here, instead assign different class names 
+		* so media queries can be used. Switching to width instead of flex-basis for inline css
+		* to make it work on IE 11? 
+		*/
 		if ( $attributes['grid'] ) {
 			if ( $attributes['grid'] == 1 ) {
-				$grid_width = 100;
+				//$grid_width = 100;
+				$class_name = 'full-width';
 			} elseif ( $attributes['grid'] == 2 ) {
-				$grid_width = 50;
+				//$grid_width = 50;
+				$class_name = 'one-half';
 			} elseif ( $attributes['grid'] == 4 ) {
-				$grid_width = 25;
+				//$grid_width = 25;
+				$class_name = 'one-fourth';
 			} else {
-				$grid_width = 33.3;
+				//$grid_width = 33.3;
+				$class_name = 'one-third';
 			}
 		} else {
-			$grid_width = 33.3;
+			$class_name = 'one-third';
+			//$grid_width = 33.3;
 		}
 
 		/**
@@ -176,13 +187,20 @@ class Shop_Page_WP_Grid {
         </script>
         <div class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) {
-				if ( get_option('shop-page-wp-link-target') === "2" ) { ?>
+				if ( get_option('shop-page-wp-link-target') === "2" ) { 
 
-					<div onclick="openUrlInSameTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+					/**
+					* @todo refactor this to be more dry
+					* @todo only use flex-basis if the grid is not just 1?
+					* @todo - this is not working for IE 11... flex-basis auto !important?
+					*/
+					?>
+
+					<div onclick="openUrlInSameTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
 
 				<?php } else { ?>
 					
-					<div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item" style="flex-basis: <?php echo $grid_width; ?>%">
+					<div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
 
 				<?php } ?>
 
