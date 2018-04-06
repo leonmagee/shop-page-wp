@@ -16,7 +16,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'Shop_Page_WP_Name', 'Shop Page WP' );
-define( 'Shop_Page_WP_Version', '1.0.8' );
+define( 'Shop_Page_WP_Version', '1.0.9' );
 
 /**
  * Plugin Admin Page
