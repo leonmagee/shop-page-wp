@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
-Tested up to: 4.8.2
-Stable tag: 1.0.9
+Tested up to: 4.9.8
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,12 +99,20 @@ Shop Page WP is lightweight will not slow your site down like WooCommerce or oth
 
 == Changelog ==
 
+= 1.1.0 =
+
+* Grid class names changed: full-width -> spwp-full-width, one-half -> spwp-one-half, one-third -> spwp-one-third, one-fourth -> spwp-one-fourth
+* The previous class names were too generic and they conflicted with some themes. If you are applying styles by using the old class names please update to these new class names.
+
 = 1.0.9 =
 
-* Fixed bug for IE 11
-* You can now specify a 'max number' or products to show.
-* Fixed bug with underline of link text on certain themes (box shadow)
-* 
+* New Feature: New shortcode attribute to specify a 'max number' of products to display
+* New Feature: Option to open shop page links in the same tab instead of a new tab
+* New Feature: Plugin will now output alt text for images (if alt text is set for image in the media library)
+* Fixed bug for Internet Explorer 11 where product grid was overlapping
+* Fixed bug with underline of link text on certain themes
+* Fixed bug with featured image upload not displaying for certain themes
+Shop Page WP Products are now be excluded from WordPress Search
 
 = 1.0.8 =
 
@@ -126,6 +134,21 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+
+* Grid class names changed: full-width -> spwp-full-width, one-half -> spwp-one-half, one-third -> spwp-one-third, one-fourth -> spwp-one-fourth
+* The previous class names were too generic and they conflicted with some themes. If you are applying styles by using the old class names please update to these new class names.
+
+= 1.0.9 =
+
+* New Feature: New shortcode attribute to specify a 'max number' of products to display
+* New Feature: Option to open shop page links in the same tab instead of a new tab
+* New Feature: Plugin will now output alt text for images (if alt text is set for image in the media library)
+* Fixed bug for IE 11 where product grid was overlapping
+* Fixed bug with underline of link text on certain themes
+* Fixed bug with featured image upload not displaying for certain themes
+Shop Page WP Products are now be excluded from WordPress Search
 
 = 1.0.8 =
 

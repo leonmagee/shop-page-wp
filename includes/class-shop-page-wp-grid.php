@@ -59,19 +59,19 @@ class Shop_Page_WP_Grid {
 		if ( $attributes['grid'] ) {
 			if ( $attributes['grid'] == 1 ) {
 				//$grid_width = 100;
-				$class_name = 'full-width';
+				$class_name = 'spwp-full-width';
 			} elseif ( $attributes['grid'] == 2 ) {
 				//$grid_width = 50;
-				$class_name = 'one-half';
+				$class_name = 'spwp-one-half';
 			} elseif ( $attributes['grid'] == 4 ) {
 				//$grid_width = 25;
-				$class_name = 'one-fourth';
+				$class_name = 'spwp-one-fourth';
 			} else {
 				//$grid_width = 33.3;
-				$class_name = 'one-third';
+				$class_name = 'spwp-one-third';
 			}
 		} else {
-			$class_name = 'one-third';
+			$class_name = 'spwp-one-third';
 			//$grid_width = 33.3;
 		}
 
