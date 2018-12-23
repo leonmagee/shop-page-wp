@@ -54,6 +54,19 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-shortcode.php
 Shop_Page_WP_Shortcode::activate_shortcode();
 
 /**
+ * Gutenberg
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-gutenberg.php';
+
+function shop_page_wp_gutenberg_init() {
+	// $gutenberg_init = new Shop_Page_WP_Gutenberg();
+	// $gutenberg_init->gutenberg_init();
+	Shop_Page_WP_Gutenberg::gutenberg_init();
+}
+
+add_action( 'init', 'shop_page_wp_gutenberg_init' );
+
+/**
  * Enqueue Styles
  */
 $default_styles_array = get_option( 'shop-page-wp-show-choose-styles' );
@@ -83,11 +96,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-cpt.php';
 
 function shop_page_wp_register_post_types() {
 
-	Shop_Page_WP_CPT::register_post_types();
+	Shop_Page_WP_CPT::create_post_type();
 }
 
 add_action( 'init', 'shop_page_wp_register_post_types' );
-
 
 /**
  * Set Image Sizes

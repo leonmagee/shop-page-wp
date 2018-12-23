@@ -5,10 +5,10 @@
  */
 class Shop_Page_WP_CPT {
 
-	public static function register_post_types() {
+	// public static function register_post_types() {
 
-		self::create_post_type();
-	}
+	// 	self::create_post_type();
+	// }
 
 	/**
 	 * Static Function create_post_type
