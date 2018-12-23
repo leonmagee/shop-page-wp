@@ -77,9 +77,9 @@ var _wp$components = wp.components,
     TextControl = _wp$components.TextControl,
     SelectControl = _wp$components.SelectControl,
     ServerSideRender = _wp$components.ServerSideRender;
-//const { withState } = wp.compose;
 
-registerBlockType('gutenberg-boilerplate-es5/shop-page-wp', {
+
+registerBlockType('shop-page-wp/grid', {
     title: 'Shop Page WP',
 
     icon: 'cart',
@@ -93,7 +93,8 @@ registerBlockType('gutenberg-boilerplate-es5/shop-page-wp', {
         },
         grid: {
             type: 'string',
-            selector: '.shop-page-wp-grid'
+            selector: '.shop-page-wp-grid',
+            default: '1'
         },
         category: {
             type: 'string',
@@ -136,8 +137,13 @@ registerBlockType('gutenberg-boilerplate-es5/shop-page-wp', {
         return wp.element.createElement(
             'div',
             { className: className },
+            wp.element.createElement(
+                'h4',
+                null,
+                'Shop Page WP'
+            ),
             wp.element.createElement(TextControl, {
-                label: 'Title (optional)',
+                label: __("Title (optional)"),
                 className: 'shop-page-wp-title',
                 onChange: onChangeTitle,
                 type: 'text',

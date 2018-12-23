@@ -2,9 +2,8 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { RichText, PlainText } = wp.editor;
 const { Button, TextControl, SelectControl, ServerSideRender } = wp.components;
-//const { withState } = wp.compose;
 
-registerBlockType( 'gutenberg-boilerplate-es5/shop-page-wp', {
+registerBlockType( 'shop-page-wp/grid', {
     title: 'Shop Page WP',
 
     icon: 'cart',
@@ -19,6 +18,7 @@ registerBlockType( 'gutenberg-boilerplate-es5/shop-page-wp', {
         grid: {
             type: 'string',
             selector: '.shop-page-wp-grid',
+            default: '1'
         },
         category: {
             type: 'string',
@@ -52,8 +52,9 @@ registerBlockType( 'gutenberg-boilerplate-es5/shop-page-wp', {
 
         return (
             <div className={ className }>
+                <h4>Shop Page WP</h4>
                 <TextControl
-                    label="Title (optional)"
+                    label={ __("Title (optional)") }
                     className="shop-page-wp-title"
                     onChange={ onChangeTitle }
                     type="text"
