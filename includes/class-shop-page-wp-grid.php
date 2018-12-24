@@ -78,7 +78,7 @@ class Shop_Page_WP_Grid {
 		/**
 		* Max Products to display
 		*/
-		if ( $attributes['max_number'] ) {
+		if ( isset($attributes['max_number'] ) ) {
 			$posts_per_page_max = intval($attributes['max_number']);
 		} else {
 			$posts_per_page_max = - 1;
@@ -88,7 +88,7 @@ class Shop_Page_WP_Grid {
 		 * Set $args for custom post type query
 		 */
 		$products = array();
-		if ( $attributes['category'] ) {
+		if ( isset( $attributes['category'] ) ) {
 			$cat_array   = array();
 			$cat_explode = explode( '|', $attributes['category'] );
 			foreach ( $cat_explode as $cat ) {

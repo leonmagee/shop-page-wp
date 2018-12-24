@@ -56,15 +56,19 @@ Shop_Page_WP_Shortcode::activate_shortcode();
 /**
  * Gutenberg
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-gutenberg.php';
+if ( function_exists('register_block_type') ) {
 
-function shop_page_wp_gutenberg_init() {
-	// $gutenberg_init = new Shop_Page_WP_Gutenberg();
-	// $gutenberg_init->gutenberg_init();
-	Shop_Page_WP_Gutenberg::gutenberg_init();
+	require plugin_dir_path( __FILE__ ) . 'includes/class-shop-page-wp-gutenberg.php';
+
+	function shop_page_wp_gutenberg_init() {
+		// $gutenberg_init = new Shop_Page_WP_Gutenberg();
+		// $gutenberg_init->gutenberg_init();
+		Shop_Page_WP_Gutenberg::gutenberg_init();
+	}
+
+	add_action( 'init', 'shop_page_wp_gutenberg_init' );
 }
 
-add_action( 'init', 'shop_page_wp_gutenberg_init' );
 
 /**
  * Enqueue Styles

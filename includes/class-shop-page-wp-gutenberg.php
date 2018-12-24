@@ -22,6 +22,10 @@ class Shop_Page_WP_Gutenberg {
 
 	public static function shop_page_wp_output_grid( $attr ) {
 
+		if (! isset($attr['grid'])) {
+			$attr['grid'] = 1;
+		}
+
 		$grid_content = Shop_Page_WP_Grid::return_grid( $attr );
 
 		return $grid_content;

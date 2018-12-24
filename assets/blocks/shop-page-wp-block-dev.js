@@ -18,7 +18,6 @@ registerBlockType( 'shop-page-wp/grid', {
         grid: {
             type: 'string',
             selector: '.shop-page-wp-grid',
-            default: '1'
         },
         category: {
             type: 'string',
@@ -31,7 +30,7 @@ registerBlockType( 'shop-page-wp/grid', {
     },
 
     edit( { attributes, className, setAttributes } ) {
-        //console.log('here are the attributes?', attributes);
+
         const { title, grid, category, max_number } = attributes;
 
         function onChangeTitle( newTitle ) {
@@ -58,7 +57,7 @@ registerBlockType( 'shop-page-wp/grid', {
                     className="shop-page-wp-title"
                     onChange={ onChangeTitle }
                     type="text"
-                    value={ title }
+                    value={ title || '' }
                 />
                 <SelectControl
                     label="Number of grid"
@@ -66,9 +65,9 @@ registerBlockType( 'shop-page-wp/grid', {
                     value={ grid }
                     options={ [
                      { label: '1 Column', value: '1' },
-                     { label: '2 grid', value: '2' },
-                     { label: '3 grid', value: '3' },
-                     { label: '4 grid', value: '4' },
+                     { label: '2 Columns', value: '2' },
+                     { label: '3 Columns', value: '3' },
+                     { label: '4 Columns', value: '4' },
                     ] }
                     onChange={ onChangegrid }
                 />
@@ -77,14 +76,14 @@ registerBlockType( 'shop-page-wp/grid', {
                     className="shop-page-wp-cats"
                     onChange={ onChangeCats }
                     type="text"
-                    value={ category }
+                    value={ category || '' }
                 />
                 <TextControl
                     label="Max Number of Products"
                     className="shop-page-wp-max-products"
                     onChange={ onChangemax_number }
                     type="number"
-                    value={ max_number }
+                    value={ max_number || '' }
                 />
             </div>
         );

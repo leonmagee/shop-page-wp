@@ -93,8 +93,7 @@ registerBlockType('shop-page-wp/grid', {
         },
         grid: {
             type: 'string',
-            selector: '.shop-page-wp-grid',
-            default: '1'
+            selector: '.shop-page-wp-grid'
         },
         category: {
             type: 'string',
@@ -110,8 +109,6 @@ registerBlockType('shop-page-wp/grid', {
         var attributes = _ref.attributes,
             className = _ref.className,
             setAttributes = _ref.setAttributes;
-
-        //console.log('here are the attributes?', attributes);
         var title = attributes.title,
             grid = attributes.grid,
             category = attributes.category,
@@ -147,13 +144,13 @@ registerBlockType('shop-page-wp/grid', {
                 className: 'shop-page-wp-title',
                 onChange: onChangeTitle,
                 type: 'text',
-                value: title
+                value: title || ''
             }),
             wp.element.createElement(SelectControl, {
                 label: 'Number of grid',
                 className: 'shop-page-wp-grid',
                 value: grid,
-                options: [{ label: '1 Column', value: '1' }, { label: '2 grid', value: '2' }, { label: '3 grid', value: '3' }, { label: '4 grid', value: '4' }],
+                options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }],
                 onChange: onChangegrid
             }),
             wp.element.createElement(TextControl, {
@@ -161,14 +158,14 @@ registerBlockType('shop-page-wp/grid', {
                 className: 'shop-page-wp-cats',
                 onChange: onChangeCats,
                 type: 'text',
-                value: category
+                value: category || ''
             }),
             wp.element.createElement(TextControl, {
                 label: 'Max Number of Products',
                 className: 'shop-page-wp-max-products',
                 onChange: onChangemax_number,
                 type: 'number',
-                value: max_number
+                value: max_number || ''
             })
         );
     },
