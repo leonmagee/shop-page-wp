@@ -54,6 +54,21 @@ class Shop_Page_WP_Instructions {
             </div>
 
 			<div class="shortcode-guide">
+
+				<h2><?php esc_html_e( 'Gutenberg Usage', 'shop-page-wp' ); ?></h2>
+
+				<?php $gutenberg_settings_line_1 = esc_html__('Insert a Shop Page WP product grid in the Gutenberg editor by clicking on the "+" to Add block. Either search for "Shop Page" or scroll to the widgets block category and select the Shop Page WP block.','shop-page-wp'); ?>
+
+				<?php $gutenberg_settings_line_2 = esc_html__('The settings for number of columns, categories to display and maximum number of products to display are optional. If left blank, all products will display in the grid.','shop-page-wp'); ?>
+
+				<?php $gutenberg_settings_line_3 = esc_html__('To display categories separately on the page; add multiple blocks and insert a heading with the desired text above each.','shop-page-wp'); ?>
+
+				<div class="explanation"><?php echo $gutenberg_settings_line_1; ?></div>
+
+				<div class="explanation"><?php echo $gutenberg_settings_line_2; ?></div>
+
+				<div class="explanation"><?php echo $gutenberg_settings_line_3; ?></div>
+
 				<h2><?php esc_html_e('Shortcode Usage', 'shop-page-wp' ); ?></h2>
 
 				<div class="shortcode">[shop-page-wp]</div>
@@ -87,6 +102,7 @@ class Shop_Page_WP_Instructions {
 				<?php $widget_settings_string = esc_html__('To add products to a widget area just drag the Shop Page WP widget into a Widget Area. You can then set the number of columns and categories (separated by a pipe | symbol), and optionally add a title for the widget section.','shop-page-wp'); ?>
 
 				<div class="explanation"><?php echo $widget_settings_string; ?></div>
+
 
 			</div>
 		</div>

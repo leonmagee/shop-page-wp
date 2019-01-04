@@ -5,16 +5,9 @@ const { Button, TextControl, SelectControl, ServerSideRender } = wp.components;
 
 registerBlockType( 'shop-page-wp/grid', {
     title: 'Shop Page WP',
-
     icon: 'cart',
-
     category: 'widgets',
-
     attributes: {
-        title: {
-            type: 'string',
-            selector: '.shop-page-wp-title',
-        },
         grid: {
             type: 'string',
             selector: '.shop-page-wp-grid',
@@ -31,11 +24,8 @@ registerBlockType( 'shop-page-wp/grid', {
 
     edit( { attributes, className, setAttributes } ) {
 
-        const { title, grid, category, max_number } = attributes;
+        const { grid, category, max_number } = attributes;
 
-        function onChangeTitle( newTitle ) {
-            setAttributes( { title: newTitle } );
-        }
 
         function onChangegrid( newGrid ) {
             setAttributes( { grid: newGrid } );
@@ -51,16 +41,9 @@ registerBlockType( 'shop-page-wp/grid', {
 
         return (
             <div className={ className }>
-                <h4>Shop Page WP</h4>
-                <TextControl
-                    label={ __("Title (optional)") }
-                    className="shop-page-wp-title"
-                    onChange={ onChangeTitle }
-                    type="text"
-                    value={ title || '' }
-                />
+                <h4>{ __("Product Grid") } - Shop Page WP</h4>
                 <SelectControl
-                    label="Number of grid"
+                    label={ __("Number of Columns") }
                     className="shop-page-wp-grid"
                     value={ grid }
                     options={ [
@@ -72,14 +55,15 @@ registerBlockType( 'shop-page-wp/grid', {
                     onChange={ onChangegrid }
                 />
                 <TextControl
-                    label="category (Separate multiple by pipe | symbol)"
+                    //label={ __("category (Separate multiple by pipe | symbol)") }
+                    label={ __("Categories (Separate multiple by pipe | symbol)  Leave Blank to Display All") }
                     className="shop-page-wp-cats"
                     onChange={ onChangeCats }
                     type="text"
                     value={ category || '' }
                 />
                 <TextControl
-                    label="Max Number of Products"
+                    label={ __("Max Number of Products to Display") }
                     className="shop-page-wp-max-products"
                     onChange={ onChangemax_number }
                     type="number"
@@ -91,8 +75,8 @@ registerBlockType( 'shop-page-wp/grid', {
 
     save({attributes}) {
 
-        const { title, grid, category, max_number } = attributes; // this is important?
-        
+        const { grid, category, max_number } = attributes; // this is important?
+
         return null;
     },
 } );

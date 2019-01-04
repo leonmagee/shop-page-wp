@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
-Tested up to: 4.9.8
-Stable tag: 1.1.0
+Tested up to: 5.0.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,10 @@ Shop Page WP is lightweight will not slow your site down like WooCommerce or oth
 
 == Changelog ==
 
+= 1.2.0 =
+
+* Gutenberg functionality added.
+
 = 1.1.0 =
 
 * Grid class names changed: full-width -> spwp-full-width, one-half -> spwp-one-half, one-third -> spwp-one-third, one-fourth -> spwp-one-fourth
@@ -134,6 +138,10 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+
+* Gutenberg functionality added.
 
 = 1.1.0 =
 

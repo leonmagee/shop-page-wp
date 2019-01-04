@@ -78,7 +78,7 @@ class Shop_Page_WP_Grid {
 		/**
 		* Max Products to display
 		*/
-		if ( isset($attributes['max_number'] ) ) {
+		if ( isset($attributes['max_number'] ) && ($attributes['max_number']  != '') ) {
 			$posts_per_page_max = intval($attributes['max_number']);
 		} else {
 			$posts_per_page_max = - 1;
@@ -88,7 +88,8 @@ class Shop_Page_WP_Grid {
 		 * Set $args for custom post type query
 		 */
 		$products = array();
-		if ( isset( $attributes['category'] ) ) {
+		if ( isset( $attributes['category'] ) && ( $attributes['category'] != '' ) ) {
+			//die('this is set?');
 			$cat_array   = array();
 			$cat_explode = explode( '|', $attributes['category'] );
 			foreach ( $cat_explode as $cat ) {
@@ -106,6 +107,7 @@ class Shop_Page_WP_Grid {
 				'posts_per_page' => $posts_per_page_max
 			);
 		} else {
+			//die('so far?');
 			$args = array(
 				'post_type'      => 'shop-page-wp',
 				'posts_per_page' => $posts_per_page_max

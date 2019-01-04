@@ -81,16 +81,9 @@ var _wp$components = wp.components,
 
 registerBlockType('shop-page-wp/grid', {
     title: 'Shop Page WP',
-
     icon: 'cart',
-
     category: 'widgets',
-
     attributes: {
-        title: {
-            type: 'string',
-            selector: '.shop-page-wp-title'
-        },
         grid: {
             type: 'string',
             selector: '.shop-page-wp-grid'
@@ -109,15 +102,10 @@ registerBlockType('shop-page-wp/grid', {
         var attributes = _ref.attributes,
             className = _ref.className,
             setAttributes = _ref.setAttributes;
-        var title = attributes.title,
-            grid = attributes.grid,
+        var grid = attributes.grid,
             category = attributes.category,
             max_number = attributes.max_number;
 
-
-        function onChangeTitle(newTitle) {
-            setAttributes({ title: newTitle });
-        }
 
         function onChangegrid(newGrid) {
             setAttributes({ grid: newGrid });
@@ -137,31 +125,26 @@ registerBlockType('shop-page-wp/grid', {
             wp.element.createElement(
                 'h4',
                 null,
-                'Shop Page WP'
+                __("Product Grid"),
+                ' - Shop Page WP'
             ),
-            wp.element.createElement(TextControl, {
-                label: __("Title (optional)"),
-                className: 'shop-page-wp-title',
-                onChange: onChangeTitle,
-                type: 'text',
-                value: title || ''
-            }),
             wp.element.createElement(SelectControl, {
-                label: 'Number of grid',
+                label: __("Number of Columns"),
                 className: 'shop-page-wp-grid',
                 value: grid,
                 options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }],
                 onChange: onChangegrid
             }),
-            wp.element.createElement(TextControl, {
-                label: 'category (Separate multiple by pipe | symbol)',
+            wp.element.createElement(TextControl
+            //label={ __("category (Separate multiple by pipe | symbol)") }
+            , { label: __("Categories (Separate multiple by pipe | symbol)  Leave Blank to Display All"),
                 className: 'shop-page-wp-cats',
                 onChange: onChangeCats,
                 type: 'text',
                 value: category || ''
             }),
             wp.element.createElement(TextControl, {
-                label: 'Max Number of Products',
+                label: __("Max Number of Products to Display"),
                 className: 'shop-page-wp-max-products',
                 onChange: onChangemax_number,
                 type: 'number',
@@ -171,8 +154,7 @@ registerBlockType('shop-page-wp/grid', {
     },
     save: function save(_ref2) {
         var attributes = _ref2.attributes;
-        var title = attributes.title,
-            grid = attributes.grid,
+        var grid = attributes.grid,
             category = attributes.category,
             max_number = attributes.max_number; // this is important?
 
