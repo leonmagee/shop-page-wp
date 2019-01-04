@@ -13,7 +13,7 @@ Create an affiliate shop page on your website. Simple to setup and add products 
 
 == Description ==
 
-Shop Page WP is the affiliate shop page plugin for your WordPress website that everyone can use. It’s super easy to create a shop page and start adding products immediately. No technical or special skills required. Output a beautiful grid of products.
+Shop Page WP is the affiliate shop page plugin for your WordPress website that everyone can easily setup and use. It’s super easy to create a shop page and start adding products immediately. No technical or special skills required. Output a beautiful grid of products and place it on a shop page.
 
 Have you ever wanted to add a shop page to your website but didn’t want to build it manually or use a plugin that is overkill for what you are trying to do? Shop Page WP is the simple solution for creating an affiliate shop page on your blog.
 
@@ -21,21 +21,26 @@ Have you ever wanted to add a shop page to your website but didn’t want to bui
 = Features =
 
 * Create a simple shop page on your website with a grid of products
-* Simple fields: Just add the product title, link, upload a product image as the featured image and select the product’s category.
+* Simple fields: Just add the product title, optional description, affiliate link, upload a product image as the featured image and specify a category
 * The plugin will automatically resize and or crop your product images to a specified size
 * Choose between a 1, 2, 3 or 4 column product grid.
-* Customize the ‘Buy Now’ button text
+* Customize the ‘Buy Now’ button text for individual products
 * Categorize Products
 * Add affiliate products to your page or sidebar by category
-* Use any affiliate link (Amazon, eBay, etc)
-* Links open in a new tab
+* Use any affiliate link (Amazon, ShareASale, RewardStyle, Ebay, CJ, etc.)
+* Product links open in a new tab
 * Customize the product image size in the plugin settings
+* Gutenberg block for adding product grid a product grid to pages and posts with the ability to specify categories, columns, and maximum number of products to display
 * Simple shortcodes available for adding the affiliate product shop to any page or post on your website.
 * Custom shortcodes for adding specific categories to a shop page section
 * Remove styling if you wish to style it yourself
 * Responsive and mobile friendly
 
-= Shortcode Usage =
+= Insert Products with Gutenberg =
+
+From the Gutenberg editor; click Add Block then either search for Shop Page WP or scroll to the Widgets category and click "Shop Page WP."
+
+= Insert Products by Shortcode =
 
 `[shop-page-wp]`
 Default Shortcode
@@ -45,9 +50,8 @@ Specify Product Category
 Specify Multiple Categories (separated by 'pipe' symbol)
 `[shop-page-wp grid='3']`
 Specify Grid Size (will override default settings)
-Changing Image Sizes
 
-= Image Sizes =
+= Changing Image Sizes =
 
 This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must regenerate thumbnails to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.
 
@@ -101,7 +105,7 @@ Shop Page WP is lightweight will not slow your site down like WooCommerce or oth
 
 = 1.2.0 =
 
-* Gutenberg functionality added.
+* Gutenberg functionality and Shop Page WP Gutenberg block added.
 
 = 1.1.0 =
 
