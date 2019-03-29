@@ -13,7 +13,7 @@ class Shop_Page_WP_Grid {
 	 *
 	 * @return string
 	 */
-	
+
 	//	static function content_excerpt( $content, $length = 120, $suffix = '...' ) {
 	//		$string = substr( $content, 0, $length );
 	//		$exploded = explode( ' ', $string );
@@ -52,9 +52,9 @@ class Shop_Page_WP_Grid {
 		}
 
 		/**
-		* @todo instead of doing math here, instead assign different class names 
+		* @todo instead of doing math here, instead assign different class names
 		* so media queries can be used. Switching to width instead of flex-basis for inline css
-		* to make it work on IE 11? 
+		* to make it work on IE 11?
 		*/
 		if ( $attributes['grid'] ) {
 			if ( $attributes['grid'] == 1 ) {
@@ -189,7 +189,7 @@ class Shop_Page_WP_Grid {
         </script>
         <div class="shop-page-wp-grid">
 			<?php foreach ( $products as $product ) {
-				if ( get_option('shop-page-wp-link-target') === "2" ) { 
+				if ( get_option('shop-page-wp-link-target') === "2" ) {
 
 					/**
 					* @todo refactor this to be more dry
@@ -201,7 +201,7 @@ class Shop_Page_WP_Grid {
 					<div onclick="openUrlInSameTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
 
 				<?php } else { ?>
-					
+
 					<div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
 
 				<?php } ?>

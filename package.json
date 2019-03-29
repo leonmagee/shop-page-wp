@@ -1,6 +1,6 @@
 {
   "name": "Shop_Page_WP",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "GPL-2.0-or-later",
   "main": "block.js",
   "description": "a custom wordpress plugin",
@@ -10,11 +10,12 @@
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "cross-env": "^5.0.1",
-    "webpack": "^3.1.0"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack",

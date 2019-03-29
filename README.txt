@@ -4,7 +4,7 @@ Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
 Tested up to: 5.0.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,8 @@ Shop Page WP is lightweight will not slow your site down like WooCommerce or oth
 
 3. Admin Settings
 
+4. Gutenberg Block in page editor
+
 
 == Changelog ==
 
@@ -145,7 +147,7 @@ Initial Release
 
 = 1.2.0 =
 
-* Gutenberg functionality added.
+* Gutenberg functionality and Shop Page WP Gutenberg block added.
 
 = 1.1.0 =
 
