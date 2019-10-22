@@ -52,6 +52,7 @@ class Shop_Page_WP_Grid
                 $attributes['grid'] = $number_of_columns;
             }
         }
+        var_dump($attributes);
 
         /**
          * @todo instead of doing math here, instead assign different class names

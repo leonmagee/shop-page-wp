@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,108 +79,22 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/blocks/shop-page-wp-block-dev.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./assets/blocks/shop-page-wp-block-dev.js":
+/*!*************************************************!*\
+  !*** ./assets/blocks/shop-page-wp-block-dev.js ***!
+  \*************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-var __ = wp.i18n.__;
-var registerBlockType = wp.blocks.registerBlockType;
-var _wp$editor = wp.editor,
-    RichText = _wp$editor.RichText,
-    PlainText = _wp$editor.PlainText;
-var _wp$components = wp.components,
-    Button = _wp$components.Button,
-    TextControl = _wp$components.TextControl,
-    SelectControl = _wp$components.SelectControl,
-    ServerSideRender = _wp$components.ServerSideRender;
-
-
-registerBlockType('shop-page-wp/grid', {
-    title: 'Shop Page WP',
-    icon: 'cart',
-    category: 'widgets',
-    attributes: {
-        grid: {
-            type: 'string',
-            selector: '.shop-page-wp-grid'
-        },
-        category: {
-            type: 'string',
-            selector: '.shop-page-wp-cats'
-        },
-        max_number: {
-            type: 'string',
-            selector: '.shop-page-wp-max-products'
-        }
-    },
-
-    edit: function edit(_ref) {
-        var attributes = _ref.attributes,
-            className = _ref.className,
-            setAttributes = _ref.setAttributes;
-        var grid = attributes.grid,
-            category = attributes.category,
-            max_number = attributes.max_number;
-
-
-        function onChangegrid(newGrid) {
-            setAttributes({ grid: newGrid });
-        }
-
-        function onChangeCats(newCats) {
-            setAttributes({ category: newCats });
-        }
-
-        function onChangemax_number(newMaxNumber) {
-            setAttributes({ max_number: newMaxNumber });
-        }
-
-        return wp.element.createElement(
-            'div',
-            { className: className },
-            wp.element.createElement(
-                'h4',
-                null,
-                __("Product Grid"),
-                ' - Shop Page WP'
-            ),
-            wp.element.createElement(SelectControl, {
-                label: __("Number of Columns"),
-                className: 'shop-page-wp-grid',
-                value: grid,
-                options: [{ label: '1 Column', value: '1' }, { label: '2 Columns', value: '2' }, { label: '3 Columns', value: '3' }, { label: '4 Columns', value: '4' }],
-                onChange: onChangegrid
-            }),
-            wp.element.createElement(TextControl
-            //label={ __("category (Separate multiple by pipe | symbol)") }
-            , { label: __("Categories (Separate multiple by pipe | symbol)  Leave Blank to Display All"),
-                className: 'shop-page-wp-cats',
-                onChange: onChangeCats,
-                type: 'text',
-                value: category || ''
-            }),
-            wp.element.createElement(TextControl, {
-                label: __("Max Number of Products to Display"),
-                className: 'shop-page-wp-max-products',
-                onChange: onChangemax_number,
-                type: 'number',
-                value: max_number || ''
-            })
-        );
-    },
-    save: function save(_ref2) {
-        var attributes = _ref2.attributes;
-        var grid = attributes.grid,
-            category = attributes.category,
-            max_number = attributes.max_number; // this is important?
-
-        return null;
-    }
-});
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: /Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/assets/blocks/shop-page-wp-block-dev.js: Unexpected token (41:6)\\n\\n\\u001b[0m \\u001b[90m 39 | \\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 40 | \\u001b[39m    \\u001b[36mreturn\\u001b[39m (\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 41 | \\u001b[39m      \\u001b[33m<\\u001b[39m\\u001b[33mdiv\\u001b[39m className\\u001b[33m=\\u001b[39m{className}\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m    | \\u001b[39m      \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 42 | \\u001b[39m        \\u001b[33m<\\u001b[39m\\u001b[33mh4\\u001b[39m\\u001b[33m>\\u001b[39m{__(\\u001b[32m'Product Grid'\\u001b[39m)} \\u001b[33m-\\u001b[39m \\u001b[33mShop\\u001b[39m \\u001b[33mPage\\u001b[39m \\u001b[33mWP\\u001b[39m\\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mh4\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 43 | \\u001b[39m        \\u001b[33m<\\u001b[39m\\u001b[33mSelectControl\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 44 | \\u001b[39m          label\\u001b[33m=\\u001b[39m{__(\\u001b[32m'Number of Columns'\\u001b[39m)}\\u001b[0m\\n    at Parser.raise (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:6420:17)\\n    at Parser.unexpected (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:7773:16)\\n    at Parser.parseExprAtom (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8996:20)\\n    at Parser.parseExprSubscripts (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8556:23)\\n    at Parser.parseMaybeUnary (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8536:21)\\n    at Parser.parseExprOps (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8402:23)\\n    at Parser.parseMaybeConditional (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8375:23)\\n    at Parser.parseMaybeAssign (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8325:21)\\n    at Parser.parseParenAndDistinguishExpression (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9133:28)\\n    at Parser.parseExprAtom (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8917:21)\\n    at Parser.parseExprSubscripts (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8556:23)\\n    at Parser.parseMaybeUnary (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8536:21)\\n    at Parser.parseExprOps (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8402:23)\\n    at Parser.parseMaybeConditional (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8375:23)\\n    at Parser.parseMaybeAssign (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8325:21)\\n    at Parser.parseExpression (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8275:23)\\n    at Parser.parseReturnStatement (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10378:28)\\n    at Parser.parseStatementContent (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10057:21)\\n    at Parser.parseStatement (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10009:17)\\n    at Parser.parseBlockOrModuleBlockBody (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10585:25)\\n    at Parser.parseBlockBody (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10572:10)\\n    at Parser.parseBlock (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:10556:10)\\n    at Parser.parseFunctionBody (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9584:24)\\n    at Parser.parseFunctionBodyAndFinish (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9554:10)\\n    at Parser.parseMethod (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9508:10)\\n    at Parser.parseObjectMethod (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9424:19)\\n    at Parser.parseObjPropValue (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9466:23)\\n    at Parser.parseObjectMember (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9390:10)\\n    at Parser.parseObj (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:9314:25)\\n    at Parser.parseExprAtom (/Users/cci/Documents/Sites/WordPress/Testing/wp-content/plugins/shop-page-wp/node_modules/@babel/parser/lib/index.js:8939:28)\");\n\n//# sourceURL=webpack:///./assets/blocks/shop-page-wp-block-dev.js?");
 
 /***/ })
-/******/ ]);
+
+/******/ });
