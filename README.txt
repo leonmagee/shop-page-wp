@@ -4,7 +4,7 @@ Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store
 Requires at least: 3.0.1
 Tested up to: 5.0.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,8 +46,12 @@ From the Gutenberg editor; click Add Block then either search for Shop Page WP o
 Default Shortcode
 `[shop-page-wp category='food']`
 Specify Product Category
-`[shop-page-wp category='food|electronics']`
-Specify Multiple Categories (separated by 'pipe' symbol)
+`[shop-page-wp category='food,electronics']`
+Specify Multiple Categories (separated by comma)
+`[shop-page-wp id='17']`
+Specify Product ID
+`[shop-page-wp id='17,18']`
+Specify Multiple IDs (separated by comma)
 `[shop-page-wp grid='3']`
 Specify Grid Size (will override default settings)
 
@@ -105,6 +109,11 @@ Shop Page WP is lightweight will not slow your site down like WooCommerce or oth
 
 == Changelog ==
 
+= 1.2.2 =
+
+* Added ability to output products by ID (or multiple IDs).
+* Added ability to list categories (or IDs) separated by comma (pipe symbol will still work).
+
 = 1.2.0 =
 
 * Gutenberg functionality and Shop Page WP Gutenberg block added.
@@ -144,6 +153,11 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+
+* Added ability to output products by ID (or multiple IDs).
+* Added ability to list categories (or IDs) separated by comma (pipe symbol will still work).
 
 = 1.2.0 =
 
