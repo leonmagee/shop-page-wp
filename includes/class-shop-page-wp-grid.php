@@ -52,7 +52,6 @@ class Shop_Page_WP_Grid
                 $attributes['grid'] = $number_of_columns;
             }
         }
-        var_dump($attributes);
 
         /**
          * @todo instead of doing math here, instead assign different class names
@@ -88,29 +87,37 @@ class Shop_Page_WP_Grid
         }
 
         /**
-         * Get Product ID Parameters
-         */
-        if (isset($attributes['product_ids']) && ($attributes['product_ids'] != '')) {
-            //$posts_per_page_max = intval($attributes['max_number']);
-            //die($attributes['product_ids']);
-        } else {
-            //$posts_per_page_max = -1;
-        }
-
-        /**
          * Set $args for custom post type query
          */
-        $products = array();
-        if (isset($attributes['category']) && ($attributes['category'] != '')) {
-            //die('this is set?');
+        // default product array
+        $args = array(
+            'post_type' => 'shop-page-wp',
+            'posts_per_page' => $posts_per_page_max,
+        );
+        // product ID or Category field is set
+        if (isset($attributes['id']) && ($attributes['id'] != '')) {
+            $id_array = array();
+            $input_string = str_replace('|', ',', $attributes['id']);
+            $id_explode = explode(',', $input_string);
+            foreach ($id_explode as $id) {
+                $id_array[] = $id;
+            }
+            $args = array(
+                'post_type' => 'shop-page-wp',
+                'post__in' => $id_array,
+            );
+        } elseif (isset($attributes['category']) && ($attributes['category'] != '')) {
             $cat_array = array();
-            $cat_explode = explode('|', $attributes['category']);
+            $input_string = str_replace('|', ',', $attributes['category']);
+            $cat_explode = explode(',', $input_string);
             foreach ($cat_explode as $cat) {
                 $cat_object = get_category_by_slug($cat);
                 if ($cat_object) {
                     $cat_id = $cat_object->term_id;
                     $cat_array[] = $cat_id;
                 } else {
+                    // Add non-existant category to array if none exist
+                    // This is done so no products show
                     $cat_array[] = 11111111111;
                 }
             }
@@ -119,17 +126,12 @@ class Shop_Page_WP_Grid
                 'category__in' => $cat_array,
                 'posts_per_page' => $posts_per_page_max,
             );
-        } else {
-            //die('so far?');
-            $args = array(
-                'post_type' => 'shop-page-wp',
-                'posts_per_page' => $posts_per_page_max,
-            );
         }
 
         /**
          * WordPress Query
          */
+        $products = array();
         $shop_page_wp_query = new WP_Query($args);
         if ($shop_page_wp_query->have_posts()) {
             while ($shop_page_wp_query->have_posts()) {

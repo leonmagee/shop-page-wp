@@ -20,10 +20,14 @@ registerBlockType('shop-page-wp/grid', {
       type: 'string',
       selector: '.shop-page-wp-max-products',
     },
+    id: {
+      type: 'string',
+      selector: '.shop-page-wp-products-by-id',
+    }
   },
 
   edit({ attributes, className, setAttributes }) {
-    const { grid, category, max_number } = attributes;
+    const { grid, category, max_number, id } = attributes;
 
     function onChangegrid(newGrid) {
       setAttributes({ grid: newGrid });
@@ -35,6 +39,10 @@ registerBlockType('shop-page-wp/grid', {
 
     function onChangemax_number(newMaxNumber) {
       setAttributes({ max_number: newMaxNumber });
+    }
+
+    function onChangeProductIDs(newProductIDs) {
+      setAttributes({ id: newProductIDs });
     }
 
     return (
@@ -55,7 +63,7 @@ registerBlockType('shop-page-wp/grid', {
         <TextControl
           // label={ __("category (Separate multiple by pipe | symbol)") }
           label={__(
-            'Categories (Separate multiple by pipe | symbol)  Leave Blank to Display All'
+            'Categories (separate with comma) - leave Blank to Display All'
           )}
           className="shop-page-wp-cats"
           onChange={onChangeCats}
@@ -63,18 +71,25 @@ registerBlockType('shop-page-wp/grid', {
           value={category || ''}
         />
         <TextControl
-          label={__('Max Number of Products to Display')}
+          label={__('Max Number of Products')}
           className="shop-page-wp-max-products"
           onChange={onChangemax_number}
           type="number"
           value={max_number || ''}
+        />
+        <TextControl
+          label={__('Products by ID (separate with comma)')}
+          className="shop-page-wp-products-by-id"
+          onChange={onChangeProductIDs}
+          type="text"
+          value={id || ''}
         />
       </div>
     );
   },
 
   save({ attributes }) {
-    const { grid, category, max_number } = attributes; // this is important?
+    const { grid, category, max_number, product_ids } = attributes; // this is important?
 
     return null;
   },

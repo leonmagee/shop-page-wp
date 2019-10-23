@@ -12,7 +12,7 @@
     "@wordpress/scripts": "5.1.0"
   },
   "scripts": {
-    "start": "wp-scripts start",
-    "build": "wp-scripts build"
+    "start": "wp-scripts start assets/blocks/shop-page-wp-block.js",
+    "build": "wp-scripts build assets/blocks/shop-page-wp-block.js"
   }
 }

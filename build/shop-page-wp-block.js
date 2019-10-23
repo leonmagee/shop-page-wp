@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/blocks/shop-page-wp-block.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./assets/blocks/shop-page-wp-block.js":
+/*!*********************************************!*\
+  !*** ./assets/blocks/shop-page-wp-block.js ***!
+  \*********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -125,7 +125,7 @@ registerBlockType('shop-page-wp/grid', {
       type: 'string',
       selector: '.shop-page-wp-max-products'
     },
-    product_ids: {
+    id: {
       type: 'string',
       selector: '.shop-page-wp-products-by-id'
     }
@@ -137,7 +137,7 @@ registerBlockType('shop-page-wp/grid', {
     var grid = attributes.grid,
         category = attributes.category,
         max_number = attributes.max_number,
-        product_ids = attributes.product_ids;
+        id = attributes.id;
 
     function onChangegrid(newGrid) {
       setAttributes({
@@ -159,7 +159,7 @@ registerBlockType('shop-page-wp/grid', {
 
     function onChangeProductIDs(newProductIDs) {
       setAttributes({
-        product_ids: newProductIDs
+        id: newProductIDs
       });
     }
 
@@ -185,30 +185,31 @@ registerBlockType('shop-page-wp/grid', {
       onChange: onChangegrid
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl // label={ __("category (Separate multiple by pipe | symbol)") }
     , {
-      label: __('Categories (Separate multiple by pipe | symbol)  Leave Blank to Display All'),
+      label: __('Categories (separate with comma) - leave Blank to Display All'),
       className: "shop-page-wp-cats",
       onChange: onChangeCats,
       type: "text",
       value: category || ''
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
-      label: __('Max Number of Products to Display'),
+      label: __('Max Number of Products'),
       className: "shop-page-wp-max-products",
       onChange: onChangemax_number,
       type: "number",
       value: max_number || ''
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
-      label: __('Products by ID (Separate multiple by pipe | symbol - overrides Categories and Max Number)'),
+      label: __('Products by ID (separate with comma)'),
       className: "shop-page-wp-products-by-id",
       onChange: onChangeProductIDs,
       type: "text",
-      value: product_ids || ''
+      value: id || ''
     }));
   },
   save: function save(_ref2) {
     var attributes = _ref2.attributes;
     var grid = attributes.grid,
         category = attributes.category,
-        max_number = attributes.max_number; // this is important?
+        max_number = attributes.max_number,
+        product_ids = attributes.product_ids; // this is important?
 
     return null;
   }
@@ -228,4 +229,4 @@ registerBlockType('shop-page-wp/grid', {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=shop-page-wp-block.js.map

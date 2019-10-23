@@ -23,7 +23,7 @@ class Shop_Page_WP_Shortcode
             'category' => '',
             'grid' => '',
             'max_number' => '',
-            'product_ids' => '',
+            'id' => '',
         ), $atts);
 
         $grid_content = Shop_Page_WP_Grid::return_grid($attributes);
