@@ -5,12 +5,6 @@
  */
 class Shop_Page_WP_CPT
 {
-
-    // public static function register_post_types() {
-
-    //     self::create_post_type();
-    // }
-
     /**
      * Static Function create_post_type
      */
@@ -42,7 +36,6 @@ class Shop_Page_WP_CPT
                 '_builtin' => false,
                 'rewrite' => array('slug' => 'shop-page'),
                 'has_archive' => true,
-                //'supports'            => array( 'title', 'thumbnail', 'editor' ),
                 'supports' => array('title', 'thumbnail'),
                 'taxonomies' => array('category'),
             )
@@ -54,8 +47,6 @@ class Shop_Page_WP_CPT
         add_filter('manage_shop-page-wp_posts_columns', 'add_id_column');
         function add_id_column($columns)
         {
-            var_dump($columns);
-            //unset($columns['xxx']); // remove column
             $new_array = array();
             $count = 0;
             foreach ($columns as $key => $item) {
@@ -80,25 +71,4 @@ class Shop_Page_WP_CPT
             echo $post_id;
         }
     }
-    // public static function custom_book_column($column, $post_id)
-    // {
-    //     switch ($column) {
-
-    //         case 'book_author':
-    //             $terms = get_the_term_list($post_id, 'book_author', '', ',', '');
-    //             if (is_string($terms)) {
-    //                 echo $terms;
-    //             } else {
-    //                 _e('Unable to get author(s)', 'your_text_domain');
-    //             }
-
-    //             break;
-
-    //         case 'publisher':
-    //             echo get_post_meta($post_id, 'publisher', true);
-    //             break;
-
-    //     }
-    // }
-
 }
