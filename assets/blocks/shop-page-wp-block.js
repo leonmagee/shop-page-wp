@@ -71,18 +71,18 @@ registerBlockType('shop-page-wp/grid', {
           value={category || ''}
         />
         <TextControl
+          label={__('Products by ID (separate with comma) - overrides Categories and Max Number')}
+          className="shop-page-wp-products-by-id"
+          onChange={onChangeProductIDs}
+          type="text"
+          value={id || ''}
+        />
+        <TextControl
           label={__('Max Number of Products')}
           className="shop-page-wp-max-products"
           onChange={onChangemax_number}
           type="number"
           value={max_number || ''}
-        />
-        <TextControl
-          label={__('Products by ID (separate with comma)')}
-          className="shop-page-wp-products-by-id"
-          onChange={onChangeProductIDs}
-          type="text"
-          value={id || ''}
         />
       </div>
     );

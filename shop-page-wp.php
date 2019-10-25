@@ -99,8 +99,9 @@ require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-cpt.php';
 
 function shop_page_wp_register_post_types()
 {
-
     Shop_Page_WP_CPT::create_post_type();
+    Shop_Page_WP_CPT::add_id_column();
+    Shop_Page_WP_CPT::add_id_value();
 }
 
 add_action('init', 'shop_page_wp_register_post_types');

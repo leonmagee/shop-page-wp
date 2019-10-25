@@ -191,17 +191,17 @@ registerBlockType('shop-page-wp/grid', {
       type: "text",
       value: category || ''
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+      label: __('Products by ID (separate with comma) - overrides Categories and Max Number'),
+      className: "shop-page-wp-products-by-id",
+      onChange: onChangeProductIDs,
+      type: "text",
+      value: id || ''
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
       label: __('Max Number of Products'),
       className: "shop-page-wp-max-products",
       onChange: onChangemax_number,
       type: "number",
       value: max_number || ''
-    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
-      label: __('Products by ID (separate with comma)'),
-      className: "shop-page-wp-products-by-id",
-      onChange: onChangeProductIDs,
-      type: "text",
-      value: id || ''
     }));
   },
   save: function save(_ref2) {

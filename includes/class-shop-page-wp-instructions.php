@@ -111,10 +111,9 @@ class Shop_Page_WP_Instructions
 
 				<h2><?php esc_html_e('Use in Widgets', 'shop-page-wp');?></h2>
 
-				<?php $widget_settings_string = esc_html__('To add products to a widget area just drag the Shop Page WP widget into a Widget Area. You can then set the number of columns and categories (separated by a pipe | symbol), and optionally add a title for the widget section.', 'shop-page-wp');?>
+				<?php $widget_settings_string = esc_html__('To add products to a widget area just drag the Shop Page WP widget into a Widget Area. You can then set the number of columns and categories (separated by a comma) or else specify which products should appear with one or more product IDs (separated by a comma), and optionally add a title for the widget section.', 'shop-page-wp');?>
 
 				<div class="explanation"><?php echo $widget_settings_string; ?></div>
-
 
 			</div>
 		</div>
