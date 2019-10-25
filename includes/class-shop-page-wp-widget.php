@@ -106,7 +106,7 @@ class Shop_Page_WP_Widget extends WP_Widget
 		</p>
     <p>
 			<label
-				for="<?php echo esc_attr($this->get_field_id('id')); ?>"><?php esc_attr_e('Products by ID (separate with comma)', 'shop-page-wp');?></label>
+				for="<?php echo esc_attr($this->get_field_id('id')); ?>"><?php esc_attr_e('Products by ID (separate with comma) - overrides Categories and Max Number', 'shop-page-wp');?></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('id')); ?>"
 			       name="<?php echo esc_attr($this->get_field_name('id')); ?>" type="text"
 			       value="<?php echo esc_attr($id); ?>">
