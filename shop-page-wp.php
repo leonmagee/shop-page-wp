@@ -40,11 +40,11 @@ require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-instructions.ph
 Shop_Page_WP_Instructions::activate_admin();
 
 /**
- * Register Meta Boxes
+ * Register Custom Meta Boxes
  */
-require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-cmb2.php';
+require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-meta-boxes.php';
 
-Shop_Page_WP_CMB2::activate_cmb2();
+Shop_Page_WP_Meta_Boxes::add_meta_boxes();
 
 /**
  * Activate Shortcode
@@ -57,16 +57,11 @@ Shop_Page_WP_Shortcode::activate_shortcode();
  * Gutenberg
  */
 if (function_exists('register_block_type')) {
-
     require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-gutenberg.php';
-
     function shop_page_wp_gutenberg_init()
     {
-        // $gutenberg_init = new Shop_Page_WP_Gutenberg();
-        // $gutenberg_init->gutenberg_init();
         Shop_Page_WP_Gutenberg::gutenberg_init();
     }
-
     add_action('init', 'shop_page_wp_gutenberg_init');
 }
 
