@@ -8,10 +8,14 @@ Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Create an affiliate shop page on your website. Simple to setup and add products to start making money from affiliate links on your blog.
+
 == Description ==
+
 Shop Page WP is the affiliate shop page plugin for your WordPress website that everyone can easily setup and use. It’s super easy to create a shop page and start adding products immediately. No technical or special skills required. Output a beautiful grid of products and place it on a shop page, or insert specific products to a blog post.
 Have you ever wanted to add a shop page to your website but didn’t want to build it manually or use a plugin that is overkill for what you are trying to do? Shop Page WP is the simple solution for creating an affiliate shop page on your blog.
+
 = Features =
+
 - Create a simple shop page on your website with a grid of products
 - Simple fields: Just add the product title, optional description, affiliate link, upload a product image as the featured image and specify a category
 - The plugin will automatically resize and or crop your product images to a specified size
@@ -29,8 +33,11 @@ Have you ever wanted to add a shop page to your website but didn’t want to bui
 - Responsive and mobile friendly
 
 = Insert Products with Gutenberg =
+
 From the Gutenberg editor; click Add Block then either search for Shop Page WP or scroll to the Widgets category and click "Shop Page WP."
+
 = Insert Products by Shortcode =
+
 `[shop-page-wp]`
 Default Shortcode
 `[shop-page-wp category='food']`
@@ -43,12 +50,16 @@ Specify Product ID (will override categories)
 Specify Multiple IDs (separated by comma)
 `[shop-page-wp grid='3']`
 Specify Grid Size (will override default settings)
+
 = Changing Image Sizes =
+
 This plugin sets a custom image size of 300 x 300 pixels. After installing this plugin (or after changing the image size in settings) you must regenerate thumbnails to create appropriately sized thumbnails for each of your product images. This will not be necessary for new images you upload while the plugin is installed and active.
 *** if you are using already uploaded images, you will need to regenerate thumbnails
 This plugin is in active development. Feel free to contact us with any feature requests or ideas.
 View More Documentation
+
 == Installation ==
+
 Automatic installation
 Automatic installation is the quickest and least technical way to get Shop Page WP installed.
 Go to your Wordpress admin area and select Plugins -> Add new from the menu.
@@ -61,7 +72,9 @@ Unzip the plugin archive on your computer.
 Upload shop-page-wp directory to the /wp-content/plugins/ directory via FTP.
 Activate the plugin through the 'Plugins' menu in WordPress
 Go to Shop Page WP in your Wordpress dashboard to begin adding products.
+
 == Frequently Asked Questions ==
+
 = Where can I find setup instructions and documentation? =
 You can view all the documentation on the plugin’s website, at shoppagewp.com/documentation.
 = What kind of affiliate links can I use? =
@@ -76,6 +89,7 @@ Product images are added as the “featured image” within the product post. Ho
 Yes. All product links are set to rel=nofollow.
 = Where can I find the product ID for inserting specific products? =
 From the Wordpress Admin, navigate to Shop Page WP > All products. The product post ID is displayed as a column and can be copied and pasted into the shortcode or Gutenberg block.
+
 == Screenshots ==
 
 1. Product Grid - 4 Columns
@@ -84,10 +98,12 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 4. Gutenberg Block in page editor
 
 == Changelog ==
+
 = 1.2.2 =
 
 - Added ability to output products by ID (or multiple IDs).
 - Added ability to list categories (or IDs) separated by comma (pipe symbol will still work).
+- Admin Metabox Update - Removed CMB2 - replaced with native solution.
 
 = 1.2.0 =
 
@@ -122,14 +138,20 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 - Misc style updates
 
 = 1.0.2 =
+
 Settings and Documentation Update
+
 = 1.0.1 =
+
 Initial Release
+
 == Upgrade Notice ==
+
 = 1.2.2 =
 
 - Added ability to output products by ID (or multiple IDs).
 - Added ability to list categories (or IDs) separated by comma (pipe symbol will still work).
+- Admin Metabox Update - Removed CMB2 - replaced with native solution.
 
 = 1.2.0 =
 
@@ -164,4 +186,5 @@ Initial Release
 - Misc style updates
 
 = 1.0.2 =
+
 Settings and Documentation Update
