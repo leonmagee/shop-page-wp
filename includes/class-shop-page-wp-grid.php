@@ -24,6 +24,18 @@ class Shop_Page_WP_Grid
     //        return $final;
     //    }
 
+    public static function parseAmazonURL($url)
+    {
+        $matches1 = [];
+        $matches2 = [];
+        preg_match('/href="([^"]*)"/i', $url, $matches1);
+        preg_match('/src="([^"]*)"/i', $url, $matches2);
+        if (isset($matches1[1]) && isset($matches2[1])) {
+            return [$matches1[1], $matches2[1]];
+        }
+        return false;
+    }
+
     /**
      * @param $attributes
      * $attributes array can come from shortcode or widget settings
@@ -138,52 +150,64 @@ class Shop_Page_WP_Grid
                 $shop_page_wp_query->the_post();
                 $title = get_the_title();
                 $prefix = '_Shop_Page_WP_';
-                $url_field = $prefix . 'url';
-                $description_field = $prefix . 'description';
-                $description = get_post_meta(get_the_ID(), $description_field, true);
-                if (!($link = get_post_meta(get_the_ID(), $url_field, true))) {
-                    $link = false;
-                }
-                $button_text_custom = false;
-                $button_text_field = $prefix . 'button-text';
-                if ($button_text_new = get_post_meta(get_the_ID(), $button_text_field, true)) {
-                    $button_text_custom = true;
-                }
-                $image_id = get_post_thumbnail_id();
+                /**
+                 * First get Amazon Affiliate embed code
+                 */
+                $amazon_field = $prefix . 'amazon-embed';
+                $amazon = get_post_meta(get_the_ID(), $amazon_field, true);
+                $matches = self::parseAmazonURL($amazon);
 
-                if (has_post_thumbnail()) {
-                    $image_url = wp_get_attachment_image_src($image_id, 'shop-page-wp-product', true);
-                    $image_url_final = $image_url[0];
+                if ($matches) {
 
-                    $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                    $link = $matches[0];
+                    $image_url_final = 'https:' . $matches[1];
 
                 } else {
-                    $image_url_final = plugins_url('../assets/img/product-image-placeholder.png', __FILE__);
+                    /**
+                     * Get URL field (if no embed code)
+                     */
+                    $url_field = $prefix . 'url';
+                    if (!($link = get_post_meta(get_the_ID(), $url_field, true))) {
+                        $link = false;
+                    }
+                    /**
+                     * Get Featured Image (if no embed code)
+                     */
+                    $image_id = get_post_thumbnail_id();
+                    if (has_post_thumbnail()) {
+                        $image_url = wp_get_attachment_image_src($image_id, 'shop-page-wp-product', true);
+                        $image_url_final = $image_url[0];
+
+                        $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+
+                    } else {
+                        $image_url_final = plugins_url('../assets/img/product-image-placeholder.png', __FILE__);
+                    }
+
                 }
 
                 /**
-                 * @todo add attribute for alt text
+                 * Get Description Field
                  */
+                $description_field = $prefix . 'description';
+                $description = get_post_meta(get_the_ID(), $description_field, true);
 
-                if ($button_text_custom) {
-                    $products[] = array(
-                        'title' => $title,
-                        'img_url' => $image_url_final,
-                        'img_alt' => $alt_text,
-                        'link' => $link,
-                        'description' => $description,
-                        'button_text' => $button_text_new,
-                    );
-                } else {
-                    $products[] = array(
-                        'title' => $title,
-                        'img_url' => $image_url_final,
-                        'img_alt' => $alt_text,
-                        'link' => $link,
-                        'description' => $description,
-                        'button_text' => $button_text,
-                    );
+                /**
+                 * Get Custom Button Text
+                 */
+                $button_custom = false;
+                $button_text_field = $prefix . 'button-text';
+                if ($button_text_new = get_post_meta(get_the_ID(), $button_text_field, true)) {
+                    $button_custom = true;
                 }
+                $products[] = array(
+                    'title' => $title,
+                    'img_url' => $image_url_final,
+                    'img_alt' => $alt_text,
+                    'link' => $link,
+                    'description' => $description,
+                    'button_text' => $button_custom ? $button_text_new : $button_text,
+                );
             }
         }
         wp_reset_postdata();

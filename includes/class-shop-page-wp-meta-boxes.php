@@ -22,6 +22,7 @@ class Shop_Page_WP_Meta_Boxes
             $affiliate_url = get_post_meta($post->ID, '_Shop_Page_WP_url', true);
             $description = get_post_meta($post->ID, '_Shop_Page_WP_description', true);
             $button_text = get_post_meta($post->ID, '_Shop_Page_WP_button-text', true);
+            $amazon = get_post_meta($post->ID, '_Shop_Page_WP_amazon-embed', true);
             ?>
             <div>
               <label for="_Shop_Page_WP_url" style="font-weight: bold; min-width: 275px !important; display: inline-block; margin-top: -4px">Product Affiliate URL</label>
@@ -34,6 +35,10 @@ class Shop_Page_WP_Meta_Boxes
             <div style="border-top: 1px solid #eee; margin-top: 15px;">
               <label for="_Shop_Page_WP_button-text" style="font-weight: bold; min-width: 275px !important; display: inline-block; margin-top: -4px">Custom Button Text (optional)</label>
               <input style="margin-top: 20px; width: 500px;" name="_Shop_Page_WP_button-text" value="<?php echo $button_text; ?>"/>
+            </div>
+            <div style="border-top: 1px solid #eee; margin-top: 15px;">
+              <label for="_Shop_Page_WP_amazon-embed" style="font-weight: bold; min-width: 275px !important; display: inline-block; margin-top: 23px">Amazon Embed (optional)</label>
+              <textarea style="margin-top: 20px; width: 500px; height: 200px; vertical-align: top;" name="_Shop_Page_WP_amazon-embed"><?php echo $amazon; ?></textarea>
             </div>
         <?php }
         add_action('add_meta_boxes', 'shop_page_wp_add_custom_box');
@@ -59,6 +64,13 @@ class Shop_Page_WP_Meta_Boxes
                     $post_id,
                     '_Shop_Page_WP_button-text',
                     $_POST['_Shop_Page_WP_button-text']
+                );
+            }
+            if (array_key_exists('_Shop_Page_WP_amazon-embed', $_POST)) {
+                update_post_meta(
+                    $post_id,
+                    '_Shop_Page_WP_amazon-embed',
+                    $_POST['_Shop_Page_WP_amazon-embed']
                 );
             }
 
