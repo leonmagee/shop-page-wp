@@ -85,7 +85,8 @@ if ($default_styles) {
     Shop_Page_WP_Scripts::hook_base_styles();
 }
 
-//Shop_Page_WP_Scripts::hook_admin_styles();
+// if admin?
+Shop_Page_WP_Scripts::hook_admin_styles();
 
 /**
  * Register Post Type

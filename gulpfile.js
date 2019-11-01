@@ -13,38 +13,36 @@ var util = require('gulp-util');
 var wpPot = require('gulp-wp-pot');
 
 /**
- * Default Task
- */
-gulp.task('default', ['scss-base', 'scss-grid', 'watch']);
-
-/**
  * SCSS Task
  */
-gulp.task('scss-base', function () {
+gulp.task('scss-base', function (done) {
     gulp.src(['assets/scss/shop-page-wp-base-styles.scss'])
         .pipe(sass({style: 'compressed', errLogToConsole: true}))
         .pipe(rename('shop-page-wp-base-styles.css'))
         .pipe(minifycss())
         .pipe(gulp.dest('assets/css'));
     util.log(util.colors.red('> > > base styles compiled < < <'));
+    done();
 });
 
-gulp.task('scss-grid', function () {
+gulp.task('scss-grid', function (done) {
     gulp.src(['assets/scss/shop-page-wp-grid.scss'])
         .pipe(sass({style: 'compressed', errLogToConsole: true}))
         .pipe(rename('shop-page-wp-grid.css'))
         .pipe(minifycss())
         .pipe(gulp.dest('assets/css'));
     util.log(util.colors.red('> > > grid styles compiled < < <'));
+    done();
 });
 
-gulp.task('scss-admin', function () {
+gulp.task('scss-admin', function (done) {
     gulp.src(['assets/scss/shop-page-wp-admin-styles.scss'])
         .pipe(sass({style: 'compressed', errLogToConsole: true}))
         .pipe(rename('shop-page-wp-admin-styles.css'))
         .pipe(minifycss())
         .pipe(gulp.dest('assets/css'));
-    util.log(util.colors.red('> > > grid styles compiled < < <'));
+    util.log(util.colors.red('> > > admin styles compiled < < <'));
+    done();
 });
 
 /**
@@ -63,12 +61,16 @@ gulp.task('watch', function () {
     /**
      *  Watch SCSS files for changes
      */
-    gulp.watch('assets/scss/**/shop-page-wp-base-styles.scss', ['scss-base']);
-    gulp.watch('assets/scss/**/shop-page-wp-grid.scss', ['scss-grid']);
-    gulp.watch('assets/scss/**/shop-page-wp-admin-styles.scss', ['scss-admin']);
-    //gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
-    //gulp.watch('assets/scss/**/*.scss', ['scss-base', 'scss-grid']);
+    gulp.watch('assets/scss/**/shop-page-wp-base-styles.scss', gulp.series('scss-base'));
+    gulp.watch('assets/scss/**/shop-page-wp-grid.scss', gulp.series('scss-grid'));
+    gulp.watch('assets/scss/**/shop-page-wp-admin-styles.scss', gulp.series('scss-admin'));
 });
+
+/**
+ * Default Task
+ */
+gulp.task('default', gulp.series('scss-base', 'scss-grid', 'scss-admin', 'watch'));
+
 
 /**
  * Generate Pot Files
