@@ -9,7 +9,8 @@
     "url": "https://github.com/leonmagee/shop-page-wp"
   },
   "devDependencies": {
-    "@wordpress/scripts": "5.1.0"
+    "@wordpress/scripts": "5.1.0",
+    "gulp": "^4.0.2"
   },
   "scripts": {
     "start": "wp-scripts start assets/blocks/shop-page-wp-block.js",

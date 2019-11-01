@@ -24,6 +24,10 @@ class Shop_Page_WP_Meta_Boxes
             $button_text = get_post_meta($post->ID, '_Shop_Page_WP_button-text', true);
             $amazon = get_post_meta($post->ID, '_Shop_Page_WP_amazon-embed', true);
             ?>
+            <div class="shop-page-wp-choice-wrap">
+            <button class="button button-primary button-large">Custom Product</button>
+            <button class="button button-large">Amazon Embed</button>
+            </div>
             <div>
               <label for="_Shop_Page_WP_url" style="font-weight: bold; min-width: 275px !important; display: inline-block; margin-top: -4px">Product Affiliate URL</label>
               <input style="margin-top: 20px; width: 500px;" name="_Shop_Page_WP_url" value="<?php echo $affiliate_url; ?>"/>
