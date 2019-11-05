@@ -1,16 +1,16 @@
 /**
  *  Initialize Gulp
  */
-var gulp = require('gulp');
+const gulp = require('gulp');
 
 /**
  *  Load Gulp Dependencies
  */
-var sass = require('gulp-sass');
-var minifycss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var util = require('gulp-util');
-var wpPot = require('gulp-wp-pot');
+const sass = require('gulp-sass');
+const minifycss = require('gulp-minify-css');
+const rename = require('gulp-rename');
+const util = require('gulp-util');
+const wpPot = require('gulp-wp-pot');
 
 /**
  * SCSS Task

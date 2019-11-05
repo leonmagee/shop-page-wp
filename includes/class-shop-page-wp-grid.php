@@ -151,16 +151,26 @@ class Shop_Page_WP_Grid
                 $title = get_the_title();
                 $prefix = '_Shop_Page_WP_';
                 /**
-                 * First get Amazon Affiliate embed code
+                 * Check which type of product
                  */
-                $amazon_field = $prefix . 'amazon-embed';
-                $amazon = get_post_meta(get_the_ID(), $amazon_field, true);
-                $matches = self::parseAmazonURL($amazon);
+                $type_field = $prefix . 'type';
+                $type = get_post_meta(get_the_ID(), $type_field, true);
 
-                if ($matches) {
+                if ($type == 2) {
+                    /**
+                     * Get Amazon Affiliate embed code
+                     */
+                    $amazon_field = $prefix . 'amazon-embed';
+                    $amazon = get_post_meta(get_the_ID(), $amazon_field, true);
+                    $matches = self::parseAmazonURL($amazon);
 
-                    $link = $matches[0];
-                    $image_url_final = 'https:' . $matches[1];
+                    if ($matches) {
+                        $link = $matches[0];
+                        $image_url_final = 'https:' . $matches[1];
+                    } else {
+                        //die('no match - try skipping?');
+                        continue;
+                    }
 
                 } else {
                     /**
