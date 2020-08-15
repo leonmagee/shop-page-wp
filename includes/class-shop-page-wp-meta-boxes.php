@@ -53,12 +53,17 @@ class Shop_Page_WP_Meta_Boxes
             }
             ?>
 
+
             <div class="spwp-button-group">
-              <?php $counter = 1;
-            foreach ($tab_links as $link) {?>
+              <?php if (Shop_Page_WP_Advanced_Access) {
+                $counter = 1;
+                foreach ($tab_links as $link) {?>
                   <a href="#" <?php if ($counter == $product_type) {echo 'class="current"';}?> tab="tab-<?php echo $counter; ?>"><?php echo $link; ?></a>
                 <?php ++$counter;
-            }?>
+                }
+            }
+
+            ?>
 
             </div>
 
@@ -68,6 +73,7 @@ class Shop_Page_WP_Meta_Boxes
                 <label for="_Shop_Page_WP_url">Product Affiliate URL</label>
                 <input name="_Shop_Page_WP_url" value="<?php echo $affiliate_url; ?>"/>
               </div>
+              <?php if (Shop_Page_WP_Advanced_Access) {?>
               <div class="spwp-admin-item tab-item tab-2 <?php if ($product_type == 2) {echo 'current';}?>">
                 <label for="_Shop_Page_WP_amazon-embed">Amazon Embed</label>
                 <textarea name="_Shop_Page_WP_amazon-embed"><?php echo $amazon; ?></textarea>
@@ -77,6 +83,7 @@ class Shop_Page_WP_Meta_Boxes
                   </div>
                 <?php }?>
               </div>
+              <?php }?>
             </div>
             <div class="spwp-tab-container margin-top">
               <div class="spwp-admin-item">
@@ -104,10 +111,23 @@ class Shop_Page_WP_Meta_Boxes
 
             foreach ($key_array as $key) {
                 if (array_key_exists($key, $_POST)) {
+                    //var_dump($_POST[$key]);
+                    //die();
+                    //$string = preg_replace("/[^A-Za-z0-9 ]/", '', $string);
+                    //$post_value = preg_replace("/[^A-Za-z0-9 ]/", '', $_POST[$key]);
+                    //$post_value = preg_replace("/alert/", 'xxx', $_POST[$key]);
+                    //$post_value = htmlentities($_POST[$key] . 'yyy');
+                    /**
+                     * how to sanitize inputs here?
+                     * One issue is that we will need to add marku for the amazon embed link...
+                     */
+                    //$post_value = addslashes($_POST[$key]);
+                    $post_value = $_POST[$key];
+
                     update_post_meta(
                         $post_id,
                         $key,
-                        $_POST[$key]
+                        $post_value
                     );
                 }
             }

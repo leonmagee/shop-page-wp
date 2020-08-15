@@ -4,7 +4,7 @@ Plugin Name: Shop Page WP
 Plugin URI: https://shoppagewp.com
 Description: Create a shop for affiliate products.
 Author: Leon Magee, Justin McChesney-Wachs
-Version: 1.2.2
+Version: 1.2.4
 Author URI: https://shoppagewp.com
 Text Domain: shop-page-wp
 Domain Path: /languages
@@ -17,6 +17,13 @@ if (!defined('WPINC')) {
 
 define('Shop_Page_WP_Name', 'Shop Page WP');
 define('Shop_Page_WP_Version', '1.2.4');
+
+/**
+ * Plugin Pro Options
+ */
+require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-authenticate-license.php';
+$validated = Shop_Page_WP_Authenticate_License::authenticate();
+define('Shop_Page_WP_Advanced_Access', $validated);
 
 /**
  * Plugin Admin Page

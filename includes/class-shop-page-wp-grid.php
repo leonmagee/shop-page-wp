@@ -148,6 +148,7 @@ class Shop_Page_WP_Grid
         if ($shop_page_wp_query->have_posts()) {
             while ($shop_page_wp_query->have_posts()) {
                 $shop_page_wp_query->the_post();
+                //$title = htmlspecialchars(get_the_title());
                 $title = get_the_title();
                 $prefix = '_Shop_Page_WP_';
                 /**
@@ -229,7 +230,6 @@ class Shop_Page_WP_Grid
                 var win = window.open(url, '_blank');
                 win.focus();
             }
-
             function openUrlInSameTab(url) {
                 var win = window.open(url, '_self');
                 win.focus();

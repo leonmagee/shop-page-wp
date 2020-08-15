@@ -20,11 +20,14 @@
         width: 25%;
       }
     }
-    .shop-page-wp-image {
-      width: 100%;
-      img {
-        width: 100%;
-      }
-    }
+    // images will be full width all the time
+    // solves one probably but could cause others
+    // easier to let users resize images correctly
+    // .shop-page-wp-image {
+    //   width: 100%;
+    //   img {
+    //     width: 100%;
+    //   }
+    // }
   }
 }

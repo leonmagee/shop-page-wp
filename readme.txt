@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store, amazon, amazon affiliates, amazon associates
 Requires at least: 3.0.1
-Tested up to: 5.2.4
-Stable tag: 1.2.2
+Tested up to: 5.5
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,11 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 
 == Changelog ==
 
+= 1.2.4 =
+
+* Updated admin styles.
+* Tested with latest version of WordPress.
+
 = 1.2.2 =
 
 * Added ability to output products by ID (or multiple IDs).
@@ -171,6 +176,11 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+
+* Updated admin styles.
+* Tested with latest version of WordPress.
 
 = 1.2.2 =
 
