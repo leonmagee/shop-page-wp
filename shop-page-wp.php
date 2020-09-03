@@ -47,6 +47,13 @@ require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-instructions.ph
 Shop_Page_WP_Instructions::activate_admin();
 
 /**
+ * Plugin Pro Features
+ */
+// require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-pro-features.php';
+
+// Shop_Page_WP_Pro::activate_admin();
+
+/**
  * Register Custom Meta Boxes
  */
 require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-meta-boxes.php';

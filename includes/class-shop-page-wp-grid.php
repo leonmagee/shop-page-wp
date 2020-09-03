@@ -15,15 +15,6 @@ class Shop_Page_WP_Grid
      * @return string
      */
 
-    //    static function content_excerpt( $content, $length = 120, $suffix = '...' ) {
-    //        $string = substr( $content, 0, $length );
-    //        $exploded = explode( ' ', $string );
-    //        array_pop( $exploded );
-    //        $implode = implode( ' ', $exploded );
-    //        $final = $implode . $suffix;
-    //        return $final;
-    //    }
-
     public static function parseAmazonURL($url)
     {
         $matches1 = [];
@@ -148,7 +139,6 @@ class Shop_Page_WP_Grid
         if ($shop_page_wp_query->have_posts()) {
             while ($shop_page_wp_query->have_posts()) {
                 $shop_page_wp_query->the_post();
-                //$title = htmlspecialchars(get_the_title());
                 $title = get_the_title();
                 $prefix = '_Shop_Page_WP_';
                 /**

@@ -62,14 +62,13 @@ class Shop_Page_WP_Meta_Boxes
                 <?php ++$counter;
                 }
             }
-
             ?>
 
             </div>
 
             <div class="spwp-tab-container">
               <input id="spwp-type" type="hidden" name="_Shop_Page_WP_type" value="<?php echo $product_type; ?>"/>
-              <div class="spwp-admin-item tab-item tab-1 <?php if ($product_type == 1) {echo 'current';}?>">
+              <div class="spwp-admin-item tab-item tab-1 <?php if ($product_type == 1 || !Shop_Page_WP_Advanced_Access) {echo 'current';}?>">
                 <label for="_Shop_Page_WP_url">Product Affiliate URL</label>
                 <input name="_Shop_Page_WP_url" value="<?php echo $affiliate_url; ?>"/>
               </div>
