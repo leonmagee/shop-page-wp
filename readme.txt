@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store, amazon, amazon affiliates, amazon associates
 Requires at least: 3.0.1
-Tested up to: 5.5
-Stable tag: 1.2.4
+Tested up to: 5.5.1
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,11 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 
 == Changelog ==
 
+= 1.2.5 =
+
+* Fixed php notice regarding undefined variable.
+* Added feature to filter by custom taxonomies.
+
 = 1.2.4 =
 
 * Updated admin styles.
@@ -176,6 +181,11 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.5 =
+
+* Fixed php notice regarding undefined variable.
+* Added feature to filter by custom taxonomies.
 
 = 1.2.4 =
 

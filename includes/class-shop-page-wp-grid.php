@@ -111,26 +111,86 @@ class Shop_Page_WP_Grid
             );
         } elseif (isset($attributes['category']) && ($attributes['category'] != '')) {
             $cat_array = array();
+            $tax_array = array();
             $input_string = str_replace('|', ',', $attributes['category']);
             $cat_explode = explode(',', $input_string);
+
             foreach ($cat_explode as $cat) {
-                $cat_object = get_category_by_slug($cat);
-                if ($cat_object) {
-                    $cat_id = $cat_object->term_id;
-                    $cat_array[] = $cat_id;
+                // check to see if is custom taxonomy
+                if (strpos($cat, '/')) {
+                    $exploded = explode('/', $cat);
+                    if ($exploded && (count($exploded) == 2)) {
+                        $custom_tax = trim($exploded[0]);
+                        $custom_tax_item = trim($exploded[1]);
+                        //var_dump($custom_tax);
+                        //var_dump($custom_tax_item);
+
+                        $tax_object = get_term_by('slug', $custom_tax_item, $custom_tax);
+
+                        //var_dump($tax_object);
+                        //var_dump($custom_tax_item);
+                        //get_term_by('slug', 'my-term-slug', 'category');
+
+                        if ($tax_object) {
+                            //var_dump($tax_object);
+                            $tax_id = $tax_object->term_id;
+                            $tax_array[$custom_tax][] = $tax_id;
+                            //$tax_array[] = $tax_id;
+                        } else {
+                            // Add non-existant category to array if none exist
+                            // This is done so no products show
+                            //$tax_array[] = 11111111111;
+                        }
+
+                    }
                 } else {
-                    // Add non-existant category to array if none exist
-                    // This is done so no products show
-                    $cat_array[] = 11111111111;
+                    $cat_object = get_category_by_slug($cat);
+                    if ($cat_object) {
+                        $cat_id = $cat_object->term_id;
+                        $cat_array[] = $cat_id;
+                    } else {
+                        // Add non-existant category to array if none exist
+                        // This is done so no products show
+                        //$cat_array[] = 11111111111;
+                    }
                 }
             }
+            //var_dump($tax_array);
+
+            //array(2) { ["set"]=> array(3) { [0]=> int(9) [1]=> int(11) [2]=> int(12) } ["color"]=> array(2) { [0]=> int(13) [1]=> int(14) } }
+
+            $tax_query = array();
+            foreach ($tax_array as $tax_name => $tax_items) {
+                $tax_query[] = array(
+                    'taxonomy' => $tax_name,
+                    'field' => 'id',
+                    'terms' => $tax_items,
+                    'operator' => 'IN',
+                );
+            }
+            $tax_query[] = array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $cat_array,
+                'operator' => 'IN',
+            );
+            $tax_query['relation'] = 'OR';
+            //var_dump($tax_query);
             $args = array(
                 'post_type' => 'shop-page-wp',
-                'category__in' => $cat_array,
+                //'category__in' => $cat_array,
+                'tax_query' => $tax_query,
+                // 'tax_query' => array(
+                //     array(
+                //         'taxonomy' => 'set',
+                //         'field' => 'id',
+                //         'terms' => $tax_array,
+                //         'operator' => 'IN',
+                //     ),
+                // ),
                 'posts_per_page' => $posts_per_page_max,
             );
         }
-
         /**
          * WordPress Query
          */
@@ -146,7 +206,10 @@ class Shop_Page_WP_Grid
                  */
                 $type_field = $prefix . 'type';
                 $type = get_post_meta(get_the_ID(), $type_field, true);
-
+                /**
+                 * Set alt text default
+                 */
+                $alt_text = '';
                 if ($type == 2) {
                     /**
                      * Get Amazon Affiliate embed code
@@ -154,7 +217,6 @@ class Shop_Page_WP_Grid
                     $amazon_field = $prefix . 'amazon-embed';
                     $amazon = get_post_meta(get_the_ID(), $amazon_field, true);
                     $matches = self::parseAmazonURL($amazon);
-
                     if ($matches) {
                         $link = $matches[0];
                         $image_url_final = 'https:' . $matches[1];

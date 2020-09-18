@@ -10,13 +10,15 @@ Text Domain: shop-page-wp
 Domain Path: /languages
  */
 
-// Abort if file is called directly
+/**
+ * Abort if file is called directly
+ */
 if (!defined('WPINC')) {
     die;
 }
 
 define('Shop_Page_WP_Name', 'Shop Page WP');
-define('Shop_Page_WP_Version', '1.2.4');
+define('Shop_Page_WP_Version', '1.2.5');
 
 /**
  * Plugin Pro Options
@@ -99,7 +101,10 @@ if ($default_styles) {
     Shop_Page_WP_Scripts::hook_base_styles();
 }
 
-// if admin?
+/**
+ * Admin Styles
+ * @todo only enqueue for admin
+ */
 Shop_Page_WP_Scripts::hook_admin_styles();
 
 /**
