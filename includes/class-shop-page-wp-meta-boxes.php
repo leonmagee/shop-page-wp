@@ -34,13 +34,12 @@ class Shop_Page_WP_Meta_Boxes
                 $$var = get_post_meta($post->ID, $key, true);
             }
 
+            $img_src = false;
             if ($amazon) {
                 $match = [];
                 preg_match('/src="([^"]*)"/i', $amazon, $match);
                 if (isset($match)) {
                     $img_src = $match[1];
-                } else {
-                    $img_src = false; // change this to default image?
                 }
             }
 

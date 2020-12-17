@@ -43,9 +43,14 @@ class Shop_Page_WP_Grid
             $button_text = esc_html__('Buy Now', 'shop-page-wp');
         }
         $columns_array = get_option('shop-page-wp-show-default-columns');
-        if (!($number_of_columns = $columns_array['column_options'])) {
+        if ($columns_array) {
+            $number_of_columns = $columns_array['column_options'];
+        } else {
             $number_of_columns = 3;
         }
+        // if (!($number_of_columns = $columns_array['column_options'])) {
+        //     $number_of_columns = 3;
+        // }
 
         /**
          * Get grid size from attributes
