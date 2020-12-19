@@ -113,6 +113,7 @@ class Shop_Page_WP_Grid
             $args = array(
                 'post_type' => 'shop-page-wp',
                 'post__in' => $id_array,
+                'posts_per_page' => $posts_per_page_max,
             );
         } elseif (isset($attributes['category']) && ($attributes['category'] != '')) {
             $cat_array = array();

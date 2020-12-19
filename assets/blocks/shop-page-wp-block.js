@@ -47,7 +47,7 @@ registerBlockType('shop-page-wp/grid', {
 
     return (
       <div className={className}>
-        <h4>{__('Product Grid')} - Shop Page WP</h4>
+        <h4>{__('Product Grid')} - Shop Page WP xxx</h4>
         <SelectControl
           label={__('Number of Columns')}
           className="shop-page-wp-grid"
