@@ -47,10 +47,10 @@ registerBlockType('shop-page-wp/grid', {
 
     return (
       <div className={className}>
-        <h4>{__('Product Grid')} - Shop Page WP xxx</h4>
+        <div class="components-placeholder__label"><span class="block-editor-block-icon dashicons-before dashicons-cart"></span>Shop Page WP</div>
         <SelectControl
           label={__('Number of Columns')}
-          className="shop-page-wp-grid"
+          className="shop-page-wp-grid shop-page-wp-select"
           value={grid}
           options={[
             { label: '1 Column', value: '1' },
@@ -65,21 +65,21 @@ registerBlockType('shop-page-wp/grid', {
           label={__(
             'Categories (separate with comma) - leave Blank to Display All'
           )}
-          className="shop-page-wp-cats"
+          className="shop-page-wp-cats shop-page-wp-input"
           onChange={onChangeCats}
           type="text"
           value={category || ''}
         />
         <TextControl
           label={__('Products by ID (separate with comma) - overrides Categories and Max Number')}
-          className="shop-page-wp-products-by-id"
+          className="shop-page-wp-products-by-id shop-page-wp-input"
           onChange={onChangeProductIDs}
           type="text"
           value={id || ''}
         />
         <TextControl
           label={__('Max Number of Products')}
-          className="shop-page-wp-max-products"
+          className="shop-page-wp-max-products shop-page-wp-input"
           onChange={onChangemax_number}
           type="number"
           value={max_number || ''}

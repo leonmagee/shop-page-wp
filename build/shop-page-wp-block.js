@@ -165,9 +165,13 @@ registerBlockType('shop-page-wp/grid', {
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: className
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h4", null, __('Product Grid'), " - Shop Page WP"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(SelectControl, {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      class: "components-placeholder__label"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+      class: "block-editor-block-icon dashicons-before dashicons-cart"
+    }), "Shop Page WP"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(SelectControl, {
       label: __('Number of Columns'),
-      className: "shop-page-wp-grid",
+      className: "shop-page-wp-grid shop-page-wp-select",
       value: grid,
       options: [{
         label: '1 Column',
@@ -186,19 +190,19 @@ registerBlockType('shop-page-wp/grid', {
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl // label={ __("category (Separate multiple by pipe | symbol)") }
     , {
       label: __('Categories (separate with comma) - leave Blank to Display All'),
-      className: "shop-page-wp-cats",
+      className: "shop-page-wp-cats shop-page-wp-input",
       onChange: onChangeCats,
       type: "text",
       value: category || ''
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
       label: __('Products by ID (separate with comma) - overrides Categories and Max Number'),
-      className: "shop-page-wp-products-by-id",
+      className: "shop-page-wp-products-by-id shop-page-wp-input",
       onChange: onChangeProductIDs,
       type: "text",
       value: id || ''
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
       label: __('Max Number of Products'),
-      className: "shop-page-wp-max-products",
+      className: "shop-page-wp-max-products shop-page-wp-input",
       onChange: onChangemax_number,
       type: "number",
       value: max_number || ''

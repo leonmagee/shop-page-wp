@@ -20,9 +20,68 @@
   outline: 1px solid transparent;
 }
 
-.wp-block-shop-page-wp-grid h4 {
+.wp-block-shop-page-wp-grid .components-placeholder__label {
+  font-size: 18pt;
+  font-weight: 400;
   /* margin: 0 0 5px 0;
   color: #222; */
+}
+
+/* .wp-block-shop-page-wp-grid .shop-page-wp-select select */
+.wp-block-shop-page-wp-grid .shop-page-wp-input input {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  padding: 6px 8px !important;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.1s linear;
+  border-radius: 2px;
+  border: 1px solid #757575 !important;
+  font-size: 13px;
+  line-height: 1.4em;
+  margin: 0 8px 0 0;
+  flex: 1 1 auto;
+  min-height: 35px;
+}
+.wp-block-shop-page-wp-grid .shop-page-wp-input input:focus {
+  border-color: var(--wp-admin-theme-color) !important;
+  /* border-color: red !important; */
+  box-shadow: 0 0 0 0.5px #007cba;
+  box-shadow: 0 0 0 0.5px var(--wp-admin-theme-color);
+  outline: 2px solid transparent;
+}
+
+.wp-block-shop-page-wp-grid
+  .shop-page-wp-select
+  .components-input-control__container {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  /* padding: 3px 0; */
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.1s linear;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: normal;
+  margin: 0 8px 0 0;
+  flex: 1 1 auto;
+  min-height: 37px;
+}
+
+.wp-block-shop-page-wp-grid
+  .shop-page-wp-select
+  .components-input-control__container
+  .components-input-control__backdrop {
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  padding: 6px 8px;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.1s linear;
+  border-radius: 2px;
+  border: 1px solid blue;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0 8px 0 0;
+  flex: 1 1 auto;
+  min-height: 35px; */
 }
 
 /*.wp-block-gutenberg-boilerplate-es5-shop-page-wp input {
