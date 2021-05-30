@@ -1,18 +1,20 @@
+// import resources
+@import "shop-page-wp-mixins";
 // grid styles
 .shop-page-wp-grid {
-  // a.shop-page-wp-link {
-  //   text-decoration: none;
-  //   border: none;
-  //   color: #000;
-  // }
+  a.shop-page-wp-item {
+    text-decoration: none !important;
+    @include link_styles;
+    &:focus {
+      outline: none;
+    }
+  }
   .shop-page-wp-item {
     padding: 25px 30px;
     text-align: center;
     display: block;
-    //background-color: tomato;
     &:hover {
       cursor: pointer;
-
       .shop-page-wp-link {
         background-color: #333;
         .buy-link {
@@ -44,18 +46,7 @@
       margin: 5px auto 0;
       display: inline-block;
       a.buy-link {
-        display: block;
-        color: #333;
-        line-height: 1.8em;
-        font-family: sans-serif;
-        text-transform: uppercase;
-        font-size: 0.7em;
-        margin: 0;
-        padding: 0;
-        hyphens: none;
-        text-decoration: none;
-        border: none;
-        box-shadow: none;
+        @include link_styles;
 
         &:hover {
           text-decoration: none;

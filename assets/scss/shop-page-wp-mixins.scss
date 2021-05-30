@@ -1,0 +1,14 @@
+@mixin link_styles {
+  display: block;
+  color: #333;
+  line-height: 1.8em;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  margin: 0;
+  padding: 0;
+  hyphens: none;
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+}
