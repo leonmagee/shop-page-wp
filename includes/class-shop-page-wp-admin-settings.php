@@ -66,6 +66,14 @@ class Shop_Page_WP_Admin_Settings
         );
 
         add_settings_field(
+            'shop-page-wp-legacy-format', // field ID
+            esc_html__('Use Legacy Link Format?', 'shop-page-wp'), // field Title
+            array('Shop_Page_WP_Admin_Settings', 'legacy_format_form'), // callback
+            'shop-page-wp-section', // setting section handle
+            'shop-page-wp-options' // settings handle
+        );
+
+        add_settings_field(
             'shop-page-wp-image-width', // field ID
             esc_html__('Image Width', 'shop-page-wp'), // field Title
             array('Shop_Page_WP_Admin_Settings', 'image_width_form'), // callback
@@ -93,6 +101,7 @@ class Shop_Page_WP_Admin_Settings
         register_setting('shop-page-wp-options', 'shop-page-wp-show-choose-styles');
         register_setting('shop-page-wp-options', 'shop-page-wp-show-default-columns');
         register_setting('shop-page-wp-options', 'shop-page-wp-link-target');
+        register_setting('shop-page-wp-options', 'shop-page-wp-legacy-format');
 
         register_setting('shop-page-wp-options', 'shop-page-wp-image-width', array(
             'Shop_Page_WP_Admin_Settings',
@@ -201,6 +210,23 @@ class Shop_Page_WP_Admin_Settings
 		<input type="radio" value="1" name="shop-page-wp-link-target" <?php checked(1, get_option('shop-page-wp-link-target', true));?> />
 		<label class='radio-label'>YES</label>
 		<input type="radio" value="2" name="shop-page-wp-link-target" <?php checked(2, get_option('shop-page-wp-link-target', true));?> />
+		<label class='radio-label'>NO</label>
+
+	<?php
+}
+
+    public static function legacy_format_form()
+    {
+        $link = get_option('shop-page-wp-legacy-format');
+        //update_option('shop-page-wp-link-target', false);
+        if (!$link) {
+            update_option('shop-page-wp-legacy-format', 1);
+        }
+        //var_dump($link);
+        ?>
+		<input type="radio" value="1" name="shop-page-wp-legacy-format" <?php checked(1, get_option('shop-page-wp-legacy-format', true));?> />
+		<label class='radio-label'>YES</label>
+		<input type="radio" value="2" name="shop-page-wp-legacy-format" <?php checked(2, get_option('shop-page-wp-legacy-format', true));?> />
 		<label class='radio-label'>NO</label>
 
 	<?php

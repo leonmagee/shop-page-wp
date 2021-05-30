@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store, amazon, amazon affiliates, amazon associates
 Requires at least: 3.0.1
-Tested up to: 5.6
-Stable tag: 1.2.6
+Tested up to: 5.6.1
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,10 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 
 == Changelog ==
 
+= 1.2.7 =
+
+* Link structure change.
+
 = 1.2.6 =
 
 * Admin Style Update.
@@ -185,6 +189,10 @@ Settings and Documentation Update
 Initial Release
 
 == Upgrade Notice ==
+
+= 1.2.7 =
+
+* Link structure change.
 
 = 1.2.6 =
 

@@ -296,47 +296,66 @@ class Shop_Page_WP_Grid
         <div class="shop-page-wp-grid">
 			<?php foreach ($products as $product) {
             if (get_option('shop-page-wp-link-target') === "2") {
+                // new tab no
+                $js_func = 'openUrlInSameTab';
+                $target = '';
+            } else {
+                // new tab yes
+                $js_func = 'openUrlInNewTab';
+                $target = 'target="_blank"';
+            }
+            if (get_option('shop-page-wp-legacy-format') === "2") {
+                // legacy no
+                $opening_tag = '<a ' . $target . ' href="' . $product['link'] . '" class="shop-page-wp-item ' . $class_name . '">';
+                $opening_tag_no_link = '<a class="shop-page-wp-item ' . $class_name . ' no-link">';
+                $closing_tag = '</a>';
+                $btn_opening_tag = '<span class="buy-link">';
+                $btn_disabled_opening_tag = '<span class="buy-link disabled">';
+                $btn_closing_tag = '</span>';
+            } else {
+                // legacy yes
+                $opening_tag = '<div onclick="' . $js_func . '(\'' . $product['link'] . '\');" class="shop-page-wp-item ' . $class_name . '">';
+                $opening_tag_no_link = '<div class="shop-page-wp-item ' . $class_name . ' no-link">';
+                $closing_tag = '</div>';
+                $btn_opening_tag = '<a style="pointer-events: none;" class="buy-link" href="' . $product['link'] . '" rel="nofollow">';
+                $btn_disabled_opening_tag = '<a class="buy-link disabled">';
+                $btn_closing_tag = '</a>';
+            }
 
-                /**
-                 * @todo refactor this to be more dry
-                 * @todo only use flex-basis if the grid is not just 1?
-                 * @todo - this is not working for IE 11... flex-basis auto !important?
-                 */
-                ?>
-
-					<div onclick="openUrlInSameTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
-
-				<?php } else {?>
-
-					<div onclick="openUrlInNewTab('<?php echo $product['link']; ?>');" class="shop-page-wp-item <?php echo $class_name; ?>">
-
-				<?php }?>
-
-                        <div class="shop-page-wp-image">
-                            <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
-                        </div>
-                        <div class="shop-page-wp-title">
-                            <h3><?php echo $product['title']; ?></h3>
-                        </div>
+            ?>
+            <?php if ($product['link']) {
+                echo $opening_tag;
+            } else {
+                echo $opening_tag_no_link;
+            }?>
+					<!-- <div onclick="<?php //echo $js_func; ?>('<?php //echo $product['link']; ?>');" class="shop-page-wp-item <?php //echo $class_name; ?>"> -->
+            <div class="shop-page-wp-image">
+                <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
+            </div>
+            <div class="shop-page-wp-title">
+                <h3><?php echo $product['title']; ?></h3>
+            </div>
 						<?php if ($product['description']) {?>
-                            <div class="shop-page-wp-description">
+                <div class="shop-page-wp-description">
 								<?php echo $product['description']; ?>
-                            </div>
+                </div>
 						<?php }?>
 						<?php if ($product['link']) {?>
-                            <div class="shop-page-wp-link">
-								<a style="pointer-events: none;" class="buy-link" href="<?php echo $product['link']; ?>" rel="nofollow">
-									<?php echo $product['button_text']; ?>
-								</a>
-                            </div>
+               <div class="shop-page-wp-link">
+                <?php echo $btn_opening_tag;
+                echo $product['button_text'];
+                echo $btn_closing_tag;
+                ?>
+               </div>
 						<?php } else {?>
-                            <div class="shop-page-wp-link">
-                                <a class="buy-link disabled">
-	                                <?php echo $product['button_text']; ?>
-                                </a>
-                            </div>
+               <div class="shop-page-wp-link">
+                <?php echo $btn_disabled_opening_tag;
+                echo $product['button_text'];
+                echo $btn_closing_tag;
+                ?>
+               </div>
 						<?php }?>
-                    </div>
+            <?php echo $closing_tag; ?>
 			<?php }?>
         </div>
 		<?php

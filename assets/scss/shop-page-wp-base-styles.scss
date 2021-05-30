@@ -1,13 +1,15 @@
 // grid styles
 .shop-page-wp-grid {
-  a.shop-page-wp-link {
-    text-decoration: none;
-    border: none;
-    color: #000;
-  }
+  // a.shop-page-wp-link {
+  //   text-decoration: none;
+  //   border: none;
+  //   color: #000;
+  // }
   .shop-page-wp-item {
     padding: 25px 30px;
     text-align: center;
+    display: block;
+    //background-color: tomato;
     &:hover {
       cursor: pointer;
 
