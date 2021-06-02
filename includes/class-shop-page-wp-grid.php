@@ -306,29 +306,27 @@ class Shop_Page_WP_Grid
             }
             if (get_option('shop-page-wp-legacy-format') === "2") {
                 // legacy no
-                $opening_tag = '<a ' . $target . ' href="' . $product['link'] . '" class="shop-page-wp-item ' . $class_name . '">';
-                $opening_tag_no_link = '<a class="shop-page-wp-item ' . $class_name . ' no-link">';
+                $opening_tag = '<a ' . $target . ' href="' . $product['link'] . '" class="shop-page-wp-item spwp-has-link ' . $class_name . '">';
+                $opening_tag_no_link = '<a class="shop-page-wp-item ' . $class_name . '">';
                 $closing_tag = '</a>';
                 $btn_opening_tag = '<span class="buy-link">';
                 $btn_disabled_opening_tag = '<span class="buy-link disabled">';
                 $btn_closing_tag = '</span>';
             } else {
                 // legacy yes
-                $opening_tag = '<div onclick="' . $js_func . '(\'' . $product['link'] . '\');" class="shop-page-wp-item ' . $class_name . '">';
-                $opening_tag_no_link = '<div class="shop-page-wp-item ' . $class_name . ' no-link">';
+                $opening_tag = '<div onclick="' . $js_func . '(\'' . $product['link'] . '\');" class="shop-page-wp-item spwp-has-link ' . $class_name . '">';
+                $opening_tag_no_link = '<div class="shop-page-wp-item ' . $class_name . '">';
                 $closing_tag = '</div>';
                 $btn_opening_tag = '<a style="pointer-events: none;" class="buy-link" href="' . $product['link'] . '" rel="nofollow">';
                 $btn_disabled_opening_tag = '<a class="buy-link disabled">';
                 $btn_closing_tag = '</a>';
             }
-
             ?>
             <?php if ($product['link']) {
                 echo $opening_tag;
             } else {
                 echo $opening_tag_no_link;
             }?>
-					<!-- <div onclick="<?php //echo $js_func; ?>('<?php //echo $product['link']; ?>');" class="shop-page-wp-item <?php //echo $class_name; ?>"> -->
             <div class="shop-page-wp-image">
                 <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
             </div>

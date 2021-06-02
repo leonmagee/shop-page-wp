@@ -218,11 +218,9 @@ class Shop_Page_WP_Admin_Settings
     public static function legacy_format_form()
     {
         $link = get_option('shop-page-wp-legacy-format');
-        //update_option('shop-page-wp-link-target', false);
         if (!$link) {
-            update_option('shop-page-wp-legacy-format', 1);
+            update_option('shop-page-wp-legacy-format', 2);
         }
-        //var_dump($link);
         ?>
 		<input type="radio" value="1" name="shop-page-wp-legacy-format" <?php checked(1, get_option('shop-page-wp-legacy-format', true));?> />
 		<label class='radio-label'>YES</label>
