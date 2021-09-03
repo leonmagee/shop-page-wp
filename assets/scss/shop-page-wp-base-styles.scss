@@ -5,13 +5,14 @@
   a.shop-page-wp-item {
     text-decoration: none !important;
     padding: 25px 30px !important;
-    display: block;
+		font-weight: normal;
+    //display: block;
     @include link_styles;
-    // h3 {
-    //   display: inline-block;
-    // }
     &:focus {
       outline: none;
+    }
+		.shop-page-wp-description {
+			text-transform: none;
     }
   }
   .shop-page-wp-item {

@@ -27,7 +27,7 @@ class Shop_Page_WP_Admin_Settings
             array('Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_default_text'), // callback
             'shop-page-wp-section'); // section handle
 
-        add_settings_section(
+				add_settings_section(
             'shop-page-wp-options', // settings field handle
             '', // title
             array('Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_image_text'), // callback
@@ -72,6 +72,12 @@ class Shop_Page_WP_Admin_Settings
             'shop-page-wp-section', // setting section handle
             'shop-page-wp-options' // settings handle
         );
+
+				add_settings_section(
+            'shop-page-wp-legacy-explain', // settings field handle
+            '', // title
+            array('Shop_Page_WP_Admin_Settings', 'Shop_Page_WP_explain_text'), // callback
+            'shop-page-wp-section'); // section handle
 
         add_settings_field(
             'shop-page-wp-image-width', // field ID
@@ -142,6 +148,19 @@ class Shop_Page_WP_Admin_Settings
 				target="_blank"><?php esc_html_e('regenerate thumbnails', 'shop-page-wp');?></a>.
 		</div>
 	<?php }
+
+	    public static function Shop_Page_WP_explain_text()
+    {?>
+			<div
+				class="explanation spwp-minus-top-margin">
+				<?php esc_html_e('Previously the plugin used a JavaScript link, while the new version uses an <a> tag.', 'shop-page-wp');?>
+				<br />
+				<?php esc_html_e('Select Yes to continue using the JavaScript link.', 'shop-page-wp');?>
+				<br />
+				<?php esc_html_e('If you are experiencing any styling issues after updating this may help.', 'shop-page-wp');?>
+			</div>
+		<?php }
+
 
     public static function shop_button_text_form()
     {?>
@@ -226,7 +245,6 @@ class Shop_Page_WP_Admin_Settings
 		<label class='radio-label'>YES</label>
 		<input type="radio" value="2" name="shop-page-wp-legacy-format" <?php checked(2, get_option('shop-page-wp-legacy-format', true));?> />
 		<label class='radio-label'>NO</label>
-
 	<?php
 }
 

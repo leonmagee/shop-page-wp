@@ -3,7 +3,7 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store, amazon, amazon affiliates, amazon associates
 Requires at least: 3.0.1
-Tested up to: 5.6.1
+Tested up to: 5.8
 Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
