@@ -156,25 +156,19 @@ add_action('after_setup_theme', 'enable_post_thumbnails');
 /**
  * Admin Notices
  */
-
-
-
 function spwp_admin_notices() {
-	global $pagenow;
-	$query_var = get_query_var('post_type');
-	if($pagenow === 'index.php' || $query_var === 'shop-page-wp') {
+	global $wp;
+	$current_url = home_url(add_query_arg(array($_GET), $wp->request));
+	if(strpos($current_url, 'shop-page-wp') !== false) {
 	?>
 <div class="notice notice-warning is-dismissible">
 	<p><?php _e( 'A recent update to Shop Page WP may effect the styling of your shop page. If you have any issues please try chaging the ', 'shop-page-wp' ); ?><a href="/wp-admin/edit.php?post_type=shop-page-wp&page=shop-page-wp-settings">Legacy Link Format</a><?php _e( ' setting.', 'shop-page-wp' ); ?></p>
 </div>
 <?php
         }
-
-
 }
 
 add_action( 'admin_notices', 'spwp_admin_notices');
-
 
 function remove_editor() {
     if (isset($_GET['post'])) {

@@ -129,7 +129,7 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 
 = 1.2.7 =
 
-* Link structure change.
+* Link structure change. Added feature to replace javascript link with <a> tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
 
 = 1.2.6 =
 
@@ -192,7 +192,7 @@ Initial Release
 
 = 1.2.7 =
 
-* Link structure change.
+* Link structure change. Added feature to replace javascript link with <a> tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
 
 = 1.2.6 =
 
