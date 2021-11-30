@@ -4,7 +4,7 @@ Plugin Name: Shop Page WP
 Plugin URI: https://shoppagewp.com
 Description: Create a shop for affiliate products.
 Author: Leon Magee, Justin McChesney-Wachs
-Version: 1.2.7
+Version: 1.2.9
 Author URI: https://shoppagewp.com
 Text Domain: shop-page-wp
 Domain Path: /languages
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
 }
 
 define('Shop_Page_WP_Name', 'Shop Page WP');
-define('Shop_Page_WP_Version', '1.2.7');
+define('Shop_Page_WP_Version', '1.2.9');
 
 /**
  * Plugin Pro Options
@@ -47,13 +47,6 @@ Shop_Page_WP_Admin_Settings::output_settings();
 require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-instructions.php';
 
 Shop_Page_WP_Instructions::activate_admin();
-
-/**
- * Plugin Pro Features
- */
-// require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-pro-features.php';
-
-// Shop_Page_WP_Pro::activate_admin();
 
 /**
  * Register Custom Meta Boxes
@@ -107,7 +100,6 @@ if ($default_styles) {
 
 /**
  * Admin Styles
- * @todo only enqueue for admin
  */
 Shop_Page_WP_Scripts::hook_admin_styles();
 
@@ -137,48 +129,17 @@ Shop_Page_WP_Image_Sizes::create_image_sizes();
  */
 require plugin_dir_path(__FILE__) . 'includes/class-shop-page-wp-widget.php';
 
-function register_shop_page_wp_widget()
+function shop_page_wp_register_widget()
 {
     register_widget('Shop_Page_WP_Widget');
 }
-add_action('widgets_init', 'register_shop_page_wp_widget');
+add_action('widgets_init', 'shop_page_wp_register_widget');
 
 /**
  * Enable Thumbnails for CPT in theme
  */
-function enable_post_thumbnails()
+function shop_page_wp_enable_post_thumbnails()
 {
     add_theme_support('post-thumbnails', array('shop-page-wp'));
 }
-add_action('after_setup_theme', 'enable_post_thumbnails');
-
-
-/**
- * Admin Notices
- */
-function spwp_admin_notices() {
-	global $wp;
-	$current_url = home_url(add_query_arg(array($_GET), $wp->request));
-	if(strpos($current_url, 'shop-page-wp') !== false) {
-	?>
-<div class="notice notice-warning is-dismissible">
-	<p><?php _e( 'A recent update to Shop Page WP may effect the styling of your shop page. If you have any issues please try chaging the ', 'shop-page-wp' ); ?><a href="/wp-admin/edit.php?post_type=shop-page-wp&page=shop-page-wp-settings">Legacy Link Format</a><?php _e( ' setting.', 'shop-page-wp' ); ?></p>
-</div>
-<?php
-        }
-}
-
-add_action( 'admin_notices', 'spwp_admin_notices');
-
-function remove_editor() {
-    if (isset($_GET['post'])) {
-        $id = $_GET['post'];
-        $template = get_post_meta($id, '_wp_page_template', true);
-
-        if($template == 'template_name.php'){
-            remove_post_type_support( 'page', 'editor' );
-        }
-    }
-}
-
-
+add_action('after_setup_theme', 'shop_page_wp_enable_post_thumbnails');

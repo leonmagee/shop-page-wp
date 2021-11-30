@@ -16,17 +16,17 @@ class Shop_Page_WP_CPT
                 'menu_position' => 4,
                 'exclude_from_search' => true,
                 'labels' => array(
-                    'name' => esc_html__('Shop Page WP'),
-                    'singular_name' => esc_html__('Shop Page WP'),
-                    'add_new' => esc_html__('Add New Product'),
-                    'add_new_item' => esc_html__('Add New Product'),
-                    'edit_item' => esc_html__('Edit Product'),
-                    'new_item' => esc_html__('New Product'),
-                    'all_items' => esc_html__('All Products'),
-                    'view_item' => esc_html__('View Product'),
-                    'search_items' => esc_html__('Search Products'),
-                    'not_found' => esc_html__('No Products found'),
-                    'not_found_in_trash' => esc_html__('No Product found in Trash'),
+                    'name' => __('Shop Page WP', 'shop-page-wp'),
+                    'singular_name' => __('Shop Page WP', 'shop-page-wp'),
+                    'add_new' => __('Add New Product', 'shop-page-wp'),
+                    'add_new_item' => __('Add New Product', 'shop-page-wp'),
+                    'edit_item' => __('Edit Product', 'shop-page-wp'),
+                    'new_item' => __('New Product', 'shop-page-wp'),
+                    'all_items' => __('All Products', 'shop-page-wp'),
+                    'view_item' => __('View Product', 'shop-page-wp'),
+                    'search_items' => __('Search Products', 'shop-page-wp'),
+                    'not_found' => __('No Products found', 'shop-page-wp'),
+                    'not_found_in_trash' => __('No Product found in Trash', 'shop-page-wp'),
                     'parent_item_colon' => '',
                     'menu_name' => 'Shop Page WP',
                 ),
@@ -68,7 +68,7 @@ class Shop_Page_WP_CPT
 
         function get_product_id($column, $post_id)
         {
-            echo $post_id;
+            echo esc_attr($post_id);
         }
     }
 }

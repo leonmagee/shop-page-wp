@@ -6,7 +6,6 @@
  */
 class Shop_Page_WP_Grid
 {
-
     /**
      * @param $content
      * @param $length
@@ -35,12 +34,11 @@ class Shop_Page_WP_Grid
      */
     public static function return_grid($attributes)
     {
-
         /**
          * Get saved settings data
          */
-        if (!($button_text = get_option('shop-page-wp-button-text'))) {
-            $button_text = esc_html__('Buy Now', 'shop-page-wp');
+        if (!($button_text = esc_html(get_option('shop-page-wp-button-text')))) {
+            $button_text = __('Buy Now', 'shop-page-wp');
         }
         $columns_array = get_option('shop-page-wp-show-default-columns');
         if ($columns_array) {
@@ -48,9 +46,6 @@ class Shop_Page_WP_Grid
         } else {
             $number_of_columns = 3;
         }
-        // if (!($number_of_columns = $columns_array['column_options'])) {
-        //     $number_of_columns = 3;
-        // }
 
         /**
          * Get grid size from attributes
@@ -61,11 +56,6 @@ class Shop_Page_WP_Grid
             }
         }
 
-        /**
-         * @todo instead of doing math here, instead assign different class names
-         * so media queries can be used. Switching to width instead of flex-basis for inline css
-         * to make it work on IE 11?
-         */
         if ($attributes['grid']) {
             if ($attributes['grid'] == 1) {
                 //$grid_width = 100;
@@ -128,43 +118,20 @@ class Shop_Page_WP_Grid
                     if ($exploded && (count($exploded) == 2)) {
                         $custom_tax = trim($exploded[0]);
                         $custom_tax_item = trim($exploded[1]);
-                        //var_dump($custom_tax);
-                        //var_dump($custom_tax_item);
-
                         $tax_object = get_term_by('slug', $custom_tax_item, $custom_tax);
-
-                        //var_dump($tax_object);
-                        //var_dump($custom_tax_item);
-                        //get_term_by('slug', 'my-term-slug', 'category');
-
                         if ($tax_object) {
-                            //var_dump($tax_object);
                             $tax_id = $tax_object->term_id;
                             $tax_array[$custom_tax][] = $tax_id;
-                            //$tax_array[] = $tax_id;
-                        } else {
-                            // Add non-existant category to array if none exist
-                            // This is done so no products show
-                            //$tax_array[] = 11111111111;
                         }
-
                     }
                 } else {
                     $cat_object = get_category_by_slug($cat);
                     if ($cat_object) {
                         $cat_id = $cat_object->term_id;
                         $cat_array[] = $cat_id;
-                    } else {
-                        // Add non-existant category to array if none exist
-                        // This is done so no products show
-                        //$cat_array[] = 11111111111;
                     }
                 }
             }
-            //var_dump($tax_array);
-
-            //array(2) { ["set"]=> array(3) { [0]=> int(9) [1]=> int(11) [2]=> int(12) } ["color"]=> array(2) { [0]=> int(13) [1]=> int(14) } }
-
             $tax_query = array();
             foreach ($tax_array as $tax_name => $tax_items) {
                 $tax_query[] = array(
@@ -181,19 +148,9 @@ class Shop_Page_WP_Grid
                 'operator' => 'IN',
             );
             $tax_query['relation'] = 'OR';
-            //var_dump($tax_query);
             $args = array(
                 'post_type' => 'shop-page-wp',
-                //'category__in' => $cat_array,
                 'tax_query' => $tax_query,
-                // 'tax_query' => array(
-                //     array(
-                //         'taxonomy' => 'set',
-                //         'field' => 'id',
-                //         'terms' => $tax_array,
-                //         'operator' => 'IN',
-                //     ),
-                // ),
                 'posts_per_page' => $posts_per_page_max,
             );
         }
@@ -227,10 +184,8 @@ class Shop_Page_WP_Grid
                         $link = $matches[0];
                         $image_url_final = 'https:' . $matches[1];
                     } else {
-                        //die('no match - try skipping?');
                         continue;
                     }
-
                 } else {
                     /**
                      * Get URL field (if no embed code)
@@ -252,15 +207,12 @@ class Shop_Page_WP_Grid
                     } else {
                         $image_url_final = plugins_url('../assets/img/product-image-placeholder.png', __FILE__);
                     }
-
                 }
-
                 /**
                  * Get Description Field
                  */
                 $description_field = $prefix . 'description';
                 $description = get_post_meta(get_the_ID(), $description_field, true);
-
                 /**
                  * Get Custom Button Text
                  */
@@ -281,8 +233,10 @@ class Shop_Page_WP_Grid
         }
         wp_reset_postdata();
 
-        ob_start();?>
+        ob_start();
 
+        if (get_option('shop-page-wp-legacy-format') === "1") {
+            ?>
         <script>
             function openUrlInNewTab(url) {
                 var win = window.open(url, '_blank');
@@ -293,6 +247,7 @@ class Shop_Page_WP_Grid
                 win.focus();
             }
         </script>
+				<?php }?>
         <div class="shop-page-wp-grid">
 			<?php foreach ($products as $product) {
             if (get_option('shop-page-wp-link-target') === "2") {
@@ -323,42 +278,42 @@ class Shop_Page_WP_Grid
             }
             ?>
             <?php if ($product['link']) {
-                echo $opening_tag;
+                echo wp_kses_post($opening_tag);
             } else {
-                echo $opening_tag_no_link;
+                echo wp_kses_post($opening_tag_no_link);
             }?>
+
             <div class="shop-page-wp-image">
-                <img src="<?php echo $product['img_url']; ?>" alt="<?php echo $product['img_alt']; ?>"/>
+                <img src="<?php echo esc_url($product['img_url']); ?>" alt="<?php echo esc_attr($product['img_alt']); ?>"/>
             </div>
             <div class="shop-page-wp-title">
-                <h3><?php echo $product['title']; ?></h3>
+                <h3><?php echo esc_attr($product['title']); ?></h3>
             </div>
 						<?php if ($product['description']) {?>
                 <div class="shop-page-wp-description">
-								<?php echo $product['description']; ?>
+								<?php echo wp_kses_post($product['description']); ?>
                 </div>
 						<?php }?>
 						<?php if ($product['link']) {?>
                <div class="shop-page-wp-link">
-                <?php echo $btn_opening_tag;
-                echo $product['button_text'];
-                echo $btn_closing_tag;
+                <?php echo wp_kses_post($btn_opening_tag);
+                echo esc_attr($product['button_text']);
+                echo wp_kses_post($btn_closing_tag);
                 ?>
                </div>
 						<?php } else {?>
                <div class="shop-page-wp-link">
-                <?php echo $btn_disabled_opening_tag;
-                echo $product['button_text'];
-                echo $btn_closing_tag;
+                <?php echo wp_kses_post($btn_disabled_opening_tag);
+                echo esc_attr($product['button_text']);
+                echo wp_kses_post($btn_closing_tag);
                 ?>
                </div>
 						<?php }?>
-            <?php echo $closing_tag; ?>
+            <?php echo wp_kses_post($closing_tag); ?>
 			<?php }?>
         </div>
 		<?php
 $content = ob_get_clean();
-
         return $content;
     }
 }

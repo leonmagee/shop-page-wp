@@ -5,7 +5,6 @@
  */
 class Shop_Page_WP_Widget extends WP_Widget
 {
-
     /**
      * Register widget
      */
@@ -28,7 +27,6 @@ class Shop_Page_WP_Widget extends WP_Widget
      */
     public function widget($args, $instance)
     {
-
         echo $args['before_widget'];
 
         if (!empty($instance['title'])) {
@@ -38,6 +36,7 @@ class Shop_Page_WP_Widget extends WP_Widget
 
         $grid_content = Shop_Page_WP_Grid::return_grid($instance);
 
+        //echo wp_kses_post($grid_content);
         echo $grid_content;
 
         echo $args['after_widget'];

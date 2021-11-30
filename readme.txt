@@ -3,8 +3,8 @@ Contributors: leonmagee, justinmw
 Donate link: https://shoppagewp.com/donate
 Tags: shop, affiliate, store, amazon, amazon affiliates, amazon associates
 Requires at least: 3.0.1
-Tested up to: 5.8
-Stable tag: 1.2.7
+Tested up to: 5.8.1
+Stable tag: 1.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,9 +127,17 @@ From the Wordpress Admin, navigate to Shop Page WP > All products. The product p
 
 == Changelog ==
 
+= 1.2.9 =
+
+* Widget bug fix.
+
+= 1.2.8 =
+
+* Fixed security issue and misc bug fixes.
+
 = 1.2.7 =
 
-* Link structure change. Added feature to replace javascript link with <a> tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
+* Link structure change. Added feature to replace javascript link with "a" tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
 
 = 1.2.6 =
 
@@ -190,9 +198,17 @@ Initial Release
 
 == Upgrade Notice ==
 
+= 1.2.9 =
+
+* Widget bug fix.
+
+= 1.2.8 =
+
+* Fixed security issue and misc bug fixes.
+
 = 1.2.7 =
 
-* Link structure change. Added feature to replace javascript link with <a> tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
+* Link structure change. Added feature to replace javascript link with "a" tag. If you encounter any issues after making this update go to settings and enable Legacy Link Format.
 
 = 1.2.6 =
 
